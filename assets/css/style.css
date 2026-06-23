@@ -1,0 +1,314 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+     font-family: "DM Sans", sans-serif;
+}
+.mainTitle {
+    text-align: center;
+    font-size: 42px;
+}
+.subTitle {
+     text-align: center;
+    font-size: 22px;
+    color: gray;
+}
+section {
+    margin: 100px 0;
+}
+
+
+/* header */
+.logo img {
+    width: 80px;
+}
+header {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    background-color: white;
+}
+
+/* hero */
+.swiperHero {
+  width: 100%;
+  height: 70vh;
+}
+#hero {
+    margin:0 0 100px 0 !important;
+}
+.swiperHero img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position:center;
+}
+.categories img{
+border-radius: 50%;
+max-width: 100%;
+object-fit: cover;
+object-position:center;
+}
+
+.categories a {
+    text-decoration: none;
+}
+.categories .col-2 {
+    margin: 40px 0  0 0;
+}
+.categories .data {
+    text-align: center;
+    color: black;
+    font-size: 42px;
+}
+
+.tddata {
+    position: relative;
+}
+.tddata .disc{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 16px;
+}
+.tddata img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.dataset {
+    text-align: right;
+}.dataset .data {
+    font-size: 20px;
+    color: black;
+}
+.dataset .dis{
+    font-size: 16px;
+    color: gray;
+    text-decoration: line-through;
+}
+.dataset .disprice {
+    font-size: 25px;
+    color: red;
+    padding-left: 10px;
+}
+.dataset .colr {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 3px;
+}
+.dataset .gold {
+    color: gold;
+}
+.dataset span {
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    border-radius: 50%;
+}
+.dataset  .bla {
+    background-color: black;
+}
+.dataset .colr .gr {
+    background-color: gray;
+}
+.dataset .colr .rd {
+    background-color: red;
+}
+
+.setmw {
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+
+.setmw2 {
+    width: 100%;
+    height: 100%;
+}
+.setmwText {
+    position: absolute;
+    color: white;
+    top: 50%;
+    text-align: center;
+    font-size: 40px;
+}
+
+.setmw img {
+    height: 100%;
+    width: 100%;
+}
+.setmw2 {
+    position: relative;
+ 
+}
+.setmw2 .setmwText {
+    position: absolute;
+    color: white;
+    top: 50%;
+    text-align: center;
+    font-size: 40px;
+    left: 50%;
+}
+.setmw2 img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+/* https://tfamerce.vercel.app/index.html */
+
+
+.row .g {
+    gap: 20px;
+}
+.dataset2{
+    text-align: left;
+}
+
+.swiperHerosec {
+  width: 100%;
+  height: 15vh;
+}
+
+.swiperHerosec img {
+    height: 50px;
+    width: 50px;
+    /* object-fit: cover;
+    object-position:center; */
+}
+
+
+#topTrending{
+    text-align: left;
+}
+.dataset2 {
+    text-align: left;
+}
+.dataset2 .data {
+    font-size: 20px;
+    color: black;
+}
+.dataset2 .dis{
+    font-size: 16px;
+    color: gray;
+    text-decoration: line-through;
+}
+.dataset2 .disprice {
+    font-size: 25px;
+    color: red;
+    padding-left: 10px;
+}
+.dataset2 .colr {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+.dataset2 .gold {
+    color: gold;
+}
+.dataset2 span {
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    border-radius: 50%;
+}
+.dataset2  .bla {
+    background-color: black;
+}
+.dataset2    .gr {
+    background-color: gray;
+        padding: 3px;
+
+}
+.dataset2 .colr .rd {
+    background-color: red;
+}
+
+
+
+/* Footer */
+
+.detail img {
+    width: 130px;
+}
+.detail h2 {
+    margin: 10px;
+}
+
+.detail a {
+    text-decoration: none;
+    display: inline-block;
+    color: black;
+    padding-right: 5px;
+    color:gray;
+}
+.company  a {
+    text-decoration: none;
+    display: block;
+    color: black;
+    color: gray;
+margin: 15px 0;}
+
+.company h2 {
+    margin-top: 25px;
+    text-transform: uppercase;
+    font-size: 25px;
+}
+
+.social a {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 5px 8px;
+    font-size: 25px;
+}
+
+.social a:hover {
+    background-color: red;
+    color: white;
+}
+.newsEmail {
+    border: 2px solid black;
+    border-radius: 20px;
+    margin: 15px 0;
+    overflow: hidden;
+    padding: 0 10px;
+
+}
+.newsEmail form {
+    display: flex;
+    justify-content: space-between;
+
+}
+.newsEmail input {
+    border: none;
+    outline: none;
+}
+
+.newsEmail button {
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+.newsEmail button:hover {
+    background-color: orange;
+    color: brown;
+    border: none;
+}
