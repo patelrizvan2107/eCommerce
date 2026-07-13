@@ -4,7 +4,7 @@ class Category {
     this.descriptionInput = document.getElementById("category-desc");
     this.imageInput = document.getElementById("category-image");
 
-    this.deleteData = this.handleDel.bind(null, 1)
+    this.deleteData = this.handleDel.bind(null, 1);
   }
 
   async handleSubmit() {
@@ -97,12 +97,12 @@ class Category {
     }
   }
 
-  handleDel= async (id) => {
+  handleDel = async (id) => {
     console.log(id);
     await fetch(`http://localhost:3000/category/${id}`, {
       method: "Delete",
     });
-  }
+  };
 
   async handleEdit(id) {
     let res = await fetch(`http://localhost:3000/category/${id}`);
@@ -124,23 +124,41 @@ class Category {
       console.log(v, i);
       console.log(i, v.name, v.des, v.image);
 
+      let tr2 = document.createElement("tr");
+      let tdid = document.createElement("td");
+      tdid.textContent = i + 1;
+      let tdname = document.createElement("td");
+      tdname.textContent = v.name;
+      let tddes = document.createElement("td");
+      tddes.textContent = v.des;
+      let tdimgdata = document.createElement("td");
+      let tdimg = document.createElement("img");
+      tdimg.setAttribute("src", `./images/category_img/${v.image}`)
       
+      tdimgdata.appendChild(tdimg)
+      tr2.appendChild(tdid)
+      tr2.appendChild(tdname)
+      tr2.appendChild(tddes)
+      tr2.appendChild(tdimgdata)
+      let maiTable = document.getElementById("tableContent");
+      maiTable.appendChild(tr2)
 
-//       print += `
-//         <tr>
-//         <td>${i + 1}</td>
-//         <td>${v.name}</td>
-//         <td>${v.des}</td>
-//         <td><img src = "./images/category_img/${v.image}" width = "80px" height = "80px"/></td>
-//         <td><button class="action-btn delete-btn" title="Delete" id="delBtn-${v.id}" ><i class="fa-solid fa-trash"></i></button>
-// <button class="action-btn edit-btn" title="Edit" onclick="handleEdit('${v.id}')"><i class="fa-solid fa-pen-to-square"></i></button></td>
-      
-//         </tr>
-    
-//       `;
-//       document.getElementById("tableContent").innerHTML = print;
+
+      //       print += `
+      //         <tr>
+      //         <td>${i + 1}</td>
+      //         <td>${v.name}</td>
+      //         <td>${v.des}</td>
+      //         <td><img src = "./images/category_img/${v.image}" width = "80px" height = "80px"/></td>
+      //         <td><button class="action-btn delete-btn"  ><i class="fa-solid fa-trash"></i></button>
+      // <button class="action-btn edit-btn" title="Edit" onclick="handleEdit('${v.id}')"><i class="fa-solid fa-pen-to-square"></i></button></td>
+
+      //         </tr>
+
+      //       `;
+      //       document.getElementById("tableContent").innerHTML = print;
     });
-  }
+  };
 }
 
 const c = new Category();
@@ -156,6 +174,6 @@ window.onload = function () {
 };
 
 const delBtn = document.getElementById("delBtn");
-delBtn.addEventListener("click", function() {
-  c.handleDel(1)
-})
+delBtn.addEventListener("click", function () {
+  c.handleDel(1);
+});
