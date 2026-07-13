@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Category</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="admin-container">
+
+        <aside class="sidebar">
+            <div class="logo-container">
+                <div class="logo-box"><img src="css/logo.png" alt="" style="width: 100%; height: 100%;"></div>
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="nav-item active">Category</a>
+                <a href="#" class="nav-item">Subcategory</a>
+                <a href="#" class="nav-item">Product</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <h1 class="page-title">Category</h1>
+
+            <section class="form-section">
+                <form class="category-form">
+                    <div class="form-group">
+                        <label for="category-name">Name</label>
+                        <input type="text" id="category-name" placeholder="Enter category name">
+
+                    </div>
+                    <span class="nameError"></span>
+                    <div class="form-group">
+                        <label for="category-desc">Description</label>
+                        <textarea id="category-desc" rows="3" placeholder="Enter description"></textarea>
+                    </div>
+                    <span class="descError"></span>
+
+                    <div class="form-group file-group">
+                        <label for="category-image">Upload</label>
+                        <input type="file" id="category-image">
+                        <img src="" alt="" id="etdimg">
+
+                    </div>
+                    <span class="imageError"></span>
+
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="table-section">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Des.</th>
+                            <th>Image</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableContent">
+
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+    </div>
+    <script src="js/categoryAdmin.js"></script>
+</body>
+
+</html>
