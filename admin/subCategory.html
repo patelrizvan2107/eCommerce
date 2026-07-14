@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Subcategory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="./css/style2.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">LOGO</div>
+
+            <ul>
+                <li>Category</li>
+                <li>Subcategory</li>
+                <li>Product</li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main">
+
+            <h2>Subcategory</h2>
+
+            <form class="form" id="subForm">
+
+                <label>Category</label>
+                <select id="subData">
+
+                </select>
+
+                <label>Subcategory Name</label>
+                <input type="text" placeholder="Enter Subcategory Name" id="category-name">
+                <span id="nameError"></span>
+
+                <label>Description</label>
+                <textarea placeholder="Enter Description" id="category-desc"></textarea>
+                <span id="descError"></span>
+
+                <label>Image</label>
+                <input type="file" id="category-image">
+                <span id="imageError"></span><br>
+                <button type="submit">Submit</button><br><br><br><br>
+                <img src="" alt="" id="updateImage" width="80px" height="80px" margin="0 100px">
+
+                <style>
+                    span {
+                        color: red;
+                        font-size: 16px;
+                    }
+                </style>
+
+            </form>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Subcategory</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="subDataDisp">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <script src="./js/subCategory.js"></script>
+
+</body>
+
+</html>

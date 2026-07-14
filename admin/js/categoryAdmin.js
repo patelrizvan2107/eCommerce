@@ -5,6 +5,8 @@ class Category {
     this.nameInput = document.getElementById("category-name");
     this.descriptionInput = document.getElementById("category-desc");
     this.imageInput = document.getElementById("category-image");
+
+    console.log("con");
   }
 
   handleSubmit = async () => {
@@ -28,8 +30,11 @@ class Category {
     }
 
     if (!this.imageInput.files[0]) {
-      document.querySelector(".imageError").innerHTML = "Please upload an image";
-      formErr = true;
+      if (update === null) {
+        document.querySelector(".imageError").innerHTML =
+          "Please upload an image";
+        formErr = true;
+      }
     } else {
       const imgtype = ["image/jpg", "image/png", "image/jpeg"];
       if (!imgtype.includes(this.imageInput.files[0].type)) {
@@ -48,16 +53,18 @@ class Category {
     if (!formErr) {
       let edtimg = document.getElementById("etdimg");
       let arr = edtimg.src.split("/");
-      console.log('arr', arr);
+      console.log("arr", arr);
 
       let catObj = {
         name: this.nameInput.value,
         des: this.descriptionInput.value,
-        image: this.imageInput ? this.imageInput.files[0]?.name : arr[arr.length - 1],
+        image: this.imageInput?.files[0]?.name
+          ? this.imageInput?.files[0]?.name
+          : arr[arr.length - 1],
       };
 
       console.log(catObj);
-      
+
       if (update !== null) {
         await fetch(`http://localhost:3000/category/${update}`, {
           method: "PUT",
@@ -72,10 +79,9 @@ class Category {
           body: JSON.stringify(catObj),
         });
       }
-
     }
+    this.handleImage();
   };
-
 
   handleDel = async (id) => {
     await fetch(`http://localhost:3000/category/${id}`, {
@@ -151,6 +157,12 @@ const c = new Category();
 const categoryForm = document.querySelector(".category-form");
 categoryForm.addEventListener("submit", function () {
   c.handleSubmit();
+  c.handleImage();
 });
 
 window.onload = () => c.disp();
+
+const himage = document.getElementById("category-image");
+himage.addEventListener("change", function () {
+  document.getElementById("etdimg").src = "./images/category_img/" + himage.files[0].name;
+});

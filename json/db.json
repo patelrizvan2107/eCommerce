@@ -1,58 +1,22 @@
 {
   "category": [
     {
-      "name": "dasjdcdcWDSASqweDAQ3R2WQAQWD",
-      "des": "dssdcdcWQD12eq1QSADA",
+      "name": "Electronics",
+      "des": "sxd",
       "image": "laptop.jpg",
-      "id": "ww2gS1wNKxw"
+      "id": "qrWJkCQo7IU"
     },
     {
-      "name": "undefinedscsdfserdf",
-      "des": "wefwef",
-      "image": "laptop.jpg",
-      "id": "u343aosVQZ8"
-    },
-    {
-      "name": "sDAS",
-      "des": "ASWFDAE",
+      "name": "Fashion",
+      "des": "mens",
       "image": "laptop_2.jpg",
-      "id": "I1CLYElHoeU"
+      "id": "b6GiUC4-uhs"
     },
     {
-      "name": "ascaasc",
-      "des": "asca",
-      "image": "laptop_2.jpg",
-      "id": "4tfjSibsOUA"
-    },
-    {
-      "name": "aadc",
-      "des": "dc",
-      "image": "laptop_2.jpg",
-      "id": "a61HzMzeXxc"
-    },
-    {
-      "name": "sca",
-      "des": "asc",
-      "image": "laptop_2.jpg",
-      "id": "Q2QcRubBilw"
-    },
-    {
-      "name": "asd",
-      "des": "as",
-      "image": "laptop_2.jpg",
-      "id": "lcwJbIFbODQ"
-    },
-    {
-      "name": "dsdfssdf",
-      "des": "edfswd",
-      "image": "laptop.jpg",
-      "id": "QAn1fQ0i_Do"
-    },
-    {
-      "name": "aswd",
-      "des": "asasd",
-      "image": "laptop.jpg",
-      "id": "VdqE1Eg7Xpg"
+      "name": "toys",
+      "des": "asda",
+      "image": "laptop_3.jpg",
+      "id": "kwbZctThFCA"
     }
   ],
   "product": [
@@ -71,6 +35,20 @@
     {
       "id": "4",
       "name": "Women's"
+    }
+  ],
+  "subCategory": [
+    {
+      "name": "asdasokkk",
+      "des": "asdasdasczapkkkk",
+      "image": "laptop_3.jpg",
+      "id": "hbMGp6FCr4U"
+    },
+    {
+      "name": "sdf",
+      "des": "sdfs",
+      "image": "laptop_2.jpg",
+      "id": "ELameNK57Qs"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
