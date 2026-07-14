@@ -1,46 +1,24 @@
+let update = null;
+
 class Category {
   constructor() {
     this.nameInput = document.getElementById("category-name");
     this.descriptionInput = document.getElementById("category-desc");
     this.imageInput = document.getElementById("category-image");
-
-    this.deleteData = this.handleDel.bind(null, 1);
   }
 
-  async handleSubmit() {
+  handleSubmit = async () => {
     event.preventDefault();
-
-    // const name = this.nameInput.value;
-    // const description = this.descriptionInput.value;
-    // const image = this.imageInput.files[0];
-
-    // if (name === "") {
-    //     document.querySelector('.nameError').innerHTML = "Please enter category name";
-    // } else {
-    //     document.querySelector('.nameError').innerHTML = "";
-    // }
-
-    // if (description === "") {
-    //     document.querySelector('.descError').innerHTML = "Please enter category description";
-    // } else {
-    //     document.querySelector('.descError').innerHTML = "";
-    // }
-
-    // if (!image) {
-    //     document.querySelector('.imageError').innerHTML = "Please upload a category image";
-    // } else {
-    //     document.querySelector('.imageError').innerHTML = "";
-    // }
     let formErr = false;
-    console.log(isNaN(this.nameInput.value));
 
-    if (this.nameInput.value === "" || isNaN(this.nameInput.value) === false) {
+    if (this.nameInput.value === "" || !isNaN(this.nameInput.value)) {
       document.querySelector(".nameError").innerHTML =
         "Please enter category name";
       formErr = true;
     } else {
       document.querySelector(".nameError").innerHTML = "";
     }
+
     if (this.descriptionInput.value === "") {
       document.querySelector(".descError").innerHTML =
         "Please enter category description";
@@ -48,115 +26,123 @@ class Category {
     } else {
       document.querySelector(".descError").innerHTML = "";
     }
-    console.log(this.imageInput.files[0]);
 
     if (!this.imageInput.files[0]) {
-      document.querySelector(".imageError").innerHTML = "Please upload a image";
+      document.querySelector(".imageError").innerHTML = "Please upload an image";
       formErr = true;
     } else {
       const imgtype = ["image/jpg", "image/png", "image/jpeg"];
-      console.log(this.imageInput.files[0]);
-
       if (!imgtype.includes(this.imageInput.files[0].type)) {
         document.querySelector(".imageError").innerHTML =
-          "Please upload  image 'Image/jpg','Image/png','Image/jpeg'";
+          "Allowed formats: jpg, png, jpeg";
+        formErr = true;
+      } else if (this.imageInput.files[0].size > 2 * 1024 * 1024) {
+        document.querySelector(".imageError").innerHTML =
+          "Image must be less than 2 MB";
         formErr = true;
       } else {
-        if (this.imageInput.files[0].size > 2 * 1024 * 1024) {
-          document.querySelector(".imageError").innerHTML =
-            "Please upload  image less than 2 mb";
-          formErr = true;
-        } else {
-          document.querySelector(".imageError").innerHTML = "";
-        }
+        document.querySelector(".imageError").innerHTML = "";
       }
     }
 
     if (!formErr) {
+      let edtimg = document.getElementById("etdimg");
+      let arr = edtimg.src.split("/");
+      console.log('arr', arr);
+
       let catObj = {
         name: this.nameInput.value,
         des: this.descriptionInput.value,
-        image: this.imageInput.files[0].name,
+        image: this.imageInput ? this.imageInput.files[0]?.name : arr[arr.length - 1],
       };
-      console.log(catObj);
 
-      try {
-        let response = await fetch("http://localhost:3000/category", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+      console.log(catObj);
+      
+      if (update !== null) {
+        await fetch(`http://localhost:3000/category/${update}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(catObj),
         });
-        let data2 = await response.json();
-
-        console.log(data2);
-      } catch (error) {
-        console.log(error);
+        update = null;
+      } else {
+        await fetch("http://localhost:3000/category", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(catObj),
+        });
       }
+
     }
-  }
+  };
+
 
   handleDel = async (id) => {
-    console.log(id);
     await fetch(`http://localhost:3000/category/${id}`, {
-      method: "Delete",
+      method: "DELETE",
     });
   };
 
-  async handleEdit(id) {
+  handleEdit = async (id) => {
     let res = await fetch(`http://localhost:3000/category/${id}`);
-    let data = res.json();
+    let data = await res.json();
 
     this.nameInput.value = data.name;
     this.descriptionInput.value = data.des;
     document.getElementById("etdimg").src =
-      "./images/category_img" + data.image;
-  }
-  disp = async () => {
-    console.log("huiuiui");
+      "./images/category_img/" + data.image;
 
+    update = id;
+  };
+
+  disp = async () => {
     const res = await fetch("http://localhost:3000/category");
     let data = await res.json();
-    console.log(data);
-    let print = ``;
-    data.map((v, i) => {
-      console.log(v, i);
-      console.log(i, v.name, v.des, v.image);
 
+    let maiTable = document.getElementById("tableContent");
+
+    data.map((v, i) => {
       let tr2 = document.createElement("tr");
+
       let tdid = document.createElement("td");
       tdid.textContent = i + 1;
+
       let tdname = document.createElement("td");
       tdname.textContent = v.name;
+
       let tddes = document.createElement("td");
       tddes.textContent = v.des;
+
       let tdimgdata = document.createElement("td");
       let tdimg = document.createElement("img");
-      tdimg.setAttribute("src", `./images/category_img/${v.image}`)
-      
-      tdimgdata.appendChild(tdimg)
-      tr2.appendChild(tdid)
-      tr2.appendChild(tdname)
-      tr2.appendChild(tddes)
-      tr2.appendChild(tdimgdata)
-      let maiTable = document.getElementById("tableContent");
-      maiTable.appendChild(tr2)
+      tdimg.setAttribute("src", `./images/category_img/${v.image}`);
+      tdimg.setAttribute("width", "80px");
+      tdimg.setAttribute("height", "80px");
+      tdimgdata.appendChild(tdimg);
 
+      let tdActions = document.createElement("td");
 
-      //       print += `
-      //         <tr>
-      //         <td>${i + 1}</td>
-      //         <td>${v.name}</td>
-      //         <td>${v.des}</td>
-      //         <td><img src = "./images/category_img/${v.image}" width = "80px" height = "80px"/></td>
-      //         <td><button class="action-btn delete-btn"  ><i class="fa-solid fa-trash"></i></button>
-      // <button class="action-btn edit-btn" title="Edit" onclick="handleEdit('${v.id}')"><i class="fa-solid fa-pen-to-square"></i></button></td>
+      let delBtn = document.createElement("button");
+      delBtn.setAttribute("class", "action-btn delete-btn");
+      delBtn.innerHTML = '<i class="fa-solid fa-trash"></i>';
+      delBtn.addEventListener("click", () => this.handleDel(v.id));
 
-      //         </tr>
+      let editBtn = document.createElement("button");
+      editBtn.setAttribute("class", "action-btn edit-btn");
+      editBtn.setAttribute("title", "Edit");
+      editBtn.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
+      editBtn.addEventListener("click", () => this.handleEdit(v.id));
 
-      //       `;
-      //       document.getElementById("tableContent").innerHTML = print;
+      tdActions.appendChild(delBtn);
+      tdActions.appendChild(editBtn);
+
+      tr2.appendChild(tdid);
+      tr2.appendChild(tdname);
+      tr2.appendChild(tddes);
+      tr2.appendChild(tdimgdata);
+      tr2.appendChild(tdActions);
+
+      maiTable.appendChild(tr2);
     });
   };
 }
@@ -165,15 +151,6 @@ const c = new Category();
 const categoryForm = document.querySelector(".category-form");
 categoryForm.addEventListener("submit", function () {
   c.handleSubmit();
-  c.handleDel();
-  c.handleEdit();
 });
 
-window.onload = function () {
-  c.disp();
-};
-
-const delBtn = document.getElementById("delBtn");
-delBtn.addEventListener("click", function () {
-  c.handleDel(1);
-});
+window.onload = () => c.disp();
