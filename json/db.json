@@ -2,21 +2,21 @@
   "category": [
     {
       "name": "Electronics",
-      "des": "sxd",
-      "image": "laptop.jpg",
-      "id": "qrWJkCQo7IU"
+      "des": "Electronics Products",
+      "image": "electronic.jpg",
+      "id": "ocSuj5uyPqU"
+    },
+    {
+      "name": "furniture",
+      "des": "furniture  Products",
+      "image": "furniture.jpg",
+      "id": "EYgxDu7_uEc"
     },
     {
       "name": "Fashion",
-      "des": "mens",
-      "image": "laptop_2.jpg",
-      "id": "b6GiUC4-uhs"
-    },
-    {
-      "name": "toys",
-      "des": "asda",
-      "image": "laptop_3.jpg",
-      "id": "kwbZctThFCA"
+      "des": "Fashion Products",
+      "image": "fashion.jpg",
+      "id": "jrEwzMMOlhg"
     }
   ],
   "product": [
@@ -39,16 +39,18 @@
   ],
   "subCategory": [
     {
-      "name": "asdasokkk",
-      "des": "asdasdasczapkkkk",
-      "image": "laptop_3.jpg",
-      "id": "hbMGp6FCr4U"
+      "CategoryId": "ocSuj5uyPqU",
+      "name": "Fan",
+      "des": "Premium Fan",
+      "image": "fan.jpg",
+      "id": "LibOmBespTM"
     },
     {
-      "name": "sdf",
-      "des": "sdfs",
-      "image": "laptop_2.jpg",
-      "id": "ELameNK57Qs"
+      "CategoryId": "jrEwzMMOlhg",
+      "name": "Men's Wear",
+      "des": "Top&Botoom",
+      "image": "m2.jpg",
+      "id": "ldklsFJHydc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

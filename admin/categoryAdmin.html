@@ -1,81 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - Category</title>
+    <title>Category | Admin Panel</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-    <div class="admin-container">
+<div class="admin-container">
 
-        <aside class="sidebar">
-            <div class="logo-container">
-                <div class="logo-box"><img src="css/logo.png" alt="" style="width: 100%; height: 100%;"></div>
-            </div>
-            <nav class="nav-links">
-                <a href="#" class="nav-item active">Category</a>
-                <a href="#" class="nav-item">Subcategory</a>
-                <a href="#" class="nav-item">Product</a>
-            </nav>
-        </aside>
+    <!-- Sidebar -->
+    <aside class="sidebar">
 
-        <main class="main-content">
-            <h1 class="page-title">Category</h1>
+        <div class="logo">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Admin Panel</span>
+        </div>
 
-            <section class="form-section">
-                <form class="category-form">
-                    <div class="form-group">
-                        <label for="category-name">Name</label>
-                        <input type="text" id="category-name" placeholder="Enter category name">
+        <ul class="menu">
+            <li class="active">
+                <a href="category.html">
+                    <i class="fa-solid fa-list"></i>
+                    Category
+                </a>
+            </li>
 
-                    </div>
-                    <span class="nameError"></span>
-                    <div class="form-group">
-                        <label for="category-desc">Description</label>
-                        <textarea id="category-desc" rows="3" placeholder="Enter description"></textarea>
-                    </div>
-                    <span class="descError"></span>
+            <li>
+                <a href="subCategory.html">
+                    <i class="fa-solid fa-table-list"></i>
+                    Subcategory
+                </a>
+            </li>
 
-                    <div class="form-group file-group">
-                        <label for="category-image">Upload</label>
-                        <input type="file" id="category-image">
+            <li>
+                <a href="./product.html">
+                    <i class="fa-solid fa-box"></i>
+                    Product
+                </a>
+            </li>
+        </ul>
 
-                    </div>
-                    <span class="imageError"></span>
+    </aside>
 
-                    <div class="form-actions">
-                        <button type="submit" class="submit-btn">Submit</button>
-                    </div>
-                        <img src="" alt="" id="etdimg" width="80px" height="80px">
+    <!-- Main -->
+    <main class="main-content">
 
-                </form>
-            </section>
+        <h1>Category Management</h1>
 
-            <section class="table-section">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Des.</th>
-                            <th>Image</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableContent">
+        <!-- Form Card -->
+        <div class="card">
 
-                    </tbody>
-                </table>
-            </section>
-        </main>
+            <form class="category-form">
 
-    </div>
-    <script src="js/categoryAdmin.js"></script>
+                <div class="form-group">
+                    <label>Name</label>
+
+                    <input
+                        type="text"
+                        id="category-name"
+                        placeholder="Enter Category Name">
+                </div>
+
+                <span class="nameError"></span>
+
+                <div class="form-group">
+                    <label>Description</label>
+
+                    <textarea
+                        id="category-desc"
+                        rows="4"
+                        placeholder="Enter Description"></textarea>
+                </div>
+
+                <span class="descError"></span>
+
+                <div class="form-group">
+                    <label>Upload Image</label>
+
+                    <input
+                        type="file"
+                        id="category-image">
+                </div>
+
+                <span class="imageError"></span>
+
+                <div class="form-group">
+                    <label>Preview</label>
+
+                    <img
+                        src=""
+                        id="etdimg"
+                        alt="Preview"
+                        class="preview-image">
+                </div>
+
+                <button class="btn" type="submit">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Submit
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- Table Card -->
+
+        <div class="card">
+
+            <h2>Category List</h2>
+
+            <table>
+
+                <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Action</th>
+                </tr>
+
+                </thead>
+
+                <tbody id="tableContent">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/categoryAdmin.js"></script>
+
 </body>
-
 </html>

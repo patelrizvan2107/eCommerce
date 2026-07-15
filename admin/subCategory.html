@@ -1,78 +1,177 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Subcategory</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subcategory | Admin Panel</title>
 
-    <link rel="stylesheet" href="./css/style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <div class="container">
+    <div class="admin-container">
 
         <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="logo">LOGO</div>
 
-            <ul>
-                <li>Category</li>
-                <li>Subcategory</li>
-                <li>Product</li>
+        <aside class="sidebar">
+
+            <div class="logo">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Admin Panel</span>
+            </div>
+
+            <ul class="menu">
+
+                <li>
+                    <a href="./categoryAdmin.html">
+                        <i class="fa-solid fa-list"></i>
+                        Category
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="subCategory.html">
+                        <i class="fa-solid fa-table-list"></i>
+                        Subcategory
+                    </a>
+                </li>
+
+                <li>
+                    <a href="product.html">
+                        <i class="fa-solid fa-box"></i>
+                        Product
+                    </a>
+                </li>
+
             </ul>
-        </div>
+
+        </aside>
 
         <!-- Main Content -->
-        <div class="main">
 
-            <h2>Subcategory</h2>
+        <main class="main-content">
 
-            <form class="form" id="subForm">
+            <h1>Subcategory Management</h1>
 
-                <label>Category</label>
-                <select id="subData">
+            <!-- Form Card -->
 
-                </select>
+            <div class="card">
 
-                <label>Subcategory Name</label>
-                <input type="text" placeholder="Enter Subcategory Name" id="category-name">
-                <span id="nameError"></span>
+                <form id="subForm" class="category-form">
 
-                <label>Description</label>
-                <textarea placeholder="Enter Description" id="category-desc"></textarea>
-                <span id="descError"></span>
+                    <div class="form-group">
 
-                <label>Image</label>
-                <input type="file" id="category-image">
-                <span id="imageError"></span><br>
-                <button type="submit">Submit</button><br><br><br><br>
-                <img src="" alt="" id="updateImage" width="80px" height="80px" margin="0 100px">
+                        <label>Category</label>
 
-                <style>
-                    span {
-                        color: red;
-                        font-size: 16px;
-                    }
-                </style>
+                        <select id="subData">
 
-            </form>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Subcategory</th>
-                        <th>Description</th>
-                        <th>Image</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="subDataDisp">
+                            <option value="nill">Select Category</option>
 
-                </tbody>
+                        </select>
+                        <span id="catError" class="catError"></span>
 
-            </table>
+                    </div>
 
-        </div>
+                    <div class="form-group">
+
+                        <label>Subcategory Name</label>
+
+                        <input
+                            type="text"
+                            id="category-name"
+                            placeholder="Enter Subcategory Name">
+
+                    </div>
+
+                    <span id="nameError"></span>
+
+                    <div class="form-group">
+
+                        <label>Description</label>
+
+                        <textarea
+                            id="category-desc"
+                            rows="4"
+                            placeholder="Enter Description"></textarea>
+
+                    </div>
+
+                    <span id="descError"></span>
+
+                    <div class="form-group">
+
+                        <label>Upload Image</label>
+
+                        <input
+                            type="file"
+                            id="category-image">
+
+                    </div>
+
+                    <span id="imageError"></span>
+                    <span id="catError" class="catError"></span>
+                    <div class="form-group">
+
+                        <label>Preview</label>
+
+                        <img
+                            src=""
+                            id="updateImage"
+                            alt="Preview"
+                            class="preview-image">
+
+                    </div>
+
+                    <button type="submit" class="btn">
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                        Submit
+
+                    </button>
+
+                </form>
+
+            </div>
+
+            <!-- Table Card -->
+
+            <div class="card">
+
+                <h2>Subcategory List</h2>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Category</th>
+
+                            <th>Subcategory</th>
+
+                            <th>Description</th>
+
+                            <th>Image</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="subDataDisp">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </main>
 
     </div>
 

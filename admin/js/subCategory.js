@@ -16,12 +16,22 @@ const handleCatDropdown = async () => {
   document.getElementById("subData").innerHTML = print;
 };
 
-const handleSubmit = async () => {
+const handleSubmit = async (id) => {
   event.preventDefault();
+  let catId = document.getElementById("subData").value;
   let name = document.getElementById("category-name").value;
   let des = document.getElementById("category-desc").value;
   let image = document.getElementById("category-image");
+  console.log('this cat id:',catId);
+  
   let formErr = false;
+  if (catId === "nill") {
+    document.getElementById("catError").innerHTML =
+      "Please select a category";
+    formErr = true;
+  } else {
+    document.getElementById("catError").innerHTML = "";
+  }
   if (name === "" || !isNaN(name)) {
     document.getElementById("nameError").innerHTML =
       "Please enter category name";
@@ -63,6 +73,7 @@ const handleSubmit = async () => {
     let edtimg = document.getElementById("updateImage");
       let arr = edtimg.src.split("/");
     let subObj = {
+      CategoryId: catId,
       name,
       des,
       image: image?.files[0]?.name ? image?.files[0]?.name : arr[arr.length - 1]
@@ -94,10 +105,11 @@ const handleSubCatDisplay = async () => {
 
     print += `
         <tr>
+        <td>${v.CategoryId}</td>
         <td>${v.name}</td>
         <td>${v.des}</td>
         <td><img src="./images/category_img/${v.image}" width="80px" height="80px"</td>
-        <td><button onClick= "del('${v.id}')"><i class="fa-solid fa-trash"></i></button><button onClick= "edit('${v.id}')"><i class="fa-solid fa-pen-to-square"><i></button></td>
+        <td><button onClick= "del('${v.id}')" class="delete-btn"><i class="fa-solid fa-trash"></i></button><button class="edit-btn"onClick= "edit('${v.id}')"><i class="fa-solid fa-pen-to-square"><i></button></td>
         </tr>
         `;
   });
