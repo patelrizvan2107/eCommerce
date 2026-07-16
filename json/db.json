@@ -1,72 +1,108 @@
 {
   "category": [
     {
-      "name": "Electronics",
-      "des": "Electronics Products",
-      "image": "electronic.jpg",
-      "id": "ocSuj5uyPqU"
+      "name": "Outwear",
+      "des": "Outwear for men Women",
+      "image": "cate-1.jpg",
+      "tags": [],
+      "id": "1HPKo4tjNcM"
     },
     {
-      "name": "furniture",
-      "des": "furniture  Products",
-      "image": "furniture.jpg",
-      "id": "EYgxDu7_uEc"
+      "name": "Top and Shirt",
+      "des": "Top and Shirt",
+      "image": "cate-2.jpg",
+      "tags": [
+        "new"
+      ],
+      "id": "BMJktuXLJJI"
     },
     {
-      "name": "Fashion",
-      "des": "Fashion Products",
-      "image": "fashion.jpg",
-      "id": "jrEwzMMOlhg"
+      "name": "Bottoms",
+      "des": "Bottoms",
+      "image": "cat5.jpg",
+      "tags": [],
+      "id": "3L_B96jx87k"
+    },
+    {
+      "name": "Dresses",
+      "des": "Dresses",
+      "image": "cate-4.jpg",
+      "tags": [],
+      "id": "8Ct9taC9-wE"
+    },
+    {
+      "name": "FootWear",
+      "des": "FootWear",
+      "image": "cate-5.jpg",
+      "tags": [
+        "new"
+      ],
+      "id": "HDFuIQa55jI"
+    },
+    {
+      "name": "Accessories",
+      "des": "Accessories",
+      "image": "cate-6.jpg",
+      "tags": [
+        "bestseller",
+        "summer"
+      ],
+      "id": "omr2mH2PWrQ"
     }
   ],
   "product": [
     {
-      "category": "ocSuj5uyPqU",
-      "subCategory": "LibOmBespTM",
-      "name": "Fan",
-      "desc": "Preimium Fan",
-      "image": "fan.jpg",
-      "id": "3GLvniy8T-4"
+      "category": "1HPKo4tjNcM",
+      "subCategory": "668xGU7R-po",
+      "name": "esdwf",
+      "desc": "5dfg",
+      "image": "sofa.jpg",
+      "tags": [
+        "on",
+        "on"
+      ],
+      "id": "YST3NP-fNLc"
     },
     {
-      "category": "ocSuj5uyPqU",
-      "subCategory": "LibOmBespTM",
-      "name": "AC",
-      "desc": "premium AC",
-      "image": "ac.jpg",
-      "id": "8_QFeqM58bs"
-    },
-    {
-      "category": "jrEwzMMOlhg",
-      "subCategory": "ldklsFJHydc",
-      "name": "Kurta",
-      "desc": "Premium Kurta",
-      "image": "m2.jpg",
-      "id": "2SV322kwP3k"
-    },
-    {
-      "category": "jrEwzMMOlhg",
-      "subCategory": "ldklsFJHydc",
-      "name": "Top&Bottom",
-      "desc": "premium Men's Wear",
-      "image": "m1.jpg",
-      "id": "Mj54eWd7hd0"
+      "category": "3L_B96jx87k",
+      "subCategory": "Nzl7wGHjdk8",
+      "name": "ax",
+      "desc": "adsc",
+      "image": "fashion.jpg",
+      "tags": [
+        "on"
+      ],
+      "id": "JWwKwuVi-7c"
     }
   ],
   "subCategory": [
     {
-      "CategoryId": "ocSuj5uyPqU",
-      "name": "Cooling Systems",
-      "des": "Premium Ac, fans etc.",
-      "image": "fan.jpg",
-      "id": "LibOmBespTM"
+      "CategoryId": "1HPKo4tjNcM",
+      "name": "aadcdascokkkcccccccc",
+      "des": "rgerge",
+      "image": "cat1.jpg",
+      "id": "668xGU7R-po"
     },
     {
-      "CategoryId": "jrEwzMMOlhg",
-      "name": "Men's Wear",
-      "des": "Top&Botoom",
-      "image": "m2.jpg",
-      "id": "ldklsFJHydc"
+      "CategoryId": "BMJktuXLJJI",
+      "name": "ered",
+      "des": "erdertg",
+      "image": "fan.jpg",
+      "id": "DwhVqDMVQ7U"
+    },
+    {
+      "CategoryId": "8Ct9taC9-wE",
+      "name": "erte",
+      "des": "ere",
+      "image": "laptop_3.jpg",
+      "id": "Nzl7wGHjdk8"
+    },
+    {
+      "CategoryId": "omr2mH2PWrQ",
+      "name": "ertged",
+      "des": "ertert",
+      "image": "cate-5.jpg",
+      "id": "BazSM40yc5k"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

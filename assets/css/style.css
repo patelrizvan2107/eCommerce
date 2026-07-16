@@ -51,6 +51,8 @@ border-radius: 50%;
 max-width: 100%;
 object-fit: cover;
 object-position:center;
+width: 200px;
+height: 100px;
 }
 
 .categories a {
@@ -62,7 +64,7 @@ object-position:center;
 .categories .data {
     text-align: center;
     color: black;
-    font-size: 42px;
+    font-size: 22px;
 }
 
 .tddata {

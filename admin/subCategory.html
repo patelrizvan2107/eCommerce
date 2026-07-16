@@ -62,79 +62,64 @@
 
                 <form id="subForm" class="category-form">
 
-                    <div class="form-group">
+    <div class="form-row">
 
-                        <label>Category</label>
+        <div class="form-group">
+            <label>Category</label>
 
-                        <select id="subData">
+            <select id="subData">
+                <option value="">Select Category</option>
+            </select>
+        </div>
 
-                            <option value="nill">Select Category</option>
+        <div class="form-group">
+            <label>Subcategory Name</label>
+            <input type="text" id="category-name">
+            <span id = "nameError"></span>
 
-                        </select>
-                        <span id="catError" class="catError"></span>
+        </div>
 
-                    </div>
+    </div>
 
-                    <div class="form-group">
+    <div class="form-row">
 
-                        <label>Subcategory Name</label>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea id="category-desc" rows="4"></textarea>
+            <span id = "descError"></span>
 
-                        <input
-                            type="text"
-                            id="category-name"
-                            placeholder="Enter Subcategory Name">
+        </div>
 
-                    </div>
+        <div class="form-group">
 
-                    <span id="nameError"></span>
+            
 
-                    <div class="form-group">
+            
+        </div>
 
-                        <label>Description</label>
+    </div>
 
-                        <textarea
-                            id="category-desc"
-                            rows="4"
-                            placeholder="Enter Description"></textarea>
+    <div class="image-row">
 
-                    </div>
+        <div class="form-group image-upload">
+            <label>Upload Image</label>
+            <input type="file" id="category-image">
+            <span id = "imageError"></span>
 
-                    <span id="descError"></span>
+        </div>
 
-                    <div class="form-group">
+        <div class="form-group image-preview">
+            <label>Preview</label>
+            <img src="" id="updateImage" class="preview-image">
+        </div>
 
-                        <label>Upload Image</label>
+    </div>
 
-                        <input
-                            type="file"
-                            id="category-image">
+    <button type="submit" class="btn">
+        Submit
+    </button>
 
-                    </div>
-
-                    <span id="imageError"></span>
-                    <span id="catError" class="catError"></span>
-                    <div class="form-group">
-
-                        <label>Preview</label>
-
-                        <img
-                            src=""
-                            id="updateImage"
-                            alt="Preview"
-                            class="preview-image">
-
-                    </div>
-
-                    <button type="submit" class="btn">
-
-                        <i class="fa-solid fa-paper-plane"></i>
-
-                        Submit
-
-                    </button>
-
-                </form>
-
+</form>
             </div>
 
             <!-- Table Card -->

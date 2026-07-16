@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,137 +9,130 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<div class="admin-container">
+    <div class="admin-container">
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
+        <!-- Sidebar -->
+        <aside class="sidebar">
 
-        <div class="logo">
-            <i class="fa-solid fa-layer-group"></i>
-            <span>Admin Panel</span>
-        </div>
+            <div class="logo">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Admin Panel</span>
+            </div>
 
-        <ul class="menu">
-            <li class="active">
-                <a href="category.html">
-                    <i class="fa-solid fa-list"></i>
-                    Category
-                </a>
-            </li>
+            <ul class="menu">
+                <li class="active">
+                    <a href="category.html">
+                        <i class="fa-solid fa-list"></i>
+                        Category
+                    </a>
+                </li>
 
-            <li>
-                <a href="subCategory.html">
-                    <i class="fa-solid fa-table-list"></i>
-                    Subcategory
-                </a>
-            </li>
+                <li>
+                    <a href="subCategory.html">
+                        <i class="fa-solid fa-table-list"></i>
+                        Subcategory
+                    </a>
+                </li>
 
-            <li>
-                <a href="./product.html">
-                    <i class="fa-solid fa-box"></i>
-                    Product
-                </a>
-            </li>
-        </ul>
+                <li>
+                    <a href="./product.html">
+                        <i class="fa-solid fa-box"></i>
+                        Product
+                    </a>
+                </li>
+            </ul>
 
-    </aside>
+        </aside>
 
-    <!-- Main -->
-    <main class="main-content">
+        <!-- Main -->
+        <main class="main-content">
 
-        <h1>Category Management</h1>
+            <h1>Category Management</h1>
 
-        <!-- Form Card -->
-        <div class="card">
+            <!-- Form Card -->
+            <div class="card">
 
-            <form class="category-form">
+                <form class="category-form">
 
-                <div class="form-group">
-                    <label>Name</label>
+                    <div class="form-row">
 
-                    <input
-                        type="text"
-                        id="category-name"
-                        placeholder="Enter Category Name">
-                </div>
+                        <div class="form-group">
+                            <label>Category Name</label>
+                            <input type="text" id="category-name">
+                            <span class="nameError"></span>
 
-                <span class="nameError"></span>
+                        </div>
 
-                <div class="form-group">
-                    <label>Description</label>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="category-desc" rows="4"></textarea>
+                            <span class="descError"></span>
 
-                    <textarea
-                        id="category-desc"
-                        rows="4"
-                        placeholder="Enter Description"></textarea>
-                </div>
+                        </div>
 
-                <span class="descError"></span>
+                    </div>
 
-                <div class="form-group">
-                    <label>Upload Image</label>
 
-                    <input
-                        type="file"
-                        id="category-image">
-                </div>
+                    <div class="image-row">
 
-                <span class="imageError"></span>
+                        <div class="form-group image-upload">
+                            <label>Upload Image</label>
+                            <input type="file" id="category-image">
+                            <span id="imageError"></span>
+                        </div>
 
-                <div class="form-group">
-                    <label>Preview</label>
+                        <div class="form-group image-preview">
+                            <label>Preview</label>
+                            <img src="" id="etdimg" class="preview-image">
+                        </div>
 
-                    <img
-                        src=""
-                        id="etdimg"
-                        alt="Preview"
-                        class="preview-image">
-                </div>
+                    </div>
 
-                <button class="btn" type="submit">
-                    <i class="fa-solid fa-paper-plane"></i>
-                    Submit
-                </button>
+                    <button class="btn" type="submit">
+                        Submit
+                    </button>
 
-            </form>
+                </form>
 
-        </div>
+            </div>
 
-        <!-- Table Card -->
+            <!-- Table Card -->
 
-        <div class="card">
+            <div class="card">
 
-            <h2>Category List</h2>
+                <h2>Category List</h2>
 
-            <table>
+                <table>
 
-                <thead>
+                    <thead>
 
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Image</th>
-                    <th>Action</th>
-                </tr>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                            <th>Action</th>
+                        </tr>
 
-                </thead>
+                    </thead>
 
-                <tbody id="tableContent">
+                    <tbody id="tableContent">
 
-                </tbody>
+                    </tbody>
 
-            </table>
+                </table>
 
-        </div>
+            </div>
 
-    </main>
+        </main>
 
-</div>
+    </div>
 
-<script src="js/categoryAdmin.js"></script>
+    <script src="js/categoryAdmin.js"></script>
 
 </body>
+
 </html>

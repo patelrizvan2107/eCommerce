@@ -6,7 +6,7 @@ const handleCatDropdown = async () => {
   console.log(data);
 
   let print = `
-  <option value="nill">Select Category</option>`;
+  <option value="null">Select Category</option>`;
 
   data.map((v, i) => {
     print += `
@@ -25,12 +25,12 @@ const handleSubmit = async (id) => {
   console.log('this cat id:',catId);
   
   let formErr = false;
-  if (catId === "nill") {
+  if (catId === "null") {
     document.getElementById("catError").innerHTML =
-      "Please select a category";
+      "Please select a Category";
     formErr = true;
   } else {
-    document.getElementById("catError").innerHTML = "";
+    // document.getElementById("catError").innerHTML = "";
   }
   if (name === "" || !isNaN(name)) {
     document.getElementById("nameError").innerHTML =
@@ -100,15 +100,23 @@ const handleSubmit = async (id) => {
 const handleSubCatDisplay = async () => {
   let res = await fetch("http://localhost:3000/subCategory");
   let data = await res.json();
+
   console.log(data);
-  print = ``;
+
+  //get all category cdata
+  const res2 = await fetch("http://localhost:3000/category");
+  const cdata = await res2.json();
+  //cdata   find  v.id  === v.CategoryId    .name
+  let print = ``;
+
   data.map((v, i) => {
-    console.log(v.image);
+    let catName = cdata.find((v2) => String(v2.id) === String(v.CategoryId));
+    console.log(catName);
 
     print += `
         <tr>
         <td>${i + 1}</td>
-        <td>${v.CategoryId}</td>
+        <td>${catName.name}</td>
         <td>${v.name}</td>
         <td>${v.des}</td>
         <td><img src="./images/category_img/${v.image}" width="80px" height="80px"</td>
@@ -116,9 +124,12 @@ const handleSubCatDisplay = async () => {
         </tr>
         `;
   });
+
   print += ``;
+
   document.getElementById("subDataDisp").innerHTML = print;
 };
+
 const del = async (id) => {
   await fetch(`http://localhost:3000/subCategory/${id}`, {
     method: "Delete",
@@ -128,6 +139,7 @@ const edit = async (id) => {
   let res = await fetch(`http://localhost:3000/subCategory/${id}`);
   let data = await res.json();
 
+  document.getElementById("subData").value = data.CategoryId;
   document.getElementById("category-name").value = data.name;
   document.getElementById("category-desc").value = data.des;
   document.getElementById("updateImage").src =

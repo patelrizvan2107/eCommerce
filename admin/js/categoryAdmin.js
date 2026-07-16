@@ -1,17 +1,26 @@
 let update = null;
-
+let tagArr = [];
 class Category {
   constructor() {
     this.nameInput = document.getElementById("category-name");
     this.descriptionInput = document.getElementById("category-desc");
     this.imageInput = document.getElementById("category-image");
-
-    console.log("con");
+    
   }
 
   handleSubmit = async () => {
-    event.preventDefault();
+    event.preventDefault(); 
+    console.log(document.querySelectorAll("input[name='tags']:checked"));
+    
+    
     let formErr = false;
+    // console.log(this.tags.values());
+    
+    // console.log(this.tags[0].checked);
+    // console.log(this.tags?.value);
+    
+
+  
 
     if (this.nameInput.value === "" || !isNaN(this.nameInput.value)) {
       document.querySelector(".nameError").innerHTML =
@@ -31,22 +40,22 @@ class Category {
 
     if (!this.imageInput.files[0]) {
       if (update === null) {
-        document.querySelector(".imageError").innerHTML =
+        document.getElementById("imageError").innerHTML =
           "Please upload an image";
         formErr = true;
       }
     } else {
       const imgtype = ["image/jpg", "image/png", "image/jpeg"];
       if (!imgtype.includes(this.imageInput.files[0].type)) {
-        document.querySelector(".imageError").innerHTML =
+        document.getElementById(".imageError").innerHTML =
           "Allowed formats: jpg, png, jpeg";
         formErr = true;
       } else if (this.imageInput.files[0].size > 2 * 1024 * 1024) {
-        document.querySelector(".imageError").innerHTML =
+        document.getElementById(".imageError").innerHTML =
           "Image must be less than 2 MB";
         formErr = true;
       } else {
-        document.querySelector(".imageError").innerHTML = "";
+        document.getElementById("imageError").innerHTML = "";
       }
     }
 
@@ -61,6 +70,7 @@ class Category {
         image: this.imageInput?.files[0]?.name
           ? this.imageInput?.files[0]?.name
           : arr[arr.length - 1],
+        tags: tagArr,
       };
 
       console.log(catObj);
@@ -79,8 +89,11 @@ class Category {
           body: JSON.stringify(catObj),
         });
       }
+    console.log(catObj);
+
     }
-    this.handleImage();
+    // this.handleImage();
+    
   };
 
   handleDel = async (id) => {
@@ -157,12 +170,15 @@ const c = new Category();
 const categoryForm = document.querySelector(".category-form");
 categoryForm.addEventListener("submit", function () {
   c.handleSubmit();
-  c.handleImage();
+  // c.handleImage();
 });
 
-window.onload = () => c.disp();
+window.onload = () =>{
+   c.disp()
+};
 
 const himage = document.getElementById("category-image");
 himage.addEventListener("change", function () {
-  document.getElementById("etdimg").src = "./images/category_img/" + himage.files[0].name;
+  document.getElementById("etdimg").src =
+    "./images/category_img/" + himage?.files[0]?.name;
 });
