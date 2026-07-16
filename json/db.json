@@ -21,27 +21,43 @@
   ],
   "product": [
     {
-      "id": "1",
-      "name": "Ac"
+      "category": "ocSuj5uyPqU",
+      "subCategory": "LibOmBespTM",
+      "name": "Fan",
+      "desc": "Preimium Fan",
+      "image": "fan.jpg",
+      "id": "3GLvniy8T-4"
     },
     {
-      "id": "2",
-      "name": "Fan"
+      "category": "ocSuj5uyPqU",
+      "subCategory": "LibOmBespTM",
+      "name": "AC",
+      "desc": "premium AC",
+      "image": "ac.jpg",
+      "id": "8_QFeqM58bs"
     },
     {
-      "id": "3",
-      "name": "Man's"
+      "category": "jrEwzMMOlhg",
+      "subCategory": "ldklsFJHydc",
+      "name": "Kurta",
+      "desc": "Premium Kurta",
+      "image": "m2.jpg",
+      "id": "2SV322kwP3k"
     },
     {
-      "id": "4",
-      "name": "Women's"
+      "category": "jrEwzMMOlhg",
+      "subCategory": "ldklsFJHydc",
+      "name": "Top&Bottom",
+      "desc": "premium Men's Wear",
+      "image": "m1.jpg",
+      "id": "Mj54eWd7hd0"
     }
   ],
   "subCategory": [
     {
       "CategoryId": "ocSuj5uyPqU",
-      "name": "Fan",
-      "des": "Premium Fan",
+      "name": "Cooling Systems",
+      "des": "Premium Ac, fans etc.",
       "image": "fan.jpg",
       "id": "LibOmBespTM"
     },

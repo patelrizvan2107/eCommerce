@@ -95,6 +95,8 @@ const handleSubmit = async (id) => {
   }
 };
 
+
+
 const handleSubCatDisplay = async () => {
   let res = await fetch("http://localhost:3000/subCategory");
   let data = await res.json();
@@ -105,6 +107,7 @@ const handleSubCatDisplay = async () => {
 
     print += `
         <tr>
+        <td>${i + 1}</td>
         <td>${v.CategoryId}</td>
         <td>${v.name}</td>
         <td>${v.des}</td>
