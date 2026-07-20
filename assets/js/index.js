@@ -20,15 +20,12 @@ const catData = async () => {
 
     data.map((v) => {
         print += ` 
-        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                            <div class="data">
-                                <a href>
-                                    <img src="./admin/images/category_img/${v.image}" alt>
-                                    <h2 class="data">${v.name}</h2>
-                                </a>
-                            </div>
-
-                        </div> 
+        <div class="col-6 col-md-4 col-lg-2">
+                    <div class="category-card">
+                        <img src="./admin/images/category_img/${v.image}" alt="">
+                        <h5>${v.name}</h5>
+                    </div>
+                </div>
         `
     });
     document.getElementById("catData").innerHTML = print;
@@ -41,24 +38,36 @@ const productData = async () => {
 
     data.map((v) => {
         print += `
-            <div class="col-12 col-sm-6 col-lg-3">
-                            <div class="tddata">
-                                <div class="disc">
-                                    25%-
-                                </div>
-                                <img src="./admin/images/category_img/${v.image}" alt>
-                            </div>
-                            <div class="dataset">
-                                <h2 class="data">${v.name}</h2>
-                                <span class="dis">$99.99</span><span class="disprice">$69.99</span><br>
-                                <a href class="colr"><span class="bla"></span></a>
-                                <a href class="colr"><span class="gr"></span></a>
-                                <a href class="colr"><span class="rd"></span></a>
-                            </div>
+           <div class="col-sm-6 col-lg-3">
+
+                    <div class="product-card">
+
+                        <div class="product-image">
+                            <span class="discount">-25%</span>
+                            <img src="./admin/images/category_img/${v.image}" alt="">
                         </div>
+
+                        <div class="product-info">
+
+                            <h5>${v.name}</h5>
+
+                            <div class="rating">
+                                ★★★★★
+                            </div>
+
+                            <div class="price">
+                                <span class="old-price">$99</span>
+                                <span class="new-price">$69</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
         `
     })
-    document.getElementById("todatTop").innerHTML = print
+    document.getElementById("todatTop").innerHTML = print;
 }
 
 window.onload = () => {

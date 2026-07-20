@@ -1,13 +1,6 @@
 {
   "category": [
     {
-      "name": "Outwear",
-      "des": "Outwear for men Women",
-      "image": "cate-1.jpg",
-      "tags": [],
-      "id": "1HPKo4tjNcM"
-    },
-    {
       "name": "Top and Shirt",
       "des": "Top and Shirt",
       "image": "cate-2.jpg",
@@ -48,61 +41,57 @@
         "summer"
       ],
       "id": "omr2mH2PWrQ"
+    },
+    {
+      "name": "Outwear",
+      "des": "Outwear",
+      "image": "cate-1.jpg",
+      "tags": [],
+      "id": "uLhKYmI-BkQ"
     }
   ],
   "product": [
     {
-      "category": "1HPKo4tjNcM",
-      "subCategory": "668xGU7R-po",
-      "name": "esdwf",
-      "desc": "5dfg",
-      "image": "sofa.jpg",
+      "category": "BMJktuXLJJI",
+      "subCategory": "",
+      "name": "mens",
+      "desc": "QAD",
+      "image": "product-3_2.jpg",
       "tags": [
         "on",
         "on"
       ],
-      "id": "YST3NP-fNLc"
-    },
-    {
-      "category": "3L_B96jx87k",
-      "subCategory": "Nzl7wGHjdk8",
-      "name": "ax",
-      "desc": "adsc",
-      "image": "fashion.jpg",
-      "tags": [
-        "on"
-      ],
-      "id": "JWwKwuVi-7c"
+      "id": "q6NpxQa3c1s"
     }
   ],
   "subCategory": [
     {
-      "CategoryId": "1HPKo4tjNcM",
-      "name": "aadcdascokkkcccccccc",
-      "des": "rgerge",
-      "image": "cat1.jpg",
-      "id": "668xGU7R-po"
+      "CategoryId": "BMJktuXLJJI",
+      "name": "shirt",
+      "des": "shirt",
+      "image": "cls-7.jpg",
+      "id": "ikiqmVB-xsM"
     },
     {
       "CategoryId": "BMJktuXLJJI",
-      "name": "ered",
-      "des": "erdertg",
-      "image": "fan.jpg",
-      "id": "DwhVqDMVQ7U"
+      "name": "men shirts",
+      "des": "WSDWS",
+      "image": "cat1.jpg",
+      "id": "lRzEi96QXd4"
     },
     {
-      "CategoryId": "8Ct9taC9-wE",
-      "name": "erte",
-      "des": "ere",
-      "image": "laptop_3.jpg",
-      "id": "Nzl7wGHjdk8"
+      "CategoryId": "3L_B96jx87k",
+      "name": "Girls",
+      "des": "girls bottom",
+      "image": "cat5.jpg",
+      "id": "2B1s2jAQvEY"
     },
     {
-      "CategoryId": "omr2mH2PWrQ",
-      "name": "ertged",
-      "des": "ertert",
-      "image": "cate-5.jpg",
-      "id": "BazSM40yc5k"
+      "CategoryId": "3L_B96jx87k",
+      "name": "Men's",
+      "des": "men's pents",
+      "image": "cat5.jpg",
+      "id": "51Ar7-80ktg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

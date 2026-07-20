@@ -199,3 +199,20 @@ image.addEventListener("change", function () {
   document.getElementById("updateImage").src =
     "./images/category_img/" + image?.files[0]?.name;
 });
+
+let category = document.getElementById("categorySelect");
+category.addEventListener ('change', onChangeData = async () => {
+  let res  = await fetch(`http://localhost:3000/category/`)
+  let data = await res.json();
+  console.log(data);
+  let res2 = await fetch("http://localhost:3000/subCategory")
+    let data2  = await res2.json();
+  
+  data.map((v) => {
+    v.id === v.category;
+
+    console.log(v.id, v.category);
+    
+    document.getElementById("subcategorySelect").innerHTML = v.name
+  } )
+})

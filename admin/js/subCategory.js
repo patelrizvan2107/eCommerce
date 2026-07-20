@@ -22,8 +22,8 @@ const handleSubmit = async (id) => {
   let name = document.getElementById("category-name").value;
   let des = document.getElementById("category-desc").value;
   let image = document.getElementById("category-image");
-  console.log('this cat id:',catId);
-  
+  console.log('this cat id:', catId);
+
   let formErr = false;
   if (catId === "null") {
     document.getElementById("catError").innerHTML =
@@ -71,7 +71,7 @@ const handleSubmit = async (id) => {
 
   if (formErr === false) {
     let edtimg = document.getElementById("updateImage");
-      let arr = edtimg.src.split("/");
+    let arr = edtimg.src.split("/");
     let subObj = {
       CategoryId: catId,
       name,
@@ -107,10 +107,11 @@ const handleSubCatDisplay = async () => {
   const res2 = await fetch("http://localhost:3000/category");
   const cdata = await res2.json();
   //cdata   find  v.id  === v.CategoryId    .name
-  let print = ``;
+  let print = `
+  `;
 
   data.map((v, i) => {
-    let catName = cdata.find((v2) => String(v2.id) === String(v.CategoryId));
+    let catName = cdata.find((v2) => v2.id === v.CategoryId);
     console.log(catName);
 
     print += `
