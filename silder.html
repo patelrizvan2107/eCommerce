@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+</head>
+
+<body>
+<!-- Slider main container -->
+<div class="swiper hero">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div class="swiper-slide"><img src="./assets/image/slider-1.jpg" alt=""></div>
+    <div class="swiper-slide"><img src="./assets/image/slider-1.jpg" alt=""></div>
+    <div class="swiper-slide"><img src="./assets/image/slider-1.jpg" alt=""></div>
+    
+  </div>
+ 
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev clr"></div>
+  <div class="swiper-button-next clr"></div>
+
+  
+</div>
+
+<style>
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper {
+  width: 100%;
+  height: 100vh;
+}
+.hero img {
+    width: 100%;
+    height: 100%;
+}
+.clr {
+    color: black;
+    
+}
+.dot{
+    background-color: white;
+}
+</style>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  
+});
+    </script>
+
+</body>
+
+</html>

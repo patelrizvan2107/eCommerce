@@ -207,6 +207,7 @@ input[type="file"]{
 table{
     width:100%;
     border-collapse:collapse;
+    /*  */
 }
 
 thead{
@@ -231,8 +232,10 @@ tbody tr:hover{
 tbody img{
     width:70px;
     height:70px;
-    object-fit:cover;
+    /* object-fit:cover; */
     border-radius:8px;
+    /* display: flex;
+    flex-wrap: nowrap; */
 }
 
 /* Buttons */
@@ -328,14 +331,16 @@ tbody img{
     display:flex;
     align-items:center;
     gap:20px;
+    flex-wrap: wrap;
 }
 
 .image-upload{
-    width:60%;
+    width:50%;
 }
 
 .image-upload input{
     width:100%;
+    flex-wrap: wrap;
 }
 
 .image-preview{
@@ -349,6 +354,21 @@ tbody img{
     border-radius:12px;
     border:2px dashed #cbd5e1;
     background:#f8fafc;
+    flex-wrap: wrap;
+}
+
+.addDel {
+    display: flex;
+    flex-wrap: wrap;
+}
+.addDelCss{
+    padding: 7px 7px;
+    font-size: 25px;
+    margin: 0 5px;
+}
+.image-row button {
+    padding: 1px 5px;
+    font-size: 16px;
 }
 
 /* Checkbox Section */

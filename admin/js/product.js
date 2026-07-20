@@ -38,8 +38,18 @@ const handleSubmit = async (id, id2) => {
   let subCategory = document.getElementById("subcategorySelect").value;
   let name = document.getElementById("productName").value;
   let desc = document.getElementById("productDesc").value;
-  let image = document.getElementById("productImage").files[0];
+  let image = document.querySelectorAll("input[type ='file']");
   // console.log(category, subCategory);
+  console.log(image);
+
+  let allpic = [];
+  for (let i = 0; i < image.length; i++) {
+    console.log(image[i].files[0]?.name);
+
+    allpic.push(image[i].files[0]?.name);
+  }
+  console.log(allpic);
+
   document.querySelectorAll("input[name='tags']:checked").forEach((cb) => {
     tagArr.push(cb.value);
 
@@ -75,26 +85,26 @@ const handleSubmit = async (id, id2) => {
     document.getElementById("descError").innerHTML = "";
   }
 
-  if (!image) {
-    if (update === null) {
-      document.getElementById("imageError").innerHTML =
-        "Please upload an image";
-      formErr = true;
-    }
-  } else {
-    const imgtype = ["image/jpg", "image/png", "image/jpeg"];
-    if (!imgtype.includes(image.type)) {
-      document.getElementById("imageError").innerHTML =
-        "Allowed formats: jpg, png, jpeg";
-      formErr = true;
-    } else if (image.size > 2 * 1024 * 1024) {
-      document.getElementById("imageError").innerHTML =
-        "Image must be less than 2 MB";
-      formErr = true;
-    } else {
-      document.getElementById("imageError").innerHTML = "";
-    }
-  }
+  // if (!image) {
+  //   if (update === null) {
+  //     document.getElementById("imageError").innerHTML =
+  //       "Please upload an image";
+  //     formErr = true;
+  //   }
+  // } else {
+  //   const imgtype = ["image/jpg", "image/png", "image/jpeg"];
+  //   if (!imgtype.includes(image.type)) {
+  //     document.getElementById("imageError").innerHTML =
+  //       "Allowed formats: jpg, png, jpeg";
+  //     formErr = true;
+  //   } else if (image.size > 2 * 1024 * 1024) {
+  //     document.getElementById("imageError").innerHTML =
+  //       "Image must be less than 2 MB";
+  //     formErr = true;
+  //   } else {
+  //     document.getElementById("imageError").innerHTML = "";
+  //   }
+  // }
 
   if (formErr === false) {
     let edtImage = document.getElementById("updateImage");
@@ -106,7 +116,8 @@ const handleSubmit = async (id, id2) => {
       subCategory,
       name,
       desc,
-      image: image?.name ? image?.name : arr[arr.length - 1],
+      // image: image?.name ? image?.name : arr[arr.length - 1],
+      image: allpic,
       tags: tagArr,
     };
     if (update != null) {
@@ -125,6 +136,38 @@ const handleSubmit = async (id, id2) => {
     }
   }
 };
+const hanldeMulImage = () => {
+  event.preventDefault()
+  console.log("hiii");
+
+  const allImg = document.getElementById("allImage");
+
+  const divEl = document.createElement("div");
+  divEl.setAttribute("class", "addDel");
+
+  const addImg = document.createElement("input");
+  addImg.setAttribute("type", "file");
+  addImg.setAttribute("id", "productImage");
+
+  const addbtn = document.createElement("button");
+  addbtn.setAttribute("class", "addDelCss");
+  addbtn.setAttribute("onclick", "hanldeMulImage()");
+  addbtn.textContent = "+";
+
+  const delbtn = document.createElement("button");
+  delbtn.textContent = "-";
+  delbtn.setAttribute("class", "addDelCss");
+
+  delbtn.addEventListener("click", function () {
+    divEl.remove();
+  });
+
+  divEl.appendChild(addImg);
+  divEl.appendChild(delbtn);
+  divEl.appendChild(addbtn);
+
+  allImg.appendChild(divEl);
+};
 const handleDisplay = async () => {
   let res = await fetch("http://localhost:3000/product");
   let data = await res.json();
@@ -134,15 +177,11 @@ const handleDisplay = async () => {
   let res3 = await fetch("http://localhost:3000/subCategory");
   let data3 = await res3.json();
 
-  console.log('categoty',data2);
-  console.log("subbb",data3);
-  
-  
+  console.log("categoty", data2);
+  console.log("subbb", data3);
+
   data.map((v, i) => {
-    let catData = data2.find((v2) => 
-      v2.id === v.category
-      
-    );
+    let catData = data2.find((v2) => v2.id === v.category);
     let subCatData = data3.find((v3) => v3.id === v.subCategory);
 
     print += `
@@ -152,7 +191,15 @@ const handleDisplay = async () => {
       <td>${subCatData?.name}</td>
       <td>${v.name}</td>
       <td>${v.desc}</td>
-      <td><img src = "./images/category_img/${v.image}"</td>
+      <td>`;
+
+    v.image.map ((v1) => {
+      console.log(v1);
+      
+      print += `<img src = "./images/category_img/${v1}" />`
+    })
+
+    print += `</td>
       <td><button onClick= "del('${v.id}')" class="delete-btn"><i class="fa-solid fa-trash"></i></button><button class="edit-btn"onClick= "edit('${v.id}')"><i class="fa-solid fa-pen-to-square"><i></button></td>
 
       </tr>

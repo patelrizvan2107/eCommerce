@@ -52,27 +52,17 @@
   ],
   "product": [
     {
-      "category": "1HPKo4tjNcM",
+      "category": "BMJktuXLJJI",
       "subCategory": "668xGU7R-po",
-      "name": "esdwf",
-      "desc": "5dfg",
-      "image": "sofa.jpg",
-      "tags": [
-        "on",
-        "on"
+      "name": "zxzx",
+      "desc": "zxz",
+      "image": [
+        "sofa.jpg",
+        "table.jpg",
+        "laptop.jpg"
       ],
-      "id": "YST3NP-fNLc"
-    },
-    {
-      "category": "3L_B96jx87k",
-      "subCategory": "Nzl7wGHjdk8",
-      "name": "ax",
-      "desc": "adsc",
-      "image": "fashion.jpg",
-      "tags": [
-        "on"
-      ],
-      "id": "JWwKwuVi-7c"
+      "tags": [],
+      "id": "JwddIP5FtJk"
     }
   ],
   "subCategory": [

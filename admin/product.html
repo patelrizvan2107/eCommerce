@@ -108,12 +108,16 @@
 
                     </div>
 
-                    <div class="image-row">
+                    <div class="image-row" id="allImage">
 
                         <div class="form-group image-upload">
                             <label>Upload Product Image</label>
-                            <input type="file" id="productImage">
-                            <span id= "imageError"></span>
+                            <div>
+                                <input type="file" id="productImage" name="inputImage">
+                                <label>Add More Images</label>
+                                <button onclick="hanldeMulImage()">Add</button>
+                            </div>
+                            <span id="imageError"></span>
                         </div>
 
                         <div class="form-group image-preview">
@@ -122,6 +126,8 @@
                         </div>
 
                     </div>
+
+
 
                     <button type="submit" class="btn">
                         Save Product

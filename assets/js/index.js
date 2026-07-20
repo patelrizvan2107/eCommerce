@@ -53,13 +53,21 @@ const productData = async () => {
                                 <span class="dis">$99.99</span><span class="disprice">$69.99</span><br>
                                 <a href class="colr"><span class="bla"></span></a>
                                 <a href class="colr"><span class="gr"></span></a>
-                                <a href class="colr"><span class="rd"></span></a>
+                                <a href class="colr"><span class="rd"></span></a><br>
+                                <button onclick= "handleBuy('${v.id}')" class = "buy" >Buy Now</button>
                             </div>
                         </div>
         `
     })
     document.getElementById("todatTop").innerHTML = print
 }
+const handleBuy = async () => {
+    
+    
+    
+}
+
+
 
 window.onload = () => {
     catData();

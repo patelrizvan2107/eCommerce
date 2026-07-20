@@ -18,6 +18,14 @@ body {
 section {
     margin: 100px 0;
 }
+.buy {
+    display: inline-block;
+    background-color: green;
+    color:white;
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 5px 10px;
+}
 
 
 /* header */

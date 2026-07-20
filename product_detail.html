@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+
+```
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<style>
+    #productDetail {
+        margin-top: 130px;
+        margin-bottom: 100px;
+    }
+
+    .productImg {
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    .productImg img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .productInfo h1 {
+        font-size: 42px;
+        margin-bottom: 15px;
+    }
+
+    .priceArea {
+        margin: 20px 0;
+    }
+
+    .priceArea .oldPrice {
+        text-decoration: line-through;
+        color: gray;
+        font-size: 20px;
+    }
+
+    .priceArea .newPrice {
+        color: red;
+        font-size: 32px;
+        font-weight: 700;
+        margin-left: 10px;
+    }
+
+    .rating {
+        color: gold;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .productInfo p {
+        color: #666;
+        line-height: 28px;
+    }
+
+    .colorBox {
+        margin: 20px 0;
+    }
+
+    .sizeBtn {
+        margin-top: 15px;
+    }
+
+    .sizeBtn button {
+        border: 1px solid #ddd;
+        background: white;
+        padding: 10px 20px;
+        margin-right: 10px;
+    }
+
+    .cartBtn {
+        margin-top: 30px;
+    }
+
+    .cartBtn .btn-dark,
+    .cartBtn .btn-danger {
+        padding: 12px 30px;
+        margin-right: 10px;
+    }
+
+    .relatedProduct img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .relatedProduct {
+        margin-top: 80px;
+    }
+    .colr {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-right: 0 10px;
+    }
+     .bla {
+         background-color: red;
+        border-radius: 50%;
+
+    }
+     .gr{
+         background-color: red;
+        border-radius: 50%;
+    }
+     .rd {
+        background-color: red;
+        border-radius: 50%;
+    }
+</style>
+
+
+</head>
+
+<body>
+
+```
+<!-- Header -->
+
+<header>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand logo" href="index.html">
+                <img src="assets/image/logo.png" alt="">
+            </a>
+
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="product.html">Products</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- Product Detail -->
+
+<section id="productDetail">
+    <div class="container">
+
+        <div class="row align-items-center" id="productDetails">
+
+        </div>
+
+            
+
+        <!-- Related Products -->
+
+        <div class="relatedProduct">
+
+            <h2 class="mainTitle">Related Products</h2>
+            <p class="subTitle">You may also like these products</p>
+
+            <div class="row mt-5" id="">
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="tddata">
+                        <div class="disc">25%-</div>
+                        <img src="assets/image/product-5_2.jpg" alt="">
+                    </div>
+
+                    <div class="dataset2">
+                        <h4 class="data">Leather Bag</h4>
+
+                        <span class="dis">$120</span>
+                        <span class="disprice">$90</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="tddata">
+                        <div class="disc">20%-</div>
+                        <img src="assets/image/product-7_2.jpg" alt="">
+                    </div>
+
+                    <div class="dataset2">
+                        <h4 class="data">Skirt</h4>
+
+                        <span class="dis">$100</span>
+                        <span class="disprice">$80</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="tddata">
+                        <div class="disc">15%-</div>
+                        <img src="assets/image/product-8_2.jpg" alt="">
+                    </div>
+
+                    <div class="dataset2">
+                        <h4 class="data">Women Bag</h4>
+
+                        <span class="dis">$110</span>
+                        <span class="disprice">$95</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="tddata">
+                        <div class="disc">30%-</div>
+                        <img src="assets/image/product-6_2.jpg" alt="">
+                    </div>
+
+                    <div class="dataset2">
+                        <h4 class="data">Sunglasses</h4>
+
+                        <span class="dis">$100</span>
+                        <span class="disprice">$70</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/product_dtail.js"></script>
+
+</body>
+
+</html>
