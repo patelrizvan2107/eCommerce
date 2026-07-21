@@ -13,11 +13,365 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/media.css">
+    <style>
+        /* ==========================================================================
+   1. GLOBAL RESETS & BASE STYLES
+   ========================================================================== */
+:root {
+  --primary-color: #0f172a;
+  --accent-color: #2563eb;
+  --accent-hover: #1d4ed8;
+  --text-main: #334155;
+  --text-muted: #64748b;
+  --bg-light: #f8fafc;
+  --border-color: #e2e8f0;
+  --font-family: 'DM Sans', sans-serif;
+  --transition-fast: all 0.25s ease;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-main);
+  background-color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-fast);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Section Headings */
+.mainTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+.subTitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION
+   ========================================================================== */
+header {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0.75rem 0;
+}
+
+.navbar-brand.logo img {
+  max-height: 80px;
+  width: auto;
+  object-fit: contain;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+  color: var(--text-main);
+  padding: 0.5rem 1rem !important;
+  font-size: 0.95rem;
+  transition: var(--transition-fast);
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--accent-color);
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   3. TODAY'S TOP / PRODUCT SECTION
+   ========================================================================== */
+#today {
+  padding: 4rem 0;
+  background-color: var(--bg-light);
+  min-height: 50vh;
+}
+
+/* Product Card Styling (Assumes JavaScript inserts .col and card elements inside #todatTop) */
+#todatTop {
+  row-gap: 1.75rem;
+}
+
+.product-card {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: var(--transition-fast);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.product-card .img-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+  overflow: hidden;
+  background-color: #f1f5f9;
+}
+
+.product-card .img-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .img-wrapper img {
+  transform: scale(1.05);
+}
+
+.product-card .card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-card .product-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.product-card .product-price {
+  font-weight: 700;
+  color: var(--accent-color);
+  font-size: 1.1rem;
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   4. ENHANCED MODERN FOOTER
+   ========================================================================== */
+footer {
+  background-color: #0b1329; /* Deeper slate color for contrast */
+  color: #94a3b8;
+  padding: 4.5rem 0 2rem;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Brand & Details Column */
+footer .detail {
+  padding-right: 1rem;
+}
+
+footer .logo {
+  max-height: 40px;
+  filter: brightness(0) invert(1); /* Converts dark logos to crisp white */
+  margin-bottom: 1.25rem;
+}
+
+footer .detail p {
+  margin-bottom: 0.5rem;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+footer .detail a {
+  color: #60a5fa;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+footer .detail a:hover {
+  text-decoration: underline;
+}
+
+/* Social Icon Badges */
+footer .social {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+footer .social a {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px; /* Smooth rounded square */
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  margin: 0;
+}
+
+footer .social a:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Footer Navigation Lists */
+footer .headofDetail {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+footer .company {
+  display: flex;
+  flex-direction: column;
+}
+
+footer .company a {
+  color: #94a3b8;
+  margin-bottom: 0.65rem;
+  transition: all 0.2s ease;
+  width: fit-content;
+}
+
+footer .company a:hover {
+  color: #ffffff;
+  transform: translateX(4px); /* Gentle slide-in on hover */
+}
+
+/* Newsletter Input Form */
+footer .newsEmail {
+  margin: 1.25rem 0 0.75rem;
+}
+
+footer .newsEmail form {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+footer .newsEmail input {
+  width: 100%;
+  padding: 0.75rem 3.25rem 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  outline: none;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+footer .newsEmail input::placeholder {
+  color: #64748b;
+}
+
+footer .newsEmail input:focus {
+  border-color: #2563eb;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+footer .newsEmail button {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  bottom: 4px;
+  width: 38px;
+  border: none;
+  background: #2563eb;
+  color: #ffffff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer .newsEmail button:hover {
+  background: #1d4ed8;
+  transform: scale(1.02);
+}
+
+footer .company p:last-of-type {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+footer .company p + a {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  text-decoration: underline;
+}
+
+footer .company p + a:hover {
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   5. RESPONSIVE FIXES
+   ========================================================================== */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    margin-top: 0.5rem;
+  }
+  
+  footer .col-12 {
+    margin-bottom: 2rem;
+  }
+}
+    </style>
 </head>
 
 <body>
@@ -36,10 +390,10 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link " aria-current="page" href="#">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="product.html">Product</a>
+                                <a class="nav-link active" aria-current="page" href="product.html">Product</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="#">Contact</a>
@@ -72,62 +426,44 @@
             </div>
         </section>
 
-        <footer>
+       <footer>
         <div class="container">
-            <div class="row">
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="detail">
-                        <img src="assets/image/logo.png" alt="" class="logo">
-                        <p>600 N Michigan Ave, Chicago, IL 60611, USA</p>
-                        <a href="">open in map</a>
-                        <p>hi.amere@gmail.com</p>
-                        <p>315-666-6688</p>
-                        <div class="social">
-                            <a href=""><i class="fa-brands fa-facebook"></i></a>
-                            <a href=""><i class="fa-brands fa-instagram"></i></a>
-                            <a href=""><i class="fa-brands fa-whatsapp"></i></a>
-                            <a href=""><i class="fa-brands fa-snapchat"></i></a>
-                            <a href=""><i class="fa-brands fa-x-twitter"></i></a>
-                        </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <img src="assets/image/logo.png" alt="Footer Logo" class="footer-logo">
+                    <p>Discover premier fashion and lifestyle accessories crafted for timeless style and durability.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="company">
-                        <h2 class="headofDetail">Company</h2>
-                        <a href="">About us</a>
-                        <a href="">Our Stories</a>
-                        <a href="">Contact us</a>
-                        <a href="">Latest new</a>
-                        <a href="">My Account</a>
-
-                    </div>
+                <div class="col-lg-2 col-md-6 footer-box">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="product.html">Products</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="company">
-                        <h2 class="headofDetail">Customer</h2>
-                        <a href="">Shipping</a>
-                        <a href="">Return & Refund</a>
-                        <a href="">Privacy & Policy</a>
-                        <a href="">Tearms & Conditions</a>
-                        <a href="">Order FAQs</a>
-                    </div>
+                <div class="col-lg-3 col-md-6 footer-box">
+                    <h4>Customer Care</h4>
+                    <ul>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="company">
-                        <h2 class="headofDetail">NEWSLETTER</h2>
-                        <p>Subscribe for store updates and discounts.</p>
-
-                        <div class="newsEmail">
-                            <form action="">
-                                <input type="text" placeholder="Enter Email">
-                                <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
-                            </form>
-                        </div>
-
-                        <p>By clicking subcribe, you agree to the </p> <a href="">Terms of Service and Privacy
-                            Policy.</a>
-                    </div>
+                <div class="col-lg-3 col-md-6 footer-box">
+                    <h4>Contact Us</h4>
+                    <p><i class="fa-solid fa-envelope me-2"></i> support@store.com</p>
+                    <p><i class="fa-solid fa-phone me-2"></i> +1 (800) 123-4567</p>
                 </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 E-Commerce Store. All rights reserved.</p>
             </div>
         </div>
     </footer>
