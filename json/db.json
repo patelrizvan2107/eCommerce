@@ -52,30 +52,6 @@
   ],
   "product": [
     {
-      "category": "8Ct9taC9-wE",
-      "subCategory": "BazSM40yc5k",
-      "name": "pqr",
-      "desc": "pwtdd",
-      "image": [
-        "cate-1.jpg",
-        "cat5.jpg"
-      ],
-      "tags": [],
-      "id": "yJ0gpSDIKuw"
-    },
-    {
-      "category": "BMJktuXLJJI",
-      "subCategory": "DwhVqDMVQ7U",
-      "name": "abc",
-      "desc": "qaedw",
-      "image": [
-        "cate-4.jpg",
-        "cate-3.jpg"
-      ],
-      "tags": [],
-      "id": "KcMjm9k4mO8"
-    },
-    {
       "category": "BMJktuXLJJI",
       "subCategory": "Nzl7wGHjdk8",
       "name": "mno",
@@ -177,6 +153,15 @@
         "on"
       ],
       "id": "wANY58X72hw"
+    },
+    {
+      "category": "8Ct9taC9-wE",
+      "subCategory": "Nzl7wGHjdk8",
+      "name": "sdfsdssds",
+      "desc": "vsdvsdv",
+      "image": "electronic.jpg",
+      "tags": [],
+      "id": "wNbr9Yz4Vok"
     }
   ],
   "subCategory": [
