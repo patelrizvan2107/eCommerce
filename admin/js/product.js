@@ -40,20 +40,33 @@ const handleSubmit = async (id, id2) => {
   let desc = document.getElementById("productDesc").value;
   let image = document.querySelectorAll("input[type ='file']");
   // console.log(category, subCategory);
-  console.log(image);
+  // console.log(image);
+  const filePath = document.getElementsByName('updateImage');
 
-  let allpic = [];
-  for (let i = 0; i < image.length; i++) {
-    console.log(image[i].files[0]?.name);
 
-    allpic.push(image[i].files[0]?.name);
+  let imgArr = [];
+  for (let i = 0; i < filePath.length; i++) {
+    let path = []
+    path = filePath[i].src;
+    path.split("/")
+    console.log(path);
+
+    imgArr.push(path[i])
+
   }
-  console.log(allpic);
+
+  // let allpic = [];
+  // for (let i = 0; i < image.length; i++) {
+  //   console.log(image[i].files[0]?.name);
+
+  //   allpic.push(image[i].files[0]?.name);
+  // }
+  // console.log(allpic);
 
   document.querySelectorAll("input[name='tags']:checked").forEach((cb) => {
     tagArr.push(cb.value);
 
-    console.log(tagArr);
+    // console.log(tagArr);
   });
   let formErr = false;
 
@@ -117,7 +130,7 @@ const handleSubmit = async (id, id2) => {
       name,
       desc,
       // image: image?.name ? image?.name : arr[arr.length - 1],
-      image: allpic,
+      image: imgArr,
       tags: tagArr,
     };
     if (update != null) {
@@ -136,8 +149,8 @@ const handleSubmit = async (id, id2) => {
     }
   }
 };
-const hanldeMulImage = () => {
-  event.preventDefault()
+const hanldeMulImage = (img) => {
+  event.preventDefault();
   console.log("hiii");
 
   const allImg = document.getElementById("allImage");
@@ -162,13 +175,32 @@ const hanldeMulImage = () => {
     divEl.remove();
   });
 
+  // const mainImg = document.getElementById("productImage");
+  // mainImg.setAttribute("src", `./images/category_img/${img}`)
+
+  const preimg = document.createElement('img');
+  preimg.setAttribute("src", `./images/category_img/${img}`)
+  preimg.setAttribute("class", "preview-image");
+  preimg.setAttribute("name", "updateImage")
+  preimg.setAttribute("id", "updateImage")
+
+  addImg.addEventListener('change', function () {
+
+    console.log('kjbbfdjsd vm d.');
+
+    preimg.setAttribute("src", `./images/category_img/${preimg.files[0].name}`)
+
+  })
+
   divEl.appendChild(addImg);
   divEl.appendChild(delbtn);
   divEl.appendChild(addbtn);
-
+  divEl.appendChild(preimg)
   allImg.appendChild(divEl);
 };
 const handleDisplay = async () => {
+  event.preventDefault();
+
   let res = await fetch("http://localhost:3000/product");
   let data = await res.json();
   let print = ``;
@@ -193,9 +225,9 @@ const handleDisplay = async () => {
       <td>${v.desc}</td>
       <td>`;
 
-    v.image.map ((v1) => {
+    v.image.map((v1) => {
       console.log(v1);
-      
+
       print += `<img src = "./images/category_img/${v1}" />`
     })
 
@@ -214,12 +246,21 @@ const del = async (id) => {
 };
 
 const edit = async (id) => {
+  event.preventDefault();
+
   const res = await fetch(`http://localhost:3000/product/${id}`);
   const data = await res.json();
   console.log(data.name);
   console.log(data.category);
 
-  console.log(data.subCategory);
+  document.getElementById("allImage").innerHTML = '';
+
+  for (let i = 0; i < data.image.length; i++) {
+    hanldeMulImage(data.image[i]);
+
+  }
+
+  // console.log(data.subCategory);
 
   document.getElementById("categorySelect").value = data.category;
   document.getElementById("subcategorySelect").value = data.subCategory;
@@ -229,6 +270,7 @@ const edit = async (id) => {
     "./images/category_img/" + data.image;
 
   update = id;
+
 };
 
 const productForm = document.getElementById("productForm");

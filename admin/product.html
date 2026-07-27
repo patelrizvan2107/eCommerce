@@ -1,176 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product | Admin Panel</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Product | Admin Panel</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
 
+    <body>
 
-<body>
+        <div class="admin-container">
 
-    <div class="admin-container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
 
-        <!-- Sidebar -->
-        <aside class="sidebar">
+                <div class="logo">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>Admin Panel</span>
+                </div>
 
-            <div class="logo">
-                <i class="fa-solid fa-layer-group"></i>
-                <span>Admin Panel</span>
-            </div>
+                <ul class="menu">
 
-            <ul class="menu">
+                    <li>
+                        <a href="categoryAdmin.html">
+                            <i class="fa-solid fa-list"></i>
+                            Category
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="categoryAdmin.html">
-                        <i class="fa-solid fa-list"></i>
-                        Category
-                    </a>
-                </li>
+                    <li>
+                        <a href="subCategory.html">
+                            <i class="fa-solid fa-table-list"></i>
+                            Subcategory
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="subCategory.html">
-                        <i class="fa-solid fa-table-list"></i>
-                        Subcategory
-                    </a>
-                </li>
+                    <li class="active">
+                        <a href="product.html">
+                            <i class="fa-solid fa-box"></i>
+                            Product
+                        </a>
+                    </li>
 
-                <li class="active">
-                    <a href="product.html">
-                        <i class="fa-solid fa-box"></i>
-                        Product
-                    </a>
-                </li>
+                </ul>
 
-            </ul>
+            </aside>
 
-        </aside>
+            <!-- Main Content -->
+            <main class="main-content">
 
-        <!-- Main Content -->
-        <main class="main-content">
+                <h1>Product Management</h1>
 
-            <h1>Product Management</h1>
+                <!-- Product Form -->
+                <div class="card">
 
-            <!-- Product Form -->
-            <div class="card">
+                    <form id="productForm" class="category-form">
 
-                <form id="productForm" class="category-form">
+                        <div class="form-row">
 
-                    <div class="form-row">
+                            <div class="form-group">
+                                <label>Category</label>
+                                <select id="categorySelect"></select>
+                                <span id="categoryError"></span>
 
-                        <div class="form-group">
-                            <label>Category</label>
-                            <select id="categorySelect"></select>
-                            <span id="categoryError"></span>
-
-
-
-                        </div>
-
-                        <div class="form-group">
-                            <label>Subcategory</label>
-                            <select id="subcategorySelect"></select>
-                            <span id="subcategoryError"></span>
-                        </div>
-
-                    </div>
-
-                    <div class="form-row">
-
-                        <div class="form-group">
-                            <label>Product Name</label>
-                            <input type="text" id="productName">
-                            <span id="nameError"></span>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Description</label>
-                            <textarea id="productDesc" rows="4"></textarea>
-                            <span id="descError"></span>
-                        </div>
-
-                    </div>
-
-                    <div class="checkbox-group">
-
-                        <label><input type="checkbox" id="new" name="tags"> New</label>
-
-                        <label><input type="checkbox" id="bestseller" name="tags"> Bestseller</label>
-
-                        <label><input type="checkbox" id="summer" name="tags"> Summer</label>
-
-                        <label><input type="checkbox" id="winter" name="tags"> Winter</label>
-
-                        <label><input type="checkbox" id="monsoon" name="tags"> Monsoon</label>
-
-                    </div>
-
-                    <div class="image-row" id="allImage">
-
-                        <div class="form-group image-upload">
-                            <label>Upload Product Image</label>
-                            <div>
-                                <input type="file" id="productImage" name="inputImage">
-                                <label>Add More Images</label>
-                                <button onclick="hanldeMulImage()">Add</button>
                             </div>
-                            <span id="imageError"></span>
+
+                            <div class="form-group">
+                                <label>Subcategory</label>
+                                <select id="subcategorySelect"></select>
+                                <span id="subcategoryError"></span>
+                            </div>
+
                         </div>
 
-                        <div class="form-group image-preview">
-                            <label>Preview</label>
-                            <img src="" id="updateImage" class="preview-image">
+                        <div class="form-row">
+
+                            <div class="form-group">
+                                <label>Product Name</label>
+                                <input type="text" id="productName">
+                                <span id="nameError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea id="productDesc" rows="4"></textarea>
+                                <span id="descError"></span>
+                            </div>
+
                         </div>
 
-                    </div>
+                        <div class="checkbox-group">
 
+                            <label><input type="checkbox" id="new" name="tags">
+                                New</label>
 
+                            <label><input type="checkbox" id="bestseller"
+                                    name="tags"> Bestseller</label>
 
-                    <button type="submit" class="btn">
-                        Save Product
-                    </button>
+                            <label><input type="checkbox" id="summer"
+                                    name="tags"> Summer</label>
 
-                </form>
-            </div>
+                            <label><input type="checkbox" id="winter"
+                                    name="tags"> Winter</label>
 
-            <!-- Product Table -->
-            <div class="card">
+                            <label><input type="checkbox" id="monsoon"
+                                    name="tags"> Monsoon</label>
 
-                <h2>Product List</h2>
+                        </div>
 
-                <table>
+                        <div class="image-row" id="allImage">
 
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Category</th>
-                            <th>Subcategory</th>
-                            <th>Product Name</th>
-                            <th>Description</th>
-                            <th>Image</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
+                            <div class="form-group image-upload">
+                                <label>Upload Product Image</label>
 
-                    <tbody id="productTable">
+                                <div id="allImage"></div>
+                                <div>
+                                    <input type="file" id="productImage"
+                                        name="inputImage">
+                                    <div class="form-group image-preview">
+                                        <label>Preview</label>
+                                        <img src id="updateImage"
+                                            class="preview-image">
+                                    </div>
+                                    <label>Add More Images</label>
+                                    <button
+                                        onclick="hanldeMulImage()">Add</button>
+                                </div>
+                                <span id="imageError"></span>
+                            </div>
 
+                        </div>
 
-                    </tbody>
+                        <button type="submit" class="btn">
+                            Save Product
+                        </button>
 
-                </table>
+                    </form>
+                </div>
 
-            </div>
+                <!-- Product Table -->
+                <div class="card">
 
-        </main>
+                    <h2>Product List</h2>
 
-    </div>
+                    <table>
 
-    <script src="js/product.js"></script>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Category</th>
+                                <th>Subcategory</th>
+                                <th>Product Name</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
 
-</body>
+                        <tbody id="productTable">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </main>
+
+        </div>
+
+        <script src="js/product.js"></script>
+
+    </body>
 
 </html>
