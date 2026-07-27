@@ -38,8 +38,14 @@ const handleSubmit = async (id, id2) => {
   let subCategory = document.getElementById("subcategorySelect").value;
   let name = document.getElementById("productName").value;
   let desc = document.getElementById("productDesc").value;
-  let image = document.getElementById("productImage").files[0];
+  // let image = document.getElementById("productImage").files[0];
+
   // console.log(category, subCategory);
+
+
+  let image = document.querySelectorAll("input[type ='file']");
+  const filePath = document.getElementsByName('updateImage');
+
   document.querySelectorAll("input[name='tags']:checked").forEach((cb) => {
     tagArr.push(cb.value);
 
@@ -171,10 +177,14 @@ const hanldeMulImage = (img) => {
   divEl.appendChild(addImg);
   divEl.appendChild(delbtn);
   divEl.appendChild(addbtn);
-  divEl.appendChild(preimg) 
+  divEl.appendChild(preimg)
   allImg.appendChild(divEl);
+
 };
+
 const handleDisplay = async () => {
+  event.preventDefault();
+
   let res = await fetch("http://localhost:3000/product");
   let data = await res.json();
   let print = ``;
@@ -183,25 +193,29 @@ const handleDisplay = async () => {
   let res3 = await fetch("http://localhost:3000/subCategory");
   let data3 = await res3.json();
 
-  console.log('categoty',data2);
-  console.log("subbb",data3);
-  
-  
+  console.log("categoty", data2);
+  console.log("subbb", data3);
+
   data.map((v, i) => {
-    let catData = data2.find((v2) => 
-      v2.id === v.category
-      
-    );
+    let catData = data2.find((v2) => v2.id === v.category);
     let subCatData = data3.find((v3) => v3.id === v.subCategory);
 
-    print += `
+   print += `
     <tr>
       <td>${i + 1}</td>
       <td>${catData?.name}</td>
       <td>${subCatData?.name}</td>
       <td>${v.name}</td>
       <td>${v.desc}</td>
-      <td><img src = "./images/category_img/${v.image}"</td>
+      <td>`;
+
+    v.image.forEach((v1) => {
+      console.log(v1);
+
+      print += `<img src = "./images/category_img/${v1}" />`
+    })
+
+    print += `</td>
       <td><button onClick= "del('${v.id}')" class="delete-btn"><i class="fa-solid fa-trash"></i></button><button class="edit-btn"onClick= "edit('${v.id}')"><i class="fa-solid fa-pen-to-square"><i></button></td>
 
       </tr>
