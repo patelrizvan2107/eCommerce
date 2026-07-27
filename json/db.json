@@ -162,6 +162,17 @@
       "image": "electronic.jpg",
       "tags": [],
       "id": "wNbr9Yz4Vok"
+    },
+    {
+      "category": "3L_B96jx87k",
+      "subCategory": "DwhVqDMVQ7U",
+      "name": " kjbnlmk;lm,",
+      "desc": "yyyyyyyyyyyyyyyyyyytf",
+      "image": "laptop.jpg",
+      "tags": [
+        "on"
+      ],
+      "id": "1leEx_UQDPs"
     }
   ],
   "subCategory": [
@@ -192,6 +203,129 @@
       "des": "ertert",
       "image": "cate-5.jpg",
       "id": "BazSM40yc5k"
+    },
+    {
+      "CategoryId": "8Ct9taC9-wE",
+      "name": "a",
+      "des": "jkjjjj",
+      "image": "table.jpg",
+      "id": "bNAdwm2Xqdo"
+    }
+  ],
+  "cart": [
+    {
+      "userId": "user123",
+      "items": [
+        {
+          "productId": "kjBXPoh4dQY",
+          "qtty": 28
+        },
+        {
+          "productId": "5Of7Updy7Qk",
+          "qtty": 5
+        },
+        {
+          "productId": "5wLXAUvcQDQ",
+          "qtty": 5
+        },
+        {
+          "productId": "C0ewerirZ6g",
+          "qtty": 3
+        }
+      ],
+      "id": "XvwtIcCgYT8"
+    }
+  ],
+  "user": [
+    {
+      "name": "riz",
+      "email": "patelrizvan2107@gmail.com",
+      "password": "riz123",
+      "id": "Q_0x2Fe_V7A"
+    },
+    {
+      "name": "jhon doe",
+      "email": "jhon@123.com",
+      "password": "jhon890",
+      "id": "qu_CaBqvd6U"
+    },
+    {
+      "name": "xyz",
+      "email": "patelrizvan2107@gmail.com",
+      "password": "asdfsvc fbgd",
+      "id": "AwjBQwzTKpU"
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": "UHXFNfMRMaQ"
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": "BAAs7iUC4HM"
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": "yRSNIlO1kis"
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": "3-tZ_g8sHao"
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": "CkVzYJ5ICM0"
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": "YjDHoL07uBs"
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": "CO67v87BtR4"
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": "sIuHnmIGUkE"
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": "7S4ceJPtzeU"
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": "wEKmVVO3Xns"
+    },
+    {
+      "name": "mno",
+      "email": "patelrizvan2107@gmail.com",
+      "password": "mnosacdxcs",
+      "id": "Nt3ZJUBqK6s"
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": "pacxr-zcmzc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

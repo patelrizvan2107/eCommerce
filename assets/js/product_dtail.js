@@ -1,15 +1,17 @@
 const handleBuyProduct = async () => {
-    let id = localStorage.getItem("productId");
-    let res = await fetch(`http://localhost:3000/product/${id}`);
-    let data = await res.json();
+  let id = localStorage.getItem("productId");
+  let res = await fetch(`http://localhost:3000/product/${id}`);
+  let data = await res.json();
 
-    let slidesHtml = data.image.map((v) => `
+  let slidesHtml = data.image.map(
+    (v) => `
         <div class="swiper-slide">
             <img src="./assets/image/${v}" alt="">
         </div>
-    `);
+    `,
+  );
 
-    let print = `
+  let print = `
         <div class="col-lg-6">
             <div class="productImg">
                 <!-- Swiper Slider Outer Container -->
@@ -44,40 +46,102 @@ const handleBuyProduct = async () => {
 
                 <p>${data.desc}</p>
 
-                <h5>Available Colors</h5>
-                <div class="colorBox">
-                    <a href="#" class="colr active"><span class="bla"></span></a>
-                    <a href="#" class="colr"><span class="gr"></span></a>
-                    <a href="#" class="colr"><span class="rd"></span></a>
-                </div>
+               
 
-                <h5>Available Sizes</h5>
+               
                 <div class="sizeBtn">
-                    <button>S</button>
-                    <button class="active">M</button>
-                    <button>L</button>
-                    <button>XL</button>
+                    <button onclick = "handleDEC()">-</button>
+                    <span id = "qtty">1</span>
+                    <button onclick = "handleINC()">+</button>
+
                 </div>
 
                 <div class="cartBtn">
-                    <button class="btn btn-dark">Add To Cart</button>
+                    <button class="btn btn-dark" onclick = "addtoCart()">Add To Cart</button>
                     <button class="btn btn-danger">Buy Now</button>
                 </div>
             </div>
         </div>
     `;
 
-    document.getElementById("productDetails").innerHTML = print;
+  document.getElementById("productDetails").innerHTML = print;
 
-    new Swiper('.swiper.hero', {
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        loop: true,
+  new Swiper(".swiper.hero", {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    loop: true,
+  });
+};
+
+const handleINC = () => {
+  let qtty = parseInt(document.getElementById("qtty").innerHTML);
+
+  qtty++;
+
+  if (qtty <= 10) {
+    document.getElementById("qtty").innerHTML = qtty;
+  }
+};
+
+const handleDEC = () => {
+  let qtty = parseInt(document.getElementById("qtty").innerHTML);
+
+  qtty--;
+
+  if (qtty >= 1) {
+    document.getElementById("qtty").innerHTML = qtty;
+  }
+};
+
+const addtoCart = async () => {
+  const userId = "user123";
+  const productId = localStorage.getItem("productId");
+
+  let qtty = parseInt(document.getElementById("qtty").innerHTML);
+
+  console.log("uid", userId, "pid", productId, "qtty", qtty);
+
+  let addtoCart = {
+    userId: userId,
+    items: [{ productId: productId, qtty: parseInt(qtty) }],
+  };
+  let res = await fetch("http://localhost:3000/cart");
+  let data = await res.json();
+  let cartData = data.find((v) => v.userId === userId);
+
+  console.log("cart data", cartData);
+  console.log("daata", data);
+  let newProductIndex = cartData.items.findIndex((v) => v.productId === productId);
+  console.log(newProductIndex);
+
+  if (cartData) {
+    if (newProductIndex < 0) {
+      cartData.items.push({ productId: productId, qtty: parseInt(qtty) });
+    } else {
+
+        cartData.items[newProductIndex].qtty += qtty
+    }
+
+    await fetch(`http://localhost:3000/cart/${cartData.id}`, {
+        method: "Put",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(cartData),
+    })
+
+    console.log('whole data', cartData);
+    
+
+  } else {
+    await fetch("http://localhost:3000/cart", {
+      method: "Post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(addtoCart),
     });
-}
+  }
+};
 
 window.onload = () => {
-    handleBuyProduct();
-}
+  handleBuyProduct();
+};

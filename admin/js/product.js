@@ -81,26 +81,26 @@ const handleSubmit = async (id, id2) => {
     document.getElementById("descError").innerHTML = "";
   }
 
-  if (!image) {
-    if (update === null) {
-      document.getElementById("imageError").innerHTML =
-        "Please upload an image";
-      formErr = true;
-    }
-  } else {
-    const imgtype = ["image/jpg", "image/png", "image/jpeg"];
-    if (!imgtype.includes(image.type)) {
-      document.getElementById("imageError").innerHTML =
-        "Allowed formats: jpg, png, jpeg";
-      formErr = true;
-    } else if (image.size > 2 * 1024 * 1024) {
-      document.getElementById("imageError").innerHTML =
-        "Image must be less than 2 MB";
-      formErr = true;
-    } else {
-      document.getElementById("imageError").innerHTML = "";
-    }
-  }
+  // if (!image) {
+  //   if (update === null) {
+  //     document.getElementById("imageError").innerHTML =
+  //       "Please upload an image";
+  //     formErr = true;
+  //   }
+  // } else {
+  //   const imgtype = ["image/jpg", "image/png", "image/jpeg"];
+  //   if (!imgtype.includes(image.type)) {
+  //     document.getElementById("imageError").innerHTML =
+  //       "Allowed formats: jpg, png, jpeg";
+  //     formErr = true;
+  //   } else if (image.size > 2 * 1024 * 1024) {
+  //     document.getElementById("imageError").innerHTML =
+  //       "Image must be less than 2 MB";
+  //     formErr = true;
+  //   } else {
+  //     document.getElementById("imageError").innerHTML = "";
+  //   }
+  // }
 
   if (formErr === false) {
     let edtImage = document.getElementById("updateImage");
@@ -209,7 +209,7 @@ const handleDisplay = async () => {
       <td>${v.desc}</td>
       <td>`;
 
-    v.image.forEach((v1) => {
+    v.image.map((v1) => {
       console.log(v1);
 
       print += `<img src = "./images/category_img/${v1}" />`
