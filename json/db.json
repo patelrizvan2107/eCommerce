@@ -52,62 +52,102 @@
   ],
   "product": [
     {
-      "category": "1HPKo4tjNcM",
-      "subCategory": "DwhVqDMVQ7U",
-      "name": "mens",
-      "price": 99,
-      "desc": "svfsdfv",
+      "category": "3L_B96jx87k",
+      "subCategory": "Nzl7wGHjdk8",
+      "name": "dsedrf",
+      "price": 6534,
+      "desc": "fgghbfgh",
       "image": [
-        "bily.jpg"
+        "image.png"
       ],
-      "tags": [
-        "summer"
-      ],
-      "id": "FRo3mykUDa0"
+      "tags": [],
+      "id": "V3FZraI5lg8"
     },
     {
-      "category": "3L_B96jx87k",
-      "subCategory": "BazSM40yc5k",
-      "name": "xyz",
-      "price": 150,
-      "desc": "dcsdv",
+      "category": "BMJktuXLJJI",
+      "subCategory": "Nzl7wGHjdk8",
+      "name": "Shirtfgnfhnjgmghjm",
+      "price": 199,
+      "desc": "rfdgfgdbdfb",
       "image": [
-        "cate-3.jpg"
+        "laptop_2.jpg",
+        "fan.jpg"
+      ],
+      "tags": [],
+      "id": "w8-D3ssJVEs"
+    },
+    {
+      "category": "8Ct9taC9-wE",
+      "subCategory": "Nzl7wGHjdk8",
+      "name": "sdefsdf",
+      "price": 899,
+      "desc": "ghmjgh",
+      "image": [
+        "product-7_2.jpg",
+        "sofa.jpg",
+        "fashion.jpg",
+        "cate-2.jpg"
       ],
       "tags": [
-        "bestseller"
+        "on"
       ],
-      "id": "NFff-WJt4do"
+      "id": "TRY6f_1ebA8"
     },
     {
       "category": "3L_B96jx87k",
       "subCategory": "Nzl7wGHjdk8",
-      "name": "pqr",
-      "price": 199,
-      "desc": "adcfswvsfv",
+      "name": "sdgvsduuuuuuuuuu",
+      "price": 1414,
+      "desc": "scxczdc",
       "image": [
-        "cate-4.jpg"
+        "laptop.jpg",
+        "table.jpg",
+        "table.jpg"
       ],
-      "tags": [
-        "summer",
-        "winter"
-      ],
-      "id": "gT8RDlxHLbk"
+      "tags": [],
+      "id": "U0e1WogpBQ4"
     },
     {
       "category": "8Ct9taC9-wE",
-      "subCategory": "BazSM40yc5k",
-      "name": "dress1",
-      "price": 299,
-      "desc": "fjvdjf vndm dm",
+      "subCategory": "Nzl7wGHjdk8",
+      "name": "asdfvsd",
+      "price": 788,
+      "desc": "sdvgsdv",
       "image": [
-        "product-1_2.jpg"
+        "table.jpg",
+        "bed.jpg"
+      ],
+      "tags": [],
+      "id": "GyP08U6E5bU"
+    },
+    {
+      "category": "1HPKo4tjNcM",
+      "subCategory": "668xGU7R-po",
+      "name": "qwqw",
+      "price": 1,
+      "desc": "dfdfd",
+      "image": [
+        "furniture.jpg",
+        "image.png"
       ],
       "tags": [
-        "bestseller",
-        "summer"
+        "on"
       ],
-      "id": "gt-pNSC6UX0"
+      "id": "WXCVCCSOW0M"
+    },
+    {
+      "category": "3L_B96jx87k",
+      "subCategory": "Nzl7wGHjdk8",
+      "name": "sdgvsdok",
+      "price": 1414,
+      "desc": "scxczdc",
+      "image": [
+        "table.jpg",
+        "ac.jpg",
+        "bed.jpg"
+      ],
+      "tags": [],
+      "id": "NKZ0Brzwegg"
     }
   ],
   "subCategory": [
@@ -138,129 +178,38 @@
       "des": "ertert",
       "image": "cate-5.jpg",
       "id": "BazSM40yc5k"
-    },
-    {
-      "CategoryId": "8Ct9taC9-wE",
-      "name": "a",
-      "des": "jkjjjj",
-      "image": "table.jpg",
-      "id": "bNAdwm2Xqdo"
     }
   ],
   "cart": [
     {
-      "userId": "Q_0x2Fe_V7A",
+      "userId": "gwcfo8-Y57U",
       "items": [
         {
-          "productId": "gT8RDlxHLbk",
-          "qtty": 9
+          "productId": "w8-D3ssJVEs",
+          "qtty": 8
         },
         {
-          "productId": "NFff-WJt4do",
-          "qtty": 4
+          "productId": "TRY6f_1ebA8",
+          "qtty": 15
         },
         {
-          "productId": "FRo3mykUDa0",
-          "qtty": 4
+          "productId": "WXCVCCSOW0M",
+          "qtty": 6
         },
         {
-          "productId": "gt-pNSC6UX0",
-          "qtty": 1
+          "productId": "GyP08U6E5bU",
+          "qtty": 2
         }
       ],
-      "id": "xwB348M6drw"
+      "id": "W0jWJ7HVMP4"
     }
   ],
   "user": [
     {
-      "name": "riz",
+      "name": "john",
       "email": "patelrizvan2107@gmail.com",
-      "password": "riz123",
-      "id": "Q_0x2Fe_V7A"
-    },
-    {
-      "name": "jhon doe",
-      "email": "jhon@123.com",
-      "password": "jhon890",
-      "id": "qu_CaBqvd6U"
-    },
-    {
-      "name": "xyz",
-      "email": "patelrizvan2107@gmail.com",
-      "password": "asdfsvc fbgd",
-      "id": "AwjBQwzTKpU"
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "",
-      "id": "UHXFNfMRMaQ"
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "",
-      "id": "BAAs7iUC4HM"
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "",
-      "id": "yRSNIlO1kis"
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "",
-      "id": "3-tZ_g8sHao"
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "",
-      "id": "CkVzYJ5ICM0"
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "",
-      "id": "YjDHoL07uBs"
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "",
-      "id": "CO67v87BtR4"
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "",
-      "id": "sIuHnmIGUkE"
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "",
-      "id": "7S4ceJPtzeU"
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "",
-      "id": "wEKmVVO3Xns"
-    },
-    {
-      "name": "mno",
-      "email": "patelrizvan2107@gmail.com",
-      "password": "mnosacdxcs",
-      "id": "Nt3ZJUBqK6s"
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "",
-      "id": "pacxr-zcmzc"
+      "password": "12345678",
+      "id": "gwcfo8-Y57U"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
