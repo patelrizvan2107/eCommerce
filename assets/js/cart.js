@@ -71,7 +71,6 @@ const cartData = async () => {
 
     cartData.map((v) => {
         let pid = v.items.map((v2) => v2.productId);
-        pid.reverse();
 
         console.log(pid);
 

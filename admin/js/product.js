@@ -350,6 +350,9 @@ const handleSubmit = async (event) => {
     }
   }
 
+  console.log(imagesArr);
+  
+
   // --- Form Validation ---
   let formErr = false;
 
