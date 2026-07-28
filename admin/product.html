@@ -66,7 +66,6 @@
                                 <label>Category</label>
                                 <select id="categorySelect"></select>
                                 <span id="categoryError"></span>
-
                             </div>
 
                             <div class="form-group">
@@ -84,6 +83,17 @@
                                 <input type="text" id="productName">
                                 <span id="nameError"></span>
                             </div>
+
+                            <!-- NEW: Price Input Field -->
+                            <div class="form-group">
+                                <label>Price ($)</label>
+                                <input type="number" id="productPrice" step="0.01" min="0" placeholder="e.g. 49.99">
+                                <span id="priceError"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
 
                             <div class="form-group">
                                 <label>Description</label>
@@ -112,7 +122,7 @@
 
                         </div>
 
-                        <div class="image-row" id="allImage">
+                        <div class="image-row">
 
                             <div class="form-group image-upload">
                                 <label>Upload Product Image</label>
@@ -127,7 +137,7 @@
                                             class="preview-image">
                                     </div>
                                     <label>Add More Images</label>
-                                    <button
+                                    <button type="button"
                                         onclick="hanldeMulImage()">Add</button>
                                 </div>
                                 <span id="imageError"></span>
@@ -155,6 +165,7 @@
                                 <th>Category</th>
                                 <th>Subcategory</th>
                                 <th>Product Name</th>
+                                <th>Price</th> <!-- NEW: Table Header for Price -->
                                 <th>Description</th>
                                 <th>Image</th>
                                 <th>Action</th>

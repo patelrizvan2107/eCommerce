@@ -65,14 +65,14 @@ const handleLogin = async () => {
   let data = await res.json();
 
   let auth = data.find(
-    (v) => v.email === userEmail && v.password === userPassword,
+    (v) => v.email === userEmail && v.password === userPassword, 
   );
 
-  console.log(auth);
-
   if (auth) {
+    localStorage.setItem("userId", `${auth.id}`);
     window.location = "index.html";
   } else {
     alert("Incorrect Password");
   }
+
 };

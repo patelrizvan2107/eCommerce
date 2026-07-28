@@ -1019,3 +1019,19 @@ footer {
     background: transparent;
   }
 }
+
+/* Cart Page Enhancements */
+.cart-section {
+    background-color: var(--bg-light);
+    min-height: calc(100vh - 80px - 300px);
+}
+
+.cart-item img {
+    border: 1px solid var(--border);
+}
+
+@media (max-width: 576px) {
+    .cart-item {
+        align-items: flex-start !important;
+    }
+}

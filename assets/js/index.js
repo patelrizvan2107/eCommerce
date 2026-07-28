@@ -50,7 +50,7 @@ const productData = async () => {
         <div class="dataset">
             <h2 class="data">${v.name}</h2>
             <div class="dataset-prices">
-                <span class="dis">$99.99</span>
+                <span class="dis">${v.price}</span>
                 <span class="disprice">$69.99</span>
             </div>
             <div class="swatch-group">

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Fashion Store</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+            HEADER
+    ========================== -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand logo" href="index.html">
+                    <img src="./assets/image/logo.png" alt="Logo">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Product</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Categories</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Collections</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    </ul>
+
+                    <div class="header-icons">
+                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                        <a href="#"><i class="fa-regular fa-heart"></i></a>
+                        <a href="cart.html" class="position-relative">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount">3</span>
+                        </a>
+                        <a href="login.html"><i class="fa-regular fa-user"></i></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- =========================
+            CART SECTION
+    ========================== -->
+    <section class="cart-section py-5">
+        <div class="container">
+            <div class="section-title text-start mb-4">
+                <h2>Your Shopping Cart</h2>
+                <p>Review items in your cart before checkout</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Cart Items List -->
+                <div class="col-lg-8">
+                    <div class="cart-table-wrapper border rounded-3 p-3 p-md-4 bg-white shadow-sm">
+                        <div id="cartItemsContainer">
+                            <!-- Items populated by JavaScript -->
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+                            <a href="index.html" class="text-decoration-none text-dark fw-bold">
+                                <i class="fa-solid fa-arrow-left me-2"></i>Continue Shopping
+                            </a>
+                            <button class="btn btn-outline-danger btn-sm rounded-pill" onclick="clearCart()">
+                                Clear Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary Sidebar -->
+                <div class="col-lg-4">
+                    <div class="order-summary border rounded-3 p-4 bg-white shadow-sm">
+                        <h4 class="fw-bold mb-4">Order Summary</h4>
+
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Subtotal</span>
+                            <span class="fw-semibold" id="subtotalPrice">$0.00</span>
+                        </div>
+
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Estimated Shipping</span>
+                            <span class="fw-semibold" id="shippingPrice">$15.00</span>
+                        </div>
+
+                        <div class="d-flex justify-content-between mb-3">
+                            <span class="text-muted">Tax (5%)</span>
+                            <span class="fw-semibold" id="taxPrice">$0.00</span>
+                        </div>
+
+                        <!-- Coupon Input -->
+                        <div class="input-group mb-4">
+                            <input type="text" class="form-control rounded-start-pill" placeholder="Promo code">
+                            <button class="btn btn-dark rounded-end-pill px-3" type="button">Apply</button>
+                        </div>
+
+                        <hr>
+
+                        <div class="d-flex justify-content-between mb-4">
+                            <span class="fw-bold fs-5">Total</span>
+                            <span class="fw-bold fs-5 text-danger" id="totalPrice">$0.00</span>
+                        </div>
+
+                        <button class="btn-add-cart w-100 text-center text-decoration-none">
+                            Proceed to Checkout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================
+            FOOTER
+    ========================== -->
+    <footer>
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-box">
+                        <img src="./assets/image/logo.png" alt="Logo" class="footer-logo">
+                        <p>Modern fashion store with premium quality collections and accessories.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-x-twitter"></i></a>
+                            <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-box">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Our Story</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-box">
+                        <h4>Customer</h4>
+                        <ul>
+                            <li><a href="#">Shipping</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-box">
+                        <h4>Contact</h4>
+                        <p>Email: support@fashion.com</p>
+                        <p>Phone: +91 99999 99999</p>
+                        <p>Ahmedabad, Gujarat</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Fashion Store. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Cart Logic -->
+    <script src="./assets/js/cart.js"></script>
+</body>
+</html>

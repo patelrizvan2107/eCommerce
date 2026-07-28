@@ -52,127 +52,62 @@
   ],
   "product": [
     {
-      "category": "BMJktuXLJJI",
-      "subCategory": "Nzl7wGHjdk8",
-      "name": "mno",
-      "desc": "qawdq",
-      "image": [
-        "cate-6.jpg"
-      ],
-      "tags": [],
-      "id": "kjBXPoh4dQY"
-    },
-    {
-      "category": "BMJktuXLJJI",
-      "subCategory": "668xGU7R-po",
-      "name": "asa",
-      "desc": "ASa",
-      "image": [
-        "cls-8.jpg"
-      ],
-      "tags": [],
-      "id": "CtX0AnhPJrE"
-    },
-    {
-      "category": "HDFuIQa55jI",
+      "category": "1HPKo4tjNcM",
       "subCategory": "DwhVqDMVQ7U",
-      "name": "heels",
-      "desc": "ffreeeee",
+      "name": "mens",
+      "price": 99,
+      "desc": "svfsdfv",
       "image": [
-        "cate-4.jpg",
-        "cate-6.jpg",
-        "fan.jpg"
+        "bily.jpg"
       ],
-      "tags": [],
-      "id": "OoXXYpzXGEI"
+      "tags": [
+        "summer"
+      ],
+      "id": "FRo3mykUDa0"
     },
     {
       "category": "3L_B96jx87k",
-      "subCategory": "DwhVqDMVQ7U",
-      "name": "efwef",
-      "desc": "wefwf",
+      "subCategory": "BazSM40yc5k",
+      "name": "xyz",
+      "price": 150,
+      "desc": "dcsdv",
       "image": [
-        "cate-5.jpg",
+        "cate-3.jpg"
+      ],
+      "tags": [
+        "bestseller"
+      ],
+      "id": "NFff-WJt4do"
+    },
+    {
+      "category": "3L_B96jx87k",
+      "subCategory": "Nzl7wGHjdk8",
+      "name": "pqr",
+      "price": 199,
+      "desc": "adcfswvsfv",
+      "image": [
         "cate-4.jpg"
       ],
       "tags": [
-        "on",
-        "on"
+        "summer",
+        "winter"
       ],
-      "id": "5Of7Updy7Qk"
-    },
-    {
-      "category": "3L_B96jx87k",
-      "subCategory": "668xGU7R-po",
-      "name": "asasa",
-      "desc": "asca",
-      "image": [],
-      "tags": [
-        "on"
-      ],
-      "id": "C0ewerirZ6g"
-    },
-    {
-      "category": "3L_B96jx87k",
-      "subCategory": "DwhVqDMVQ7U",
-      "name": "asa",
-      "desc": "sdcsd",
-      "image": [],
-      "tags": [],
-      "id": "5wLXAUvcQDQ"
-    },
-    {
-      "category": "BMJktuXLJJI",
-      "subCategory": "Nzl7wGHjdk8",
-      "name": "SXAS",
-      "desc": "ASCASCA",
-      "image": [],
-      "tags": [],
-      "id": "Te83ssJ2m58"
-    },
-    {
-      "category": "3L_B96jx87k",
-      "subCategory": "Nzl7wGHjdk8",
-      "name": "sdcs",
-      "desc": "scdsdc",
-      "image": [],
-      "tags": [
-        "on",
-        "on"
-      ],
-      "id": "QlhTIRPXOJM"
-    },
-    {
-      "category": "BMJktuXLJJI",
-      "subCategory": "Nzl7wGHjdk8",
-      "name": "dcsdcsc",
-      "desc": "sdcsdcs",
-      "image": [],
-      "tags": [
-        "on",
-        "on"
-      ],
-      "id": "wANY58X72hw"
+      "id": "gT8RDlxHLbk"
     },
     {
       "category": "8Ct9taC9-wE",
-      "subCategory": "Nzl7wGHjdk8",
-      "name": "sdfsdssds",
-      "desc": "vsdvsdv",
-      "image": "electronic.jpg",
-      "tags": [],
-      "id": "wNbr9Yz4Vok"
-    },
-    {
-      "category": "3L_B96jx87k",
-      "subCategory": "DwhVqDMVQ7U",
-      "name": " kjbnlmk;lm,",
-      "desc": "yyyyyyyyyyyyyyyyyyytf",
-      "image": "laptop.jpg",
-      "tags": [
-        "on"
+      "subCategory": "BazSM40yc5k",
+      "name": "dress1",
+      "price": 299,
+      "desc": "fjvdjf vndm dm",
+      "image": [
+        "product-1_2.jpg"
       ],
-      "id": "1leEx_UQDPs"
+      "tags": [
+        "bestseller",
+        "summer"
+      ],
+      "id": "gt-pNSC6UX0"
     }
   ],
   "subCategory": [
@@ -214,26 +149,26 @@
   ],
   "cart": [
     {
-      "userId": "user123",
+      "userId": "Q_0x2Fe_V7A",
       "items": [
         {
-          "productId": "kjBXPoh4dQY",
-          "qtty": 28
+          "productId": "gT8RDlxHLbk",
+          "qtty": 9
         },
         {
-          "productId": "5Of7Updy7Qk",
-          "qtty": 5
+          "productId": "NFff-WJt4do",
+          "qtty": 4
         },
         {
-          "productId": "5wLXAUvcQDQ",
-          "qtty": 5
+          "productId": "FRo3mykUDa0",
+          "qtty": 4
         },
         {
-          "productId": "C0ewerirZ6g",
-          "qtty": 3
+          "productId": "gt-pNSC6UX0",
+          "qtty": 1
         }
       ],
-      "id": "XvwtIcCgYT8"
+      "id": "xwB348M6drw"
     }
   ],
   "user": [

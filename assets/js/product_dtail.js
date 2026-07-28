@@ -96,7 +96,7 @@ const handleDEC = () => {
 };
 
 const addtoCart = async () => {
-  const userId = "user123";
+  const userId = localStorage.getItem("userId")
   const productId = localStorage.getItem("productId");
 
   let qtty = parseInt(document.getElementById("qtty").innerHTML);
