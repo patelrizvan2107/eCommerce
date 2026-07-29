@@ -42,7 +42,7 @@ const handleRegidtration = async () => {
     let user = {
       name,
       email,
-      password,
+      password
     };
 
     await fetch("http://localhost:3000/user", {

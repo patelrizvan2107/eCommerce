@@ -190,7 +190,7 @@
         },
         {
           "productId": "TRY6f_1ebA8",
-          "qtty": 15
+          "qtty": 10
         },
         {
           "productId": "GyP08U6E5bU",
@@ -198,14 +198,62 @@
         }
       ],
       "id": "W0jWJ7HVMP4"
+    },
+    {
+      "userId": "dBVHzTNweFo",
+      "items": [
+        {
+          "productId": "V3FZraI5lg8",
+          "qtty": 2
+        },
+        {
+          "productId": "w8-D3ssJVEs",
+          "qtty": 3
+        },
+        {
+          "productId": "TRY6f_1ebA8",
+          "qtty": 1
+        },
+        {
+          "productId": "WXCVCCSOW0M",
+          "qtty": 4
+        }
+      ],
+      "id": "-2o2EVXZA7E"
     }
   ],
   "user": [
     {
       "name": "john",
       "email": "patelrizvan2107@gmail.com",
-      "password": "12345678",
-      "id": "gwcfo8-Y57U"
+      "password": "11111111",
+      "id": "dBVHzTNweFo",
+      "address": [
+        {
+          "id": "888ffdcd-dbe5-4ed4-8c95-aee65a62892b",
+          "line1": "1014",
+          "line2": "Vanakaner",
+          "landmark": "Bardoli",
+          "city": "Surat",
+          "pincode": "394620"
+        },
+        {
+          "id": "567062a5-dfbc-4285-922d-759c4206c187",
+          "line1": "11",
+          "line2": "dd",
+          "landmark": "dd",
+          "city": "dd",
+          "pincode": "11"
+        },
+        {
+          "id": "5a337101-542f-4694-8e08-4a1652024eba",
+          "line1": "dddd",
+          "line2": "dd",
+          "landmark": "d",
+          "city": "dd",
+          "pincode": "dd"
+        }
+      ]
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -45,7 +45,7 @@ const productData = async () => {
     <div>
         <div class="tddata">
             <div class="disc">-25%</div>
-            <img src="./admin/images/category_img/${v.image}" alt="${v.name}">
+            <img src="./admin/images/category_img/${v.image[0]}" alt="${v.name}">
         </div>
         <div class="dataset">
             <h2 class="data">${v.name}</h2>

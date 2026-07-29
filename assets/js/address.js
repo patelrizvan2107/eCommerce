@@ -1,208 +1,246 @@
-
-
-// const handleUser = async () => {
-//     let userRes = await fetch("http://localhost:3000/user");
-//     let userData = await userRes.json();
-
-//     let uid = localStorage.getItem("userId")
-
-//     let uData = userData.find((v) => v.id === uid)
-
-//     console.log(uData?.address);
-
-// }
-
-
-// const handleDisp = () => {
-//     const maindiv = document.getElementById("allData");
-
-    
-
-//     const card = document.createElement("div");
-//     card.className = "card border-0 shadow-sm p-4 mb-4";
-//     card.id = "dynamicAddressCard";
-
-//     const form = document.createElement("form");
-//     form.id = "dynamicAddressForm";
-
-//     // Form Title
-//     const title = document.createElement("h5");
-//     title.className = "fw-bold mb-3 text-dark";
-//     title.innerText = "Add New Address";
-//     form.appendChild(title);
-
-//     // Helper function to build form inputs
-//     const createInputGroup = (placeholder, id, required = true) => {
-//         const wrapper = document.createElement("div");
-//         wrapper.className = "mb-3";
-
-//         const input = document.createElement("input");
-//         input.type = "text";
-//         input.id = id;
-//         input.placeholder = placeholder;
-//         input.className = "form-control";
-//         if (required) input.required = true;
-
-//         wrapper.appendChild(input);
-//         return { wrapper, input };
-//     };
-
-//     const line1 = createInputGroup("Address Line 1 (House/Flat No., Street)", "line1", true);
-//     const line2 = createInputGroup("Address Line 2 (Optional)", "line2", false);
-//     const landmark = createInputGroup("Landmark (e.g. Near Park)", "landmark", false);
-
-//     const row = document.createElement("div");
-//     row.className = "row g-3 mb-3";
-
-//     const cityCol = document.createElement("div");
-//     cityCol.className = "col-6";
-//     const city = createInputGroup("City", "city", true);
-//     cityCol.appendChild(city.wrapper);
-
-//     const pincodeCol = document.createElement("div");
-//     pincodeCol.className = "col-6";
-//     const pincode = createInputGroup("Pincode / ZIP Code", "pincode", true);
-//     pincodeCol.appendChild(pincode.wrapper);
-
-//     row.appendChild(cityCol);
-//     row.appendChild(pincodeCol);
-
-//     const btnContainer = document.createElement("div");
-//     btnContainer.className = "d-flex gap-2 mt-4";
-
-//     const submitBtn = document.createElement("button");
-//     submitBtn.type = "submit";
-//     submitBtn.className = "btn btn-primary flex-grow-1 fw-semibold";
-//     submitBtn.innerText = "Save Address";
-
-//     const cancelBtn = document.createElement("button");
-//     cancelBtn.type = "button";
-//     cancelBtn.className = "btn btn-outline-secondary fw-semibold";
-//     cancelBtn.innerText = "Cancel";
-
-//     btnContainer.appendChild(submitBtn);
-//     btnContainer.appendChild(cancelBtn);
-
-//     form.appendChild(line1.wrapper);
-//     form.appendChild(line2.wrapper);
-//     form.appendChild(landmark.wrapper);
-//     form.appendChild(row);
-//     form.appendChild(btnContainer);
-//     card.appendChild(form);
-    
-//     // Prepend form so it appears above saved addresses
-//     maindiv.prepend(card);
-// }
-
-
-// window.onload = () => {
-//     handleUser()
-// }
-
 const handleUser = async () => {
+  let userRes = await fetch("http://localhost:3000/user");
 
-    let userRes = await fetch("http://localhost:3000/user");
+  let userData = await userRes.json();
 
-    let userData = await userRes.json();
+  let uid = localStorage.getItem("userId");
+
+  let uData = userData.find((v) => v.id === uid);
+
+  // console.log(uData?.address);
+
+  address = uData?.address;
+};
+
+const formDisp = async () => {
+  let form = document.createElement("form");
+
+  form.setAttribute("onsubmit", "handleSubmit()");
+
+  form.className = "checkout-box mt-4"; // Designed container card
+
+  let title = document.createElement("h4");
+
+  title.className = "box-title";
+
+  title.innerText = "Add New Delivery Address";
+
+  form.appendChild(title);
+
+  let line1 = document.createElement("input");
+
+  line1.setAttribute("type", "text");
+
+  line1.setAttribute("id", "line1");
+
+  line1.className = "form-control mb-3";
+
+  let line2 = document.createElement("input");
+
+  line2.setAttribute("id", "line2");
+
+  line2.setAttribute("type", "text");
+
+  line2.className = "form-control mb-3";
+
+  let landmark = document.createElement("input");
+
+  landmark.setAttribute("id", "landmark");
+
+  landmark.setAttribute("type", "text");
+
+  landmark.className = "form-control mb-3";
+
+  let city = document.createElement("input");
+
+  city.setAttribute("id", "city");
+
+  city.setAttribute("type", "text");
+
+  city.className = "form-control mb-3";
+
+  let pincode = document.createElement("input");
+
+  pincode.setAttribute("id", "pincode");
+
+  pincode.setAttribute("type", "text");
+
+  pincode.className = "form-control mb-3";
+
+  let submit = document.createElement("input");
+
+  submit.setAttribute("type", "submit");
+
+  submit.setAttribute("value", "Submit");
+
+  submit.className = "auth-btn mt-2";
+
+  line1.placeholder = "Address Line 1";
+
+  line2.placeholder = "Address Line 2 (Optional)";
+
+  landmark.placeholder = "Landmark";
+
+  city.placeholder = "City";
+
+  pincode.placeholder = "Pincode / ZIP Code";
+
+  form.appendChild(line1);
+
+  form.appendChild(line2);
+
+  form.appendChild(landmark);
+
+  form.appendChild(city);
+
+  form.appendChild(pincode);
+
+  form.appendChild(submit);
+
+  let maindiv = document.getElementById("allData");
+
+  maindiv.appendChild(form);
+
+  let btn = document.getElementById("addAddressBtn");
+
+  btn.setAttribute("disabled", "false");
+};
+
+// let addressArr = []
+
+const handleSubmit = async () => {
+  event.preventDefault();
+
+  let uid = localStorage.getItem("userId");
+
+  let uRes = await fetch(`http://localhost:3000/user/${uid}`);
+
+  let uData = await uRes.json();
+
+  // console.log(userdata?.address);
+
+  let line1 = document.getElementById("line1").value;
+
+  let line2 = document.getElementById("line2").value;
+
+  let landmark = document.getElementById("landmark").value;
+
+  let city = document.getElementById("city").value;
+
+  let pincode = document.getElementById("pincode").value;
+
+  let addressObj = {
+    id: crypto.randomUUID(),
+
+    line1,
+
+    line2,
+
+    landmark,
+
+    city,
+
+    pincode,
+  };
+
+  console.log(addressObj);
+
+  if (uData?.address) {
+    uData?.address.push(addressObj);
+
+    await fetch(`http://localhost:3000/user/${uData.id}`, {
+      method: "Put",
+
+      headers: { "Content-Type": "application/json" },
+
+      body: JSON.stringify(uData),
+    });
+  } else {
+    uData.address = [uData];
+
+    await fetch(`http://localhost:3000/user/${uData.id}`, {
+      method: "Put",
+
+      headers: { "Content-Type": "application/json" },
+
+      body: JSON.stringify(uData),
+    });
+  }
+};
+
+const addressDisp = async () => {
+  let uid = localStorage.getItem("userId");
+
+  let uRes = await fetch(`http://localhost:3000/user/${uid}`);
+
+  let uData = await uRes.json();
+
+  console.log(uData.address);
+
+  let print = `<h3 class="box-title mb-3">Existing Addresses</h3><div class="row g-3">`;
+
+  let inc = 1;
+
+  uData.address.map((v) => {
+    print += `<div class="col-md-6">
+
+            <label class="address-card">
+
+                <span class="badge-type mb-2">Address ${inc++}</span>
+
+                <input type="radio" name="slctAddress" value = "${v.id}" onclick="checkAddress(this.value)"/>
+
+                <div class="address-content mt-2">
+
+                    <h5>${v.line1}</h5>
+
+                    ${v.line2 ? `<p>${v.line2}</p>` : ""}
+
+                    ${v.landmark ? `<p>${v.landmark}</p>` : ""}
+
+                    <p>${v.city}</p>
+
+                    <p><strong>${v.pincode}</strong></p>
+
+                </div>
+
+            </label>
+
+        </div>`;
+  });
+
+  print += `</div>`;
+
+  document.getElementById("addressDisp").innerHTML = print;
+};
+
+const checkAddress = async(adrsId) => {
+
+    console.log('id',adrsId);
 
 
+    localStorage.setItem("adrsId", adrsId);
 
-    let uid = localStorage.getItem("userId")
+    let slctAddress = document.querySelectorAll('input[name="slctAddress"]:checked');
 
+//   console.log(document.querySelector('input[name="slctAddress"]:checked'));
 
+  if(slctAddress) {
+    console.log(slctAddress.value);
 
-    let uData = userData.find((v) => v.id === uid)
-
-
-
-    console.log(uData?.address);
-
-
+  }else {
+    console.log("No radio button selected");
+}
 
 }
 
-
-
-
-
-const handleDisp = () => {
-
-    let form = document.createElement("form")
-
-    form.setAttribute("onsubmit", "handleSubmit()")
-
-
-
-    let line1 = document.createElement('input');
-
-
-
-    line1.setAttribute("type", "text")
-
-    let line2 = document.createElement('input');
-
-    line2.setAttribute("type", "text")
-
-    let landmark = document.createElement('input');
-
-    landmark.setAttribute("type", "text")
-
-    let city = document.createElement('input');
-
-    city.setAttribute("type", "text")
-
-    let pincode = document.createElement('input');
-
-    pincode.setAttribute("type", "text")
-
-
-
-    let submit = document.createElement('input');
-
-    submit.setAttribute("type", "submit");
-
-    submit.setAttribute("value", "Submit")
-
-    line1.placeholder = "Address Line 1";
-
-    line2.placeholder = "Address Line 2 (Optional)";
-
-    landmark.placeholder = "Landmark";
-
-    city.placeholder = "City";
-
-    pincode.placeholder = "Pincode / ZIP Code";
-
-
-
-    form.appendChild(line1)
-
-    form.appendChild(line2)
-
-    form.appendChild(landmark)
-
-    form.appendChild(city)
-
-    form.appendChild(pincode)
-
-    form.appendChild(submit)
-
-
-
-    let maindiv = document.getElementById("allData")
-
-
-
-    maindiv.appendChild(form)
-
-}
-
-
-
-
+const slctAdrs =  (adrs) => {
+  console.log('payment Process');
+  
+};
 
 window.onload = () => {
+  handleUser();
 
-    handleUser()
-
-} 
+  addressDisp();
+};

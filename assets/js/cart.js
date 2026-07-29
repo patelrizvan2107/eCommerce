@@ -35,36 +35,28 @@ const cartData = async () => {
             
         })
         // let iarr = pData.image.split("/")
-         print += `
-        <div class="cart-item py-3 border-bottom d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3">
+        print += `<div class="cart-item py-3 border-bottom d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3">
             <div class="d-flex align-items-center gap-3">
                 <img src='./admin/images/category_img/${pData.image[0]}' alt="" style="width: 80px; height: 95px; object-fit: cover; border-radius: 8px;">
                 <div>
                     <h5 class="mb-1 text-dark fw-bold">${pData.name}</h5>
                     <div class="d-flex align-items-center gap-2">
-                        <span class="fw-bold text-dark">$${pData.price}</span>
-                        <span class="text-muted text-decoration-line-through small">$</span>
+                        <span class="fw-bold text-dark">${pData.price}</span>
+                        <span class="text-muted text-decoration-line-through small"></span>
                     </div>
                 </div>
             </div>
-
-            <div class="d-flex align-items-center justify-content-between justify-content-sm-end gap-4">
-                <!-- Quantity Selector -->
+    <div class="d-flex align-items-center justify-content-between justify-content-sm-end gap-4">
                 <div class="quantity-control">
                     <button class="quantity-btn" onclick="minusQuantity(this)">-</button>
                     <span id='qttySpan'>${v1.qtty}</span>
                     <button class="quantity-btn" onclick="plusQuantity(this)">+</button>
                 </div>
-
-                
-
-                <!-- Remove Button -->
-                <button class="btn text-danger p-0" onclick="removeItem( )">
+ <button class="btn text-danger p-0" onclick="removeItem( )">
                     <i class="fa-regular fa-trash-can fs-5"></i>
                 </button>
             </div>
-        </div>
-    `
+        </div>`
   })
   
 
@@ -73,13 +65,71 @@ const cartData = async () => {
 
 const plusQuantity = (e) => {
 
+    console.log(e.parentNode.childNodes[3].innerHTML);
     
+
+
+ let qtty = parseInt(e.parentNode.childNodes[3].innerHTML);
+
+  qtty++;
+
+  if (qtty <= 10) {
+    e.parentNode.childNodes[3].innerHTML = qtty;
+//   }else {
+//     e.disabled = true;
+}
+    
+  calcTotal()
 
 }
 
-window.onload = () => {
-  cartData();
-};
+const minusQuantity = (e) => {
+ console.log(e.parentNode.childNodes[3].innerHTML);
+    
+
+
+ let qtty = parseInt(e.parentNode.childNodes[3].innerHTML);
+
+  qtty--;
+
+  if (qtty >= 1) {
+    e.parentNode.childNodes[3].innerHTML = qtty;
+//   }else if(qtty>1){
+//     e.disabled = true;
+  }
+  calcTotal()
+}
+
+const calcTotal = () => {
+    const cartItemsContainer = document.getElementById("cartItemsContainer");
+    console.log(cartItemsContainer.childNodes, cartItemsContainer.childNodes.length);
+
+    let total = 0
+
+    for (let i = 0; i < cartItemsContainer.childNodes.length; i++) {
+        let price = parseInt(cartItemsContainer.childNodes[i].childNodes[1].childNodes[3].childNodes[3].childNodes[1].innerHTML);
+        let qtty =parseInt((cartItemsContainer.childNodes[i].childNodes[3].childNodes[1].childNodes[3].innerHTML))
+        console.log(price * qtty);
+
+        total += price * qtty
+        
+    }
+
+    document.getElementById("subtotalPrice").innerHTML = total;
+
+    total = total - 50;
+    
+    let tax = total * 0.05;
+   
+    document.getElementById("taxPrice").innerHTML = tax.toFixed(2);
+
+    let totalPrice = total - tax
+    document.getElementById("totalPrice").innerHTML = totalPrice;
+
+    
+}
+
+
 
 //  $${(item.price * item.quantity).toFixed(2)}
                     // <input type="text" class="quantity-input" value="${v1.qtty}" readonly>
@@ -87,4 +137,13 @@ window.onload = () => {
 
 const Proceed = () => {
     window.location = "address.html"
+
+    
 }
+
+window.onload = async() => {
+   await cartData();
+
+    calcTotal()
+
+};
