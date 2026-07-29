@@ -51,9 +51,9 @@ const cartData = async () => {
             <div class="d-flex align-items-center justify-content-between justify-content-sm-end gap-4">
                 <!-- Quantity Selector -->
                 <div class="quantity-control">
-                    <button class="quantity-btn" onclick="updateQuantity(, -1)">-</button>
-                    <input type="text" class="quantity-input" value="${v1.qtty}" readonly>
-                    <button class="quantity-btn" onclick="updateQuantity( 1)">+</button>
+                    <button class="quantity-btn" onclick="minusQuantity(this)">-</button>
+                    <span id='qttySpan'>${v1.qtty}</span>
+                    <button class="quantity-btn" onclick="plusQuantity(this)">+</button>
                 </div>
 
                 
@@ -71,8 +71,20 @@ const cartData = async () => {
   document.getElementById("cartItemsContainer").innerHTML = print;
 };
 
+const plusQuantity = (e) => {
+
+    
+
+}
+
 window.onload = () => {
   cartData();
 };
 
 //  $${(item.price * item.quantity).toFixed(2)}
+                    // <input type="text" class="quantity-input" value="${v1.qtty}" readonly>
+
+
+const Proceed = () => {
+    window.location = "address.html"
+}
