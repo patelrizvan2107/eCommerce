@@ -148,6 +148,23 @@
       ],
       "tags": [],
       "id": "NKZ0Brzwegg"
+    },
+    {
+      "category": "omr2mH2PWrQ",
+      "subCategory": "Nzl7wGHjdk8",
+      "name": "Earings",
+      "price": 69,
+      "desc": "sdswd",
+      "image": [
+        "cate-6.jpg",
+        "cls-8.jpg",
+        "product-8_2.jpg"
+      ],
+      "tags": [
+        "on",
+        "on"
+      ],
+      "id": "s_tg8lbYwzM"
     }
   ],
   "subCategory": [
@@ -254,6 +271,12 @@
           "pincode": "dd"
         }
       ]
+    },
+    {
+      "name": "Rizvan Patel",
+      "email": "patelrizvan2107@gmail.com",
+      "password": "12345678",
+      "id": "V7xkbAvbBmA"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

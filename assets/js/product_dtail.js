@@ -6,7 +6,7 @@ const handleBuyProduct = async () => {
   let slidesHtml = data.image.map(
     (v) => `
         <div class="swiper-slide">
-            <img src="./assets/image/${v}" alt="">
+            <img src="admin/images/category_img/${v}" alt="">
         </div>
     `,
   );
@@ -40,8 +40,8 @@ const handleBuyProduct = async () => {
                 </div>
 
                 <div class="priceArea">
-                    <span class="oldPrice">$100</span>
-                    <span class="newPrice">$75</span>
+                    <span class="oldPrice">$1000</span>
+                    <span class="newPrice">${data.price}</span>
                 </div>
 
                 <p>${data.desc}</p>

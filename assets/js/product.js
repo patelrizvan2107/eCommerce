@@ -19,7 +19,7 @@ const handleProduct = async () => {
     <div class="product-card">
         <div class="tddata">
             <span class="disc">-25%</span>
-            <img src="./admin/images/category_img/${v.image}" alt="${v.name}">
+            <img src="./admin/images/category_img/${v.image[0]}" alt="${v.name}">
         </div>
         
         <div class="dataset">
@@ -27,7 +27,7 @@ const handleProduct = async () => {
             
             <div class="dataset-prices">
                 <span class="dis">$99.99</span>
-                <span class="disprice">$69.99</span>
+                <span class="disprice">${v.price}</span>
             </div>
             
            

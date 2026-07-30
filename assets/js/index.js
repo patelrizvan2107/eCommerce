@@ -73,7 +73,7 @@ window.location = "product.html"
 
 }
 
-
+{/* <i class="fa-solid fa-arrow-right-from-bracket"></i> */}
 
 window.onload = () => {
     catData();
