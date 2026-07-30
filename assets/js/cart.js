@@ -37,7 +37,7 @@ const cartData = async () => {
         // let iarr = pData.image.split("/")
         print += `<div class="cart-item py-3 border-bottom d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3">
             <div class="d-flex align-items-center gap-3">
-                <img src='./admin/images/category_img/${pData.image[0]}' alt="" style="width: 80px; height: 95px; object-fit: cover; border-radius: 8px;">
+                <img src='admin/images/category_img/${pData.image[0]}' alt="" style="width: 80px; height: 95px; object-fit: cover; border-radius: 8px;">
                 <div>
                     <h5 class="mb-1 text-dark fw-bold">${pData.name}</h5>
                     <div class="d-flex align-items-center gap-2">
@@ -117,13 +117,13 @@ const calcTotal = () => {
 
     document.getElementById("subtotalPrice").innerHTML = total;
 
-    total = total - 50;
+    total = total + 50;
     
     let tax = total * 0.05;
    
     document.getElementById("taxPrice").innerHTML = tax.toFixed(2);
 
-    let totalPrice = total - tax
+    let totalPrice = total + tax
     document.getElementById("totalPrice").innerHTML = totalPrice;
 
     

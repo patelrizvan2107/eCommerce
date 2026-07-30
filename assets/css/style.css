@@ -243,7 +243,6 @@ img {
 .tddata {
   position: relative;
   width: 100%;
-  padding-top: 110%; /* Controls image ratio consistently */
   background-color: var(--bg-light);
   overflow: hidden;
 }
@@ -1197,4 +1196,148 @@ footer {
 .summary-item .cart-item-img {
   width: 48px;
   height: 48px;
+}
+
+/* ==========================================
+   PRODUCT CARD & SWIPER STYLING FIX
+   ========================================== */
+
+/* Main Card Wrapper */
+.product-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Section / Swiper Container */
+.tddata {
+  position: relative;
+  width: 100%;
+  background-color: #f8f9fa;
+}
+
+.tddata .swiper {
+  width: 100%;
+  height: 320px; /* Controls exact height of image area */
+}
+
+.tddata .swiper-slide {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Ensure images fill the slide container properly */
+.product-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Keeps image proportions clean without stretching */
+  object-position: center top;
+}
+
+/* Discount Badge Overlay */
+.tddata .disc {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: #ff385c;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Navigation Buttons Styling */
+.tddata .swiper-button-next,
+.tddata .swiper-button-prev {
+  width: 32px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  color: #222222;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: all 0.2s ease;
+  opacity: 0; /* Hidden by default, shown on hover */
+}
+
+.product-card:hover .swiper-button-next,
+.product-card:hover .swiper-button-prev {
+  opacity: 1; /* Shows arrows when user hovers over card */
+}
+
+.tddata .swiper-button-next::after,
+.tddata .swiper-button-prev::after {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.tddata .swiper-pagination-bullet-active {
+  background-color: #222222;
+}
+
+/* Details Section below image */
+.dataset {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.dataset .data {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.dataset-prices {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dataset-prices .dis {
+  text-decoration: line-through;
+  color: #888888;
+  font-size: 14px;
+}
+
+.dataset-prices .disprice {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.dataset .buy {
+  margin-top: auto;
+  width: 100%;
+  padding: 10px;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.dataset .buy:hover {
+  background-color: #333333;
 }

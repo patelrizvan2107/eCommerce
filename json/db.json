@@ -53,118 +53,163 @@
   "product": [
     {
       "category": "3L_B96jx87k",
-      "subCategory": "Nzl7wGHjdk8",
-      "name": "dsedrf",
-      "price": 6534,
-      "desc": "fgghbfgh",
+      "subCategory": "BazSM40yc5k",
+      "name": "aa",
+      "price": 99,
+      "desc": "premium",
       "image": [
-        "image.png"
+        "cat5.jpg",
+        "cat3.jpg",
+        "product-5_2.jpg",
+        "product-7_2.jpg",
+        "product-4_2.jpg",
+        "product-2_2.jpg"
       ],
-      "tags": [],
-      "id": "V3FZraI5lg8"
+      "tags": [
+        "bestseller"
+      ],
+      "id": "40v_sSoDCso"
     },
     {
       "category": "BMJktuXLJJI",
       "subCategory": "Nzl7wGHjdk8",
-      "name": "Shirtfgnfhnjgmghjm",
+      "name": "bb",
       "price": 199,
-      "desc": "rfdgfgdbdfb",
+      "desc": "Top Trending",
       "image": [
-        "laptop_2.jpg",
-        "fan.jpg"
-      ],
-      "tags": [],
-      "id": "w8-D3ssJVEs"
-    },
-    {
-      "category": "8Ct9taC9-wE",
-      "subCategory": "Nzl7wGHjdk8",
-      "name": "sdefsdf",
-      "price": 899,
-      "desc": "ghmjgh",
-      "image": [
-        "product-7_2.jpg",
-        "sofa.jpg",
-        "fashion.jpg",
-        "cate-2.jpg"
+        "product-5_2.jpg",
+        "product-3_2.jpg"
       ],
       "tags": [
-        "on"
+        "new",
+        "bestseller"
       ],
-      "id": "TRY6f_1ebA8"
-    },
-    {
-      "category": "3L_B96jx87k",
-      "subCategory": "Nzl7wGHjdk8",
-      "name": "sdgvsduuuuuuuuuu",
-      "price": 1414,
-      "desc": "scxczdc",
-      "image": [
-        "laptop.jpg",
-        "table.jpg",
-        "table.jpg"
-      ],
-      "tags": [],
-      "id": "U0e1WogpBQ4"
-    },
-    {
-      "category": "8Ct9taC9-wE",
-      "subCategory": "Nzl7wGHjdk8",
-      "name": "asdfvsd",
-      "price": 788,
-      "desc": "sdvgsdv",
-      "image": [
-        "table.jpg",
-        "bed.jpg"
-      ],
-      "tags": [],
-      "id": "GyP08U6E5bU"
-    },
-    {
-      "category": "1HPKo4tjNcM",
-      "subCategory": "668xGU7R-po",
-      "name": "qwqw",
-      "price": 1,
-      "desc": "dfdfd",
-      "image": [
-        "furniture.jpg",
-        "image.png"
-      ],
-      "tags": [
-        "on"
-      ],
-      "id": "WXCVCCSOW0M"
-    },
-    {
-      "category": "3L_B96jx87k",
-      "subCategory": "Nzl7wGHjdk8",
-      "name": "sdgvsdok",
-      "price": 1414,
-      "desc": "scxczdc",
-      "image": [
-        "table.jpg",
-        "ac.jpg",
-        "bed.jpg"
-      ],
-      "tags": [],
-      "id": "NKZ0Brzwegg"
+      "id": "1LI5OJW5Gf8"
     },
     {
       "category": "omr2mH2PWrQ",
-      "subCategory": "Nzl7wGHjdk8",
-      "name": "Earings",
-      "price": 69,
-      "desc": "sdswd",
+      "subCategory": "BazSM40yc5k",
+      "name": "cc",
+      "price": 299,
+      "desc": "Top Trending",
       "image": [
-        "cate-6.jpg",
-        "cls-8.jpg",
-        "product-8_2.jpg"
+        "product-7_2.jpg",
+        "product-6_2.jpg"
       ],
       "tags": [
-        "on",
-        "on"
+        "new",
+        "bestseller"
       ],
-      "id": "s_tg8lbYwzM"
+      "id": "vNM80Pm9P1E"
+    },
+    {
+      "category": "3L_B96jx87k",
+      "subCategory": "Nzl7wGHjdk8",
+      "name": "dd",
+      "price": 399,
+      "desc": "Top Trending",
+      "image": [
+        "product-1_2.jpg",
+        "product-4_2.jpg"
+      ],
+      "tags": [
+        "new",
+        "bestseller"
+      ],
+      "id": "Fb_jcZdsPes"
+    },
+    {
+      "category": "BMJktuXLJJI",
+      "subCategory": "Nzl7wGHjdk8",
+      "name": "ee",
+      "price": 499,
+      "desc": " v",
+      "image": [
+        "cate-2.jpg",
+        "cate-4.jpg"
+      ],
+      "tags": [
+        "new"
+      ],
+      "id": "mtbYdORPpHA"
+    },
+    {
+      "category": "BMJktuXLJJI",
+      "subCategory": "Nzl7wGHjdk8",
+      "name": "rger",
+      "price": 99999,
+      "desc": "inc",
+      "image": [
+        "cls-8.jpg",
+        "table.jpg"
+      ],
+      "tags": [
+        "new"
+      ],
+      "id": "c-Ce8ETOwiQ"
+    },
+    {
+      "category": "BMJktuXLJJI",
+      "subCategory": "Nzl7wGHjdk8",
+      "name": "ffff",
+      "price": 44,
+      "desc": "Season",
+      "image": [
+        "bed.jpg",
+        "bily.jpg",
+        "product-1_2.jpg"
+      ],
+      "tags": [
+        "new"
+      ],
+      "id": "JudPd-WBSLY"
+    },
+    {
+      "category": "1HPKo4tjNcM",
+      "subCategory": "DwhVqDMVQ7U",
+      "name": "Summer",
+      "price": 2999,
+      "desc": "Summer",
+      "image": [
+        "s1.avif",
+        "s2.webp"
+      ],
+      "tags": [
+        "summer"
+      ],
+      "id": "gtSaR479qHw"
+    },
+    {
+      "category": "BMJktuXLJJI",
+      "subCategory": "Nzl7wGHjdk8",
+      "name": "Winter",
+      "price": 3999,
+      "desc": "Winter",
+      "image": [
+        "w1.avif",
+        "w2.avif",
+        "w3.avif"
+      ],
+      "tags": [
+        "winter"
+      ],
+      "id": "jQLTD43UyTg"
+    },
+    {
+      "category": "BMJktuXLJJI",
+      "subCategory": "BazSM40yc5k",
+      "name": "Monsoon Wear",
+      "price": 1999,
+      "desc": "Monsoon Wear",
+      "image": [
+        "m1.avif",
+        "m2.avif",
+        "m3.webp"
+      ],
+      "tags": [
+        "monsoon"
+      ],
+      "id": "doRsV2sBj14"
     }
   ],
   "subCategory": [
@@ -195,48 +240,25 @@
       "des": "ertert",
       "image": "cate-5.jpg",
       "id": "BazSM40yc5k"
+    },
+    {
+      "CategoryId": "3L_B96jx87k",
+      "name": "Outwear",
+      "des": "sssss",
+      "image": "cat5.jpg",
+      "id": "nEW4Wp-aXTk"
     }
   ],
   "cart": [
     {
-      "userId": "gwcfo8-Y57U",
-      "items": [
-        {
-          "productId": "w8-D3ssJVEs",
-          "qtty": 8
-        },
-        {
-          "productId": "TRY6f_1ebA8",
-          "qtty": 10
-        },
-        {
-          "productId": "GyP08U6E5bU",
-          "qtty": 5
-        }
-      ],
-      "id": "W0jWJ7HVMP4"
-    },
-    {
       "userId": "dBVHzTNweFo",
       "items": [
         {
-          "productId": "V3FZraI5lg8",
-          "qtty": 2
-        },
-        {
-          "productId": "w8-D3ssJVEs",
-          "qtty": 3
-        },
-        {
-          "productId": "TRY6f_1ebA8",
-          "qtty": 1
-        },
-        {
-          "productId": "WXCVCCSOW0M",
+          "productId": "gtSaR479qHw",
           "qtty": 4
         }
       ],
-      "id": "-2o2EVXZA7E"
+      "id": "gUwz0br3fao"
     }
   ],
   "user": [

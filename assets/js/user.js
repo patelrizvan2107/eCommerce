@@ -75,13 +75,7 @@ const handleLogin = async () => {
     alert("Incorrect Password");
   }
 
-  let print = `<i class="fa-solid fa-arrow-right-from-bracket"></i>`
-  document.getElementById("loged").innerHTML = print;
   
 
 };
 
-window.onload = () => {
-  console.log(document.getElementById("loged"));
-  
-}

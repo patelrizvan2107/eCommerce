@@ -96,7 +96,7 @@ const handleDEC = () => {
 };
 
 const addtoCart = async () => {
-  const userId = localStorage.getItem("userId")
+  const userId = localStorage.getItem("userId");
   const productId = localStorage.getItem("productId");
 
   let qtty = parseInt(document.getElementById("qtty").innerHTML);
@@ -113,26 +113,26 @@ const addtoCart = async () => {
 
   console.log("cart data", cartData);
   console.log("daata", data);
-  let newProductIndex = cartData.items.findIndex((v) => v.productId === productId);
-  console.log(newProductIndex);
 
   if (cartData) {
+    let newProductIndex = cartData?.items?.findIndex(
+      (v) => v.productId === productId,
+    );
+    console.log(newProductIndex);
+
     if (newProductIndex < 0) {
       cartData.items.push({ productId: productId, qtty: parseInt(qtty) });
     } else {
-
-        cartData.items[newProductIndex].qtty += qtty
+      cartData.items[newProductIndex].qtty += qtty;
     }
 
     await fetch(`http://localhost:3000/cart/${cartData.id}`, {
-        method: "Put",
+      method: "Put",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(cartData),
-    })
+    });
 
-    console.log('whole data', cartData);
-    
-
+    console.log("whole data", cartData);
   } else {
     await fetch("http://localhost:3000/cart", {
       method: "Post",
