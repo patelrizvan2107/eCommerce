@@ -4,383 +4,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Products | Fashion Store</title>
+    
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/media.css">
+
     <style>
         /* ==========================================================================
-   1. GLOBAL RESETS & BASE STYLES
-   ========================================================================== */
-:root {
-  --primary-color: #0f172a;
-  --accent-color: #2563eb;
-  --accent-hover: #1d4ed8;
-  --text-main: #334155;
-  --text-muted: #64748b;
-  --bg-light: #f8fafc;
-  --border-color: #e2e8f0;
-  --font-family: 'DM Sans', sans-serif;
-  --transition-fast: all 0.25s ease;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
-}
+           1. GLOBAL RESETS & VARS
+           ========================================================================== */
+        :root {
+          --primary: #0f172a;
+          --accent: #2563eb;
+          --text-main: #334155;
+          --text-muted: #64748b;
+          --bg-light: #f8fafc;
+          --border-color: #e2e8f0;
+          --radius: 12px;
+          --font-family: 'DM Sans', sans-serif;
+          --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+          --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+          --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+        }
 
-body {
-  font-family: var(--font-family);
-  color: var(--text-main);
-  background-color: #ffffff;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
+        body {
+          font-family: var(--font-family);
+          color: var(--text-main);
+          background-color: #ffffff;
+          line-height: 1.6;
+          overflow-x: hidden;
+        }
 
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: var(--transition-fast);
-}
+        a {
+          text-decoration: none;
+          color: inherit;
+          transition: var(--transition);
+        }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
 
-/* Section Headings */
-.mainTitle {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  text-align: center;
-  margin-bottom: 0.25rem;
-}
+        /* Titles */
+        .mainTitle {
+          font-size: 2.25rem;
+          font-weight: 800;
+          color: var(--primary);
+          text-align: center;
+          margin-bottom: 0.25rem;
+          letter-spacing: -0.5px;
+        }
 
-.subTitle {
-  font-size: 1rem;
-  color: var(--text-muted);
-  text-align: center;
-  margin-bottom: 2.5rem;
-}
+        .subTitle {
+          font-size: 1rem;
+          color: var(--text-muted);
+          text-align: center;
+          margin-bottom: 3rem;
+        }
 
-/* ==========================================================================
-   2. HEADER & NAVIGATION
-   ========================================================================== */
-header {
-  background-color: #ffffff;
-  border-bottom: 1px solid var(--border-color);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  padding: 0.75rem 0;
-}
+        /* ==========================================================================
+           2. HEADER & NAVIGATION
+           ========================================================================== */
+        header {
+          background-color: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          border-bottom: 1px solid var(--border-color);
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          padding: 0.5rem 0;
+        }
 
-.navbar-brand.logo img {
-  max-height: 80px;
-  width: auto;
-  object-fit: contain;
-}
+        .navbar-brand.logo img {
+          max-height: 48px;
+          width: auto;
+          object-fit: contain;
+        }
 
-.navbar-nav .nav-link {
-  font-weight: 500;
-  color: var(--text-main);
-  padding: 0.5rem 1rem !important;
-  font-size: 0.95rem;
-  transition: var(--transition-fast);
-}
+        .navbar-nav .nav-link {
+          font-weight: 600;
+          color: var(--text-main);
+          padding: 0.5rem 1.25rem !important;
+          font-size: 0.95rem;
+          position: relative;
+        }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  color: var(--accent-color);
-}
+        .navbar-nav .nav-link::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0;
+          height: 2px;
+          background-color: var(--accent);
+          transition: var(--transition);
+          transform: translateX(-50%);
+        }
 
-.navbar-toggler {
-  border: none;
-  padding: 0.5rem;
-}
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
+          width: 60%;
+        }
 
-.navbar-toggler:focus {
-  box-shadow: none;
-}
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+          color: var(--accent);
+        }
 
-/* ==========================================================================
-   3. TODAY'S TOP / PRODUCT SECTION
-   ========================================================================== */
-#today {
-  padding: 4rem 0;
-  background-color: var(--bg-light);
-  min-height: 50vh;
-}
+        /* ==========================================================================
+           3. TODAY'S TOP / PRODUCTS GRID & CARDS
+           ========================================================================== */
+        #today {
+          padding: 4.5rem 0;
+          background-color: var(--bg-light);
+          min-height: 60vh;
+        }
 
-/* Product Card Styling (Assumes JavaScript inserts .col and card elements inside #todatTop) */
-#todatTop {
-  row-gap: 1.75rem;
-}
+        #todatTop {
+          row-gap: 2rem;
+        }
 
-.product-card {
-  background: #ffffff;
-  border-radius: 12px;
-  border: 1px solid var(--border-color);
-  overflow: hidden;
-  transition: var(--transition-fast);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
+        .product-card {
+          background: #ffffff;
+          border-radius: var(--radius);
+          border: 1px solid var(--border-color);
+          overflow: hidden;
+          transition: var(--transition);
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          box-shadow: var(--shadow-sm);
+        }
 
-.product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
-}
+        .product-card:hover {
+          transform: translateY(-6px);
+          box-shadow: var(--shadow-md);
+        }
 
-.product-card .img-wrapper {
-  position: relative;
-  width: 100%;
-  padding-top: 100%; /* 1:1 Aspect Ratio */
-  overflow: hidden;
-  background-color: #f1f5f9;
-}
+        /* Matches your JS output container: .tddata */
+        .product-card .tddata {
+          position: relative;
+          width: 100%;
+          padding-top: 110%; /* Aspect ratio for product images */
+          overflow: hidden;
+          background-color: #f1f5f9;
+        }
 
-.product-card .img-wrapper img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
+        .product-card .tddata img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
 
-.product-card:hover .img-wrapper img {
-  transform: scale(1.05);
-}
+        .product-card:hover .tddata img {
+          transform: scale(1.06);
+        }
 
-.product-card .card-body {
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
+        /* Matches your JS output badge: .disc */
+        .product-card .disc {
+          position: absolute;
+          top: 12px;
+          left: 12px;
+          background-color: #e63946;
+          color: #ffffff;
+          font-size: 0.75rem;
+          font-weight: 700;
+          padding: 0.25rem 0.6rem;
+          border-radius: 6px;
+          z-index: 2;
+        }
 
-.product-card .product-title {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  margin-bottom: 0.5rem;
-}
+        /* Matches your JS output container: .dataset */
+        .product-card .dataset {
+          padding: 1.25rem;
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+        }
 
-.product-card .product-price {
-  font-weight: 700;
-  color: var(--accent-color);
-  font-size: 1.1rem;
-  margin-top: auto;
-}
+        /* Matches your JS output title: h2.data */
+        .product-card .dataset h2.data {
+          font-size: 1.05rem;
+          font-weight: 700;
+          color: var(--primary);
+          margin-bottom: 0.75rem;
+          line-height: 1.35;
+        }
 
-/* ==========================================================================
-   4. ENHANCED MODERN FOOTER
-   ========================================================================== */
-footer {
-  background-color: #0b1329; /* Deeper slate color for contrast */
-  color: #94a3b8;
-  padding: 4.5rem 0 2rem;
-  font-size: 0.9rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
+        /* Matches your JS output prices row: .dataset-prices */
+        .product-card .dataset-prices {
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+          margin-top: auto;
+          margin-bottom: 1rem;
+        }
 
-/* Brand & Details Column */
-footer .detail {
-  padding-right: 1rem;
-}
+        /* Matches your JS output original price: .dis */
+        .product-card .dataset-prices .dis {
+          font-size: 0.88rem;
+          color: var(--text-muted);
+          text-decoration: line-through;
+        }
 
-footer .logo {
-  max-height: 40px;
-  filter: brightness(0) invert(1); /* Converts dark logos to crisp white */
-  margin-bottom: 1.25rem;
-}
+        /* Matches your JS output discounted price: .disprice */
+        .product-card .dataset-prices .disprice {
+          font-weight: 800;
+          color: var(--primary);
+          font-size: 1.2rem;
+        }
 
-footer .detail p {
-  margin-bottom: 0.5rem;
-  color: #cbd5e1;
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
+        /* Matches your JS output button: button.buy */
+        .product-card .dataset button.buy {
+          width: 100%;
+          background: var(--primary);
+          color: #ffffff;
+          border: 2px solid var(--primary);
+          padding: 0.65rem 1rem;
+          border-radius: 50px;
+          font-weight: 700;
+          font-size: 0.85rem;
+          text-align: center;
+          cursor: pointer;
+          transition: var(--transition);
+        }
 
-footer .detail a {
-  color: #60a5fa;
-  display: inline-block;
-  margin-bottom: 0.75rem;
-  font-weight: 500;
-  font-size: 0.85rem;
-}
+        .product-card .dataset button.buy:hover {
+          background: transparent;
+          color: var(--primary);
+        }
 
-footer .detail a:hover {
-  text-decoration: underline;
-}
+        /* ==========================================================================
+           4. FOOTER
+           ========================================================================== */
+        footer {
+          background-color: #0b1329;
+          color: #94a3b8;
+          padding: 5rem 0 2rem;
+          font-size: 0.9rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
-/* Social Icon Badges */
-footer .social {
-  display: flex;
-  gap: 0.6rem;
-  margin-top: 1.25rem;
-}
+        footer .footer-logo {
+          max-height: 40px;
+          filter: brightness(0) invert(1);
+          margin-bottom: 1.25rem;
+        }
 
-footer .social a {
-  width: 38px;
-  height: 38px;
-  border-radius: 8px; /* Smooth rounded square */
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #ffffff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.25s ease;
-  margin: 0;
-}
+        footer p {
+          color: #cbd5e1;
+          font-size: 0.9rem;
+          line-height: 1.6;
+        }
 
-footer .social a:hover {
-  background: #2563eb;
-  border-color: #2563eb;
-  color: #ffffff;
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-}
+        footer .footer-box h4 {
+          color: #ffffff;
+          font-size: 1.05rem;
+          font-weight: 700;
+          margin-bottom: 1.25rem;
+          letter-spacing: 0.5px;
+        }
 
-/* Footer Navigation Lists */
-footer .headofDetail {
-  color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 700;
-  margin-bottom: 1.25rem;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-}
+        footer .footer-box ul li {
+          margin-bottom: 0.65rem;
+        }
 
-footer .company {
-  display: flex;
-  flex-direction: column;
-}
+        footer .footer-box ul li a {
+          color: #94a3b8;
+          transition: var(--transition);
+        }
 
-footer .company a {
-  color: #94a3b8;
-  margin-bottom: 0.65rem;
-  transition: all 0.2s ease;
-  width: fit-content;
-}
+        footer .footer-box ul li a:hover {
+          color: #ffffff;
+          padding-left: 4px;
+        }
 
-footer .company a:hover {
-  color: #ffffff;
-  transform: translateX(4px); /* Gentle slide-in on hover */
-}
+        footer .social-links {
+          display: flex;
+          gap: 0.6rem;
+          margin-top: 1.25rem;
+        }
 
-/* Newsletter Input Form */
-footer .newsEmail {
-  margin: 1.25rem 0 0.75rem;
-}
+        footer .social-links a {
+          width: 38px;
+          height: 38px;
+          border-radius: 8px;
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          color: #ffffff;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          transition: var(--transition);
+        }
 
-footer .newsEmail form {
-  display: flex;
-  position: relative;
-  width: 100%;
-}
+        footer .social-links a:hover {
+          background: var(--accent);
+          border-color: var(--accent);
+          transform: translateY(-3px);
+          box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
 
-footer .newsEmail input {
-  width: 100%;
-  padding: 0.75rem 3.25rem 0.75rem 1rem;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
-  color: #ffffff;
-  outline: none;
-  font-size: 0.875rem;
-  transition: all 0.2s ease;
-}
+        footer .footer-bottom {
+          margin-top: 4rem;
+          padding-top: 1.5rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          text-align: center;
+          font-size: 0.85rem;
+          color: #64748b;
+        }
 
-footer .newsEmail input::placeholder {
-  color: #64748b;
-}
-
-footer .newsEmail input:focus {
-  border-color: #2563eb;
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
-}
-
-footer .newsEmail button {
-  position: absolute;
-  right: 4px;
-  top: 4px;
-  bottom: 4px;
-  width: 38px;
-  border: none;
-  background: #2563eb;
-  color: #ffffff;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-footer .newsEmail button:hover {
-  background: #1d4ed8;
-  transform: scale(1.02);
-}
-
-footer .company p:last-of-type {
-  font-size: 0.78rem;
-  color: #64748b;
-  margin-top: 0.5rem;
-  line-height: 1.4;
-}
-
-footer .company p + a {
-  font-size: 0.78rem;
-  color: #94a3b8;
-  text-decoration: underline;
-}
-
-footer .company p + a:hover {
-  color: #ffffff;
-}
-
-/* ==========================================================================
-   5. RESPONSIVE FIXES
-   ========================================================================== */
-@media (max-width: 991.98px) {
-  .navbar-collapse {
-    background: #ffffff;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow-md);
-    margin-top: 0.5rem;
-  }
-  
-  footer .col-12 {
-    margin-bottom: 2rem;
-  }
-}
+        /* ==========================================================================
+           5. RESPONSIVE BREAKPOINTS
+           ========================================================================== */
+        @media (max-width: 991.98px) {
+          .navbar-collapse {
+            background: #ffffff;
+            padding: 1.25rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            margin-top: 0.5rem;
+          }
+          
+          footer .col-lg-3, footer .col-lg-2, footer .col-lg-4 {
+            margin-bottom: 2rem;
+          }
+        }
     </style>
 </head>
 
 <body>
+    <!-- Navigation Header -->
     <header>
         <div class="container">
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
-                    <a class="navbar-brand logo" href="#">
-                        <img src="assets/image/logo.png" alt>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid p-0">
+                    <a class="navbar-brand logo" href="index.html">
+                        <img src="assets/image/logo.png" alt="Logo">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -390,43 +361,43 @@ footer .company p + a:hover {
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="index.html">Home</a>
+                                <a class="nav-link" href="index.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="product.html">Product</a>
+                                <a class="nav-link active" href="product.html">Product</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="#">Contact</a>
+                                <a class="nav-link" href="#">Contact</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="#">Review</a>
+                                <a class="nav-link" href="#">Review</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="#">About us</a>
+                                <a class="nav-link" href="#">About Us</a>
                             </li>
                         </ul>
-
                     </div>
                 </div>
             </nav>
-
         </div>
     </header>
 
+    <!-- Today's Top Products Section -->
     <section id="today">
-            <div class="container">
-                <h2 class="mainTitle">Todays Top</h2>
-                <p class="subTitle">Lorem ipsum dolor sit amet.</p>
-                <div class="tdproduct">
-                    <div class="row" id="todatTop">
-                        
-                        
-                    </div>
+        <div class="container">
+            <h2 class="mainTitle">Today's Top Pick</h2>
+            <p class="subTitle">Handpicked apparel and essentials for every style.</p>
+            
+            <div class="tdproduct">
+                <!-- Javascript target container -->
+                <div class="row" id="todatTop">
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-       <footer>
+    <!-- Footer -->
+    <footer>
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
@@ -467,23 +438,10 @@ footer .company p + a:hover {
             </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-
-    <script>
-        const swiper = new Swiper('.swiperHero', {
-            // Optional parameters
-            direction: 'horizontal',
-            loop: true,
-
-            // Navigation arrows
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-
-        });
-    </script>
     <script src="./assets/js/product.js"></script>
 </body>
 

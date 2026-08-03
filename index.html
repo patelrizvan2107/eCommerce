@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fashion Store</title>
+    <title>Fashion Store - Elevate Your Style</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -30,16 +35,16 @@
             <div class="container">
 
                 <a class="navbar-brand logo" href="#">
-                    <img src="./assets/image/logo.png" alt="Logo">
+                    <img src="./assets/image/logo.png" alt="Fashion Store Logo">
                 </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbar">
 
-                    <ul class="navbar-nav mx-auto">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" href="#">Home</a>
                         </li>
@@ -62,10 +67,12 @@
                     </ul>
 
                     <div class="header-icons">
-                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-                        <a href="#"><i class="fa-regular fa-heart"></i></a>
-                        <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-                        <div id="auth">
+                        <a href="#" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
+                        <a href="#" aria-label="Wishlist"><i class="fa-regular fa-heart"></i></a>
+                        <a href="cart.html" aria-label="Cart" class="position-relative">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                        <div id="auth" class="d-inline-flex align-items-center">
 
                         </div>
                     </div>
@@ -76,7 +83,6 @@
         </nav>
     </header>
 
-    <!-- <img src="admin/images/category_img/" alt=""> -->
     <!-- =========================
             HERO SECTION
     ========================== -->
@@ -88,20 +94,24 @@
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide">
-                    <img src="./assets/image/slider-1.jpg" alt="">
+                    <img src="./assets/image/slider-1.jpg" alt="Summer Collection 2026">
+                    <div class="hero-overlay"></div>
                     <div class="hero-content">
+                        <span class="hero-tag">New Season</span>
                         <h1>Summer Collection 2026</h1>
-                        <p>Discover the latest trends and styles.</p>
-                        <a href="#" class="theme-btn">Shop Now</a>
+                        <p>Discover the latest trends and styles curated for your everyday elegance.</p>
+                        <a href="product.html" class="theme-btn">Shop Now <i class="fa-solid fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
 
                 <div class="swiper-slide">
-                    <img src="./assets/image/slider-1.jpg" alt="">
+                    <img src="./assets/image/slider-1.jpg" alt="Premium Fashion">
+                    <div class="hero-overlay"></div>
                     <div class="hero-content">
+                        <span class="hero-tag">Exclusive Arrival</span>
                         <h1>Premium Fashion</h1>
-                        <p>Designed for modern lifestyles.</p>
-                        <a href="#" class="theme-btn">Explore</a>
+                        <p>Designed for modern lifestyles with uncompromised quality.</p>
+                        <a href="product.html" class="theme-btn">Explore <i class="fa-solid fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
 
@@ -124,15 +134,14 @@
 
             <div class="section-title">
                 <h2>Shop By Categories</h2>
-                <p>Explore our top categories</p>
+                <p>Explore our top categories and find your signature look</p>
             </div>
 
-            <div class="row g-4" id="catData">
+            <div class="row g-4 justify-content-center" id="catData">
 
             </div>
 
         </div>
-
 
     </section>
 
@@ -145,8 +154,8 @@
         <div class="container">
 
             <div class="section-title">
-                <h2>Bets Sellers Picks</h2>
-                <p>Popular products selected for you</p>
+                <h2>Best Sellers Picks</h2>
+                <p>Popular products selected specifically for you</p>
             </div>
 
             <div class="row g-4" id="todatTop">
@@ -170,14 +179,14 @@
                 <div class="col-lg-6">
 
                     <div class="banner-large">
-                        <a onclick="detail()">
-
-                            <img src="./admin/images/category_img/summer.avif" alt="">
-
+                        <a onclick="detail()" role="button">
+                            <img src="./admin/images/category_img/summer.avif" alt="Summer Collection">
                         </a>
 
                         <div class="banner-content">
+                            <span class="badge-season">Featured</span>
                             <h2>Summer Collection</h2>
+                            <p class="d-none d-md-block text-white-50 mb-3">Lightweight fabrics made for warm sunny days.</p>
                             <a href="#" class="theme-btn" onclick="Summer()">Shop Now</a>
                         </div>
 
@@ -192,12 +201,11 @@
                         <div class="col-12">
 
                             <div class="banner-small">
-                                <img src="./admin/images/category_img/winter.avif" alt="">
+                                <img src="./admin/images/category_img/winter.avif" alt="Winter Collection">
 
                                 <div class="banner-content">
                                     <h3>Winter Collection</h3>
-                                    <a href="#" class="theme-btn" onclick="Winter()">Shop Now</a>
-
+                                    <a href="#" class="theme-btn btn-sm" onclick="Winter()">Shop Now</a>
                                 </div>
 
                             </div>
@@ -207,12 +215,11 @@
                         <div class="col-12">
 
                             <div class="banner-small">
-                                <img src="./admin/images/category_img/monsoon.avif" alt="">
+                                <img src="./admin/images/category_img/monsoon.avif" alt="Monsoon Collection">
 
                                 <div class="banner-content">
                                     <h3>Monsoon Collection</h3>
-                                    <a href="#" class="theme-btn" onclick="Monsoon()">Shop Now</a>
-
+                                    <a href="#" class="theme-btn btn-sm" onclick="Monsoon()">Shop Now</a>
                                 </div>
 
                             </div>
@@ -228,6 +235,7 @@
         </div>
 
     </section>
+
     <!-- =========================
             TRENDING PRODUCTS
     ========================== -->
@@ -243,29 +251,6 @@
 
             <div id="newarrivals"></div>
 
-            <!-- <div class="row g-4">
-
-                <div class="col-sm-6 col-lg-3">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="images/trending1.jpg" alt="">
-                        </div>
-
-                        <div class="product-info">
-                            <h5>Frame Sunglasses</h5>
-                            <div class="rating">★★★★★</div>
-                            <div class="price">
-                                <span class="old-price">$100</span>
-                                <span class="new-price">$75</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                
-
-            </div> -->
-
         </div>
 
     </section>
@@ -280,14 +265,15 @@
 
             <div class="newsletter-box">
 
-                <h2>Subscribe Our Newsletter</h2>
+                <span class="newsletter-icon"><i class="fa-regular fa-paper-plane"></i></span>
+                <h2>Subscribe To Our Newsletter</h2>
 
                 <p>
-                    Get updates about new arrivals, discounts and offers.
+                    Get exclusive updates about new arrivals, discount coupons, and special seasonal offers.
                 </p>
 
-                <form>
-                    <input type="email" placeholder="Enter your email address">
+                <form onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="Enter your email address" required>
 
                     <button type="submit">
                         Subscribe
@@ -317,15 +303,14 @@
                         <img src="./admin/images/category_img/logo.png" alt="Logo" class="footer-logo">
 
                         <p>
-                            Modern fashion store with premium quality
-                            collections and accessories.
+                            Modern fashion store featuring premium quality clothing, curated collections, and accessories.
                         </p>
 
                         <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-x-twitter"></i></a>
-                            <a href="#"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                         </div>
 
                     </div>
@@ -353,11 +338,11 @@
 
                     <div class="footer-box">
 
-                        <h4>Customer</h4>
+                        <h4>Customer Care</h4>
 
                         <ul>
-                            <li><a href="#">Shipping</a></li>
-                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">Shipping & Delivery</a></li>
+                            <li><a href="#">Returns & Exchanges</a></li>
                             <li><a href="#">Privacy Policy</a></li>
                             <li><a href="#">Terms & Conditions</a></li>
                         </ul>
@@ -370,11 +355,11 @@
 
                     <div class="footer-box">
 
-                        <h4>Contact</h4>
+                        <h4>Contact Us</h4>
 
-                        <p>Email: support@fashion.com</p>
-                        <p>Phone: +91 99999 99999</p>
-                        <p>Ahmedabad, Gujarat</p>
+                        <p><i class="fa-regular fa-envelope me-2"></i> support@fashion.com</p>
+                        <p><i class="fa-solid fa-phone me-2"></i> +91 99999 99999</p>
+                        <p><i class="fa-solid fa-location-dot me-2"></i> Ahmedabad, Gujarat</p>
 
                     </div>
 
@@ -403,8 +388,11 @@
     <script>
         new Swiper(".heroSwiper", {
             loop: true,
+            effect: "fade",
+            speed: 800,
             autoplay: {
-                delay: 3000
+                delay: 4000,
+                disableOnInteraction: false
             },
             navigation: {
                 nextEl: ".swiper-button-next",
