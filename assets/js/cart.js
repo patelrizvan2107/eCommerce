@@ -126,6 +126,8 @@ const calcTotal = () => {
     let totalPrice = total + tax
     document.getElementById("totalPrice").innerHTML = totalPrice;
 
+    localStorage.setItem("amount", totalPrice)
+
     
 }
 
