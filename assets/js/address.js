@@ -417,15 +417,16 @@ const order = async (adrs) => {
   let addressId = localStorage.getItem("adrsId");
   let uId = localStorage.getItem("userId");
   let amount = parseFloat(localStorage.getItem("amount"))
-  let cartID = "";
+ 
 
   let cartRes = await fetch(`http://localhost:3000/cart`);
   let cartData = await cartRes.json();
-  console.log(cartData.id);
+  console.log(cartData);
 
-  cartID = cartData.find((v) => v.id);
-  // console.log(cartID.id);
-  cartID = cartID.id;
+ let cartID = cartData.map((v) => v.id);
+  console.log(cartID.id);
+
+  cartID  = cartID.id
 
   console.log(cartID);
 
@@ -433,19 +434,14 @@ const order = async (adrs) => {
     uId,
     pId,
     addressId,
-    cartID,
+    cartID: cartID,
     amount,
     status: "Placed !!!"
   }
 
   let orderRes = await fetch("http://localhost:3000/orders");
   let orderData = await orderRes.json();
-// //   let alrdExst = orderData.includes((v) => v.addressId === addressId);
-// console.log(alrdExst);
 
-  
-  
-    // alert("Already Exist")
 
  
     await fetch("http://localhost:3000/orders", {

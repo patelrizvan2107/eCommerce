@@ -45,7 +45,7 @@
                         <a href="#"><i class="fa-regular fa-heart"></i></a>
                         <a href="cart.html" class="position-relative">
                             <i class="fa-solid fa-cart-shopping"></i>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount">3</span>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount"></span>
                         </a>
                         <a href="login.html"><i class="fa-regular fa-user"></i></a>
                     </div>
@@ -67,6 +67,7 @@
             <div class="row g-4">
                 <!-- Cart Items List -->
                 <div class="col-lg-8">
+                    <!-- <h4>Cart is Empty</h4> -->
                     <div class="cart-table-wrapper border rounded-3 p-3 p-md-4 bg-white shadow-sm">
                         <div id="cartItemsContainer">
                             <!-- Items populated by JavaScript -->
@@ -90,7 +91,7 @@
 
                         <div class="d-flex justify-content-between mb-2">
                             <span class="text-muted">Subtotal</span>
-                            <span class="fw-semibold" id="subtotalPrice">$0.00</span>
+                            <span class="fw-semibold" id="subtotalPrice">0</span>
                         </div>
 
                         <div class="d-flex justify-content-between mb-2">
@@ -100,7 +101,7 @@
 
                         <div class="d-flex justify-content-between mb-3">
                             <span class="text-muted">Tax (5%)</span>
-                            <span class="fw-semibold" id="taxPrice"></span>
+                            <span class="fw-semibold" id="taxPrice">0</span>
                         </div>
 
                         <!-- Coupon Input -->

@@ -23,11 +23,15 @@ const cartData = async () => {
 
 
 
-  let uCart = cartData.find((v) => v.userId === uid);
+  let uCart1 = cartData.filter((v) => v.userId === uid );
 
-  console.log(uCart);
+  console.log(uCart1);
 
-  uCart.items.map((v1) => {
+  let uCart = uCart1.find((v) => !v.status)
+
+  if (uCart) {
+
+    uCart.items.map((v1) => {
       let pData =   productData.find((v2) => {
            return v2.id === v1.productId
 
@@ -48,9 +52,9 @@ const cartData = async () => {
             </div>
     <div class="d-flex align-items-center justify-content-between justify-content-sm-end gap-4">
                 <div class="quantity-control">
-                    <button class="quantity-btn" onclick="minusQuantity(this)">-</button>
+                    <button class="quantity-btn" onclick="minusQuantity(this, '${v1.productId}')"  type = "button" >-</button>
                     <span id='qttySpan'>${v1.qtty}</span>
-                    <button class="quantity-btn" onclick="plusQuantity(this)">+</button>
+                    <button class="quantity-btn" onclick="plusQuantity(this, '${v1.productId}')" type = "button">+</button>
                 </div>
  <button class="btn text-danger p-0" onclick="removeItem( )">
                     <i class="fa-regular fa-trash-can fs-5"></i>
@@ -58,12 +62,19 @@ const cartData = async () => {
             </div>
         </div>`
   })
+    
+
+    // calcTotal();
+    
+  }
+
+  
   
 
   document.getElementById("cartItemsContainer").innerHTML = print;
 };
 
-const plusQuantity = (e) => {
+const plusQuantity = async(e, pid) => {
 
     console.log(e.parentNode.childNodes[3].innerHTML);
     
@@ -78,15 +89,29 @@ const plusQuantity = (e) => {
 //   }else {
 //     e.disabled = true;
 }
-    
+  const userId = localStorage.getItem("userId");
+ let res = await fetch("http://localhost:3000/cart");
+  let data = await res.json();
+  let userCartData = data.filter((v) => v.userId === userId);
+  let cartData = userCartData.find((v)=> !v.status)
+  console.log(cartData);
+  
+  let newProductIndex = cartData?.items?.findIndex(
+      (v) => v.productId === pid,
+    );
+      cartData.items[newProductIndex].qtty = qtty;
+
+    await fetch(`http://localhost:3000/cart/${cartData.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(cartData),
+    });
   calcTotal()
 
 }
 
-const minusQuantity = (e) => {
+const minusQuantity =async (e,pid) => {
  console.log(e.parentNode.childNodes[3].innerHTML);
-    
-
 
  let qtty = parseInt(e.parentNode.childNodes[3].innerHTML);
 
@@ -97,6 +122,23 @@ const minusQuantity = (e) => {
 //   }else if(qtty>1){
 //     e.disabled = true;
   }
+  const userId = localStorage.getItem("userId");
+ let res = await fetch("http://localhost:3000/cart");
+  let data = await res.json();
+  let userCartData = data.filter((v) => v.userId === userId);
+  let cartData = userCartData.find((v)=> !v.status)
+  console.log(cartData);
+  
+  let newProductIndex = cartData?.items?.findIndex(
+      (v) => v.productId === pid,
+    );
+      cartData.items[newProductIndex].qtty = qtty;
+
+    await fetch(`http://localhost:3000/cart/${cartData.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(cartData),
+    });
   calcTotal()
 }
 
@@ -121,16 +163,14 @@ const calcTotal = () => {
     
     let tax = total * 0.05;
    
-    document.getElementById("taxPrice").innerHTML = tax.toFixed(2);
 
     let totalPrice = total + tax
-    document.getElementById("totalPrice").innerHTML = totalPrice;
 
     localStorage.setItem("amount", totalPrice)
 
-    
+    document.getElementById("taxPrice").innerHTML = tax.toFixed(2);
+    document.getElementById("totalPrice").innerHTML = totalPrice;
 }
-
 
 
 //  $${(item.price * item.quantity).toFixed(2)}

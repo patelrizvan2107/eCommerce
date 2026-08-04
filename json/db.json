@@ -255,23 +255,14 @@
       "items": [
         {
           "productId": "40v_sSoDCso",
-          "qtty": 28
+          "qtty": 1
         },
         {
           "productId": "1LI5OJW5Gf8",
-          "qtty": 20
-        },
-        {
-          "productId": "Fb_jcZdsPes",
-          "qtty": 2
-        },
-        {
-          "productId": "gtSaR479qHw",
-          "qtty": 2
+          "qtty": 1
         }
       ],
-      "id": "EfSBS8EPyJU",
-      "status": "Ordered"
+      "id": "X7VbnYWUNt4"
     }
   ],
   "user": [
@@ -311,7 +302,17 @@
       "name": "Rizvan Patel",
       "email": "patelrizvan2107@gmail.com",
       "password": "12345678",
-      "id": "V7xkbAvbBmA"
+      "id": "V7xkbAvbBmA",
+      "address": [
+        {
+          "id": "92ee7dd5-9c57-49b4-a47e-58f34c6407f2",
+          "line1": "ascdas",
+          "line2": "ascdas",
+          "landmark": "cascas",
+          "city": "cascas",
+          "pincode": "asca"
+        }
+      ]
     }
   ],
   "orders": [
@@ -319,10 +320,33 @@
       "uId": "dBVHzTNweFo",
       "pId": "1LI5OJW5Gf8",
       "addressId": "888ffdcd-dbe5-4ed4-8c95-aee65a62892b",
-      "cartID": "EfSBS8EPyJU",
-      "amount": 14277.9,
+      "amount": 365.4,
       "status": "Placed !!!",
-      "id": "oYSyC1bTyi8"
+      "id": "81EHWFTK2_k"
+    },
+    {
+      "uId": "dBVHzTNweFo",
+      "pId": "1LI5OJW5Gf8",
+      "addressId": "5a337101-542f-4694-8e08-4a1652024eba",
+      "amount": 365.4,
+      "status": "Placed !!!",
+      "id": "5QyqD-uUlpk"
+    },
+    {
+      "uId": "dBVHzTNweFo",
+      "pId": "1LI5OJW5Gf8",
+      "addressId": null,
+      "amount": null,
+      "status": "Placed !!!",
+      "id": "RW37F0Zbdfs"
+    },
+    {
+      "uId": "dBVHzTNweFo",
+      "pId": "1LI5OJW5Gf8",
+      "addressId": "888ffdcd-dbe5-4ed4-8c95-aee65a62892b",
+      "amount": null,
+      "status": "Placed !!!",
+      "id": "RlDiAvSyRrU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

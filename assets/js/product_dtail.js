@@ -50,15 +50,15 @@ const handleBuyProduct = async () => {
 
                
                 <div class="sizeBtn">
-                    <button onclick = "handleDEC()">-</button>
+                    <button onclick = "handleDEC()" type = "button">-</button>
                     <span id = "qtty">1</span>
-                    <button onclick = "handleINC()">+</button>
+                    <button onclick = "handleINC()" type = "button">+</button>
 
                 </div>
 
                 <div class="cartBtn">
-                    <button class="btn btn-dark" onclick = "addtoCart()">Add To Cart</button>
-                    <button class="btn btn-danger">Buy Now</button>
+                    <button class="btn btn-dark" onclick = "addtoCart()" type = "button">Add To Cart</button>
+                    <button class="btn btn-danger" type = "button">Buy Now</button>
                 </div>
             </div>
         </div>
@@ -109,10 +109,11 @@ const addtoCart = async () => {
   };
   let res = await fetch("http://localhost:3000/cart");
   let data = await res.json();
-  let cartData = data.find((v) => v.userId === userId);
+  let userCartData = data.filter((v) => v.userId === userId);
 
-  console.log("cart data", cartData);
-  console.log("daata", data);
+  console.log("daata", userCartData);
+  // let cartData
+  let cartData = userCartData.find((v)=> !v.status)
 
   if (cartData) {
     let newProductIndex = cartData?.items?.findIndex(
@@ -127,7 +128,7 @@ const addtoCart = async () => {
     }
 
     await fetch(`http://localhost:3000/cart/${cartData.id}`, {
-      method: "Put",
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(cartData),
     });
@@ -135,7 +136,7 @@ const addtoCart = async () => {
     console.log("whole data", cartData);
   } else {
     await fetch("http://localhost:3000/cart", {
-      method: "Post",
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(addtoCart),
     });
@@ -145,3 +146,6 @@ const addtoCart = async () => {
 window.onload = () => {
   handleBuyProduct();
 };
+
+
+// let  
