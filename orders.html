@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products | Fashion Store</title>
-    
+
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
     <style>
@@ -35,7 +39,7 @@
         body {
           font-family: var(--font-family);
           color: var(--text-main);
-          background-color: #ffffff;
+          background-color: var(--bg-light);
           line-height: 1.6;
           overflow-x: hidden;
         }
@@ -50,23 +54,6 @@
           list-style: none;
           padding: 0;
           margin: 0;
-        }
-
-        /* Titles */
-        .mainTitle {
-          font-size: 2.25rem;
-          font-weight: 800;
-          color: var(--primary);
-          text-align: center;
-          margin-bottom: 0.25rem;
-          letter-spacing: -0.5px;
-        }
-
-        .subTitle {
-          font-size: 1rem;
-          color: var(--text-muted);
-          text-align: center;
-          margin-bottom: 3rem;
         }
 
         /* ==========================================================================
@@ -119,129 +106,107 @@
         }
 
         /* ==========================================================================
-           3. TODAY'S TOP / PRODUCTS GRID & CARDS
+           3. ORDER SUMMARY / PRODUCT LIST STYLES
            ========================================================================== */
-        #today {
-          padding: 4.5rem 0;
-          background-color: var(--bg-light);
-          min-height: 60vh;
+        .order-section {
+          padding: 3rem 0 5rem;
         }
 
-        #todatTop {
-          row-gap: 2rem;
-        }
-
-        .product-card {
+        .order-card {
           background: #ffffff;
           border-radius: var(--radius);
           border: 1px solid var(--border-color);
-          overflow: hidden;
-          transition: var(--transition);
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          box-shadow: var(--shadow-sm);
-        }
-
-        .product-card:hover {
-          transform: translateY(-6px);
           box-shadow: var(--shadow-md);
-        }
-
-        /* Matches your JS output container: .tddata */
-        .product-card .tddata {
-          position: relative;
-          width: 100%;
-          padding-top: 110%; /* Aspect ratio for product images */
           overflow: hidden;
-          background-color: #f1f5f9;
+          max-width: 800px;
+          margin: 0 auto;
         }
 
-        .product-card .tddata img {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.5s ease;
-        }
-
-        .product-card:hover .tddata img {
-          transform: scale(1.06);
-        }
-
-        /* Matches your JS output badge: .disc */
-        .product-card .disc {
-          position: absolute;
-          top: 12px;
-          left: 12px;
-          background-color: #e63946;
+        .order-card-header {
+          background-color: var(--primary);
           color: #ffffff;
-          font-size: 0.75rem;
-          font-weight: 700;
-          padding: 0.25rem 0.6rem;
-          border-radius: 6px;
-          z-index: 2;
-        }
-
-        /* Matches your JS output container: .dataset */
-        .product-card .dataset {
-          padding: 1.25rem;
+          padding: 1.5rem 2rem;
           display: flex;
-          flex-direction: column;
-          flex-grow: 1;
+          align-items: center;
+          justify-content: space-between;
         }
 
-        /* Matches your JS output title: h2.data */
-        .product-card .dataset h2.data {
+        .order-card-header h3 {
+          font-size: 1.25rem;
+          font-weight: 700;
+          margin: 0;
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+        }
+
+        .order-card-body {
+          padding: 1.5rem 2rem;
+        }
+
+        /* Generated Order Row Styles */
+        .order-item-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 1.25rem 0;
+          border-bottom: 1px dashed var(--border-color);
+          transition: var(--transition);
+        }
+
+        .order-item-row:last-child {
+          border-bottom: none;
+        }
+
+        .order-item-details {
+          display: flex;
+          align-items: center;
+          gap: 1.25rem;
+        }
+
+        .order-qty-badge {
+          background-color: rgba(37, 99, 235, 0.1);
+          color: var(--accent);
+          font-weight: 700;
+          font-size: 0.85rem;
+          padding: 0.35rem 0.75rem;
+          border-radius: 20px;
+          white-space: nowrap;
+        }
+
+        .order-product-name {
           font-size: 1.05rem;
           font-weight: 700;
           color: var(--primary);
-          margin-bottom: 0.75rem;
-          line-height: 1.35;
+          margin: 0;
         }
 
-        /* Matches your JS output prices row: .dataset-prices */
-        .product-card .dataset-prices {
-          display: flex;
-          align-items: center;
-          gap: 0.6rem;
-          margin-top: auto;
-          margin-bottom: 1rem;
-        }
-
-        /* Matches your JS output original price: .dis */
-        .product-card .dataset-prices .dis {
-          font-size: 0.88rem;
-          color: var(--text-muted);
-          text-decoration: line-through;
-        }
-
-        /* Matches your JS output discounted price: .disprice */
-        .product-card .dataset-prices .disprice {
+        .order-product-price {
+          font-size: 1.1rem;
           font-weight: 800;
-          color: var(--primary);
-          font-size: 1.2rem;
+          color: #059669;
+          white-space: nowrap;
         }
 
-        /* Matches your JS output button: button.buy */
-        .product-card .dataset button.buy {
-          width: 100%;
-          background: var(--primary);
-          color: #ffffff;
-          border: 2px solid var(--primary);
-          padding: 0.65rem 1rem;
-          border-radius: 50px;
+        /* Summary Footer inside #disp */
+        .order-summary-footer {
+          margin-top: 1.5rem;
+          padding-top: 1.5rem;
+          border-top: 2px solid var(--border-color);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .order-summary-footer .total-label {
+          font-size: 1.1rem;
           font-weight: 700;
-          font-size: 0.85rem;
-          text-align: center;
-          cursor: pointer;
-          transition: var(--transition);
+          color: var(--text-main);
         }
 
-        .product-card .dataset button.buy:hover {
-          background: transparent;
+        .order-summary-footer .total-amount {
+          font-size: 1.5rem;
+          font-weight: 800;
           color: var(--primary);
         }
 
@@ -324,115 +289,150 @@
           font-size: 0.85rem;
           color: #64748b;
         }
+        .fa-classic, .fa-regular, .fa-solid, .far, .fas {
+          font-family: "Font Awesome 6 Free";
+          margin: 0 10px;
+        }
 
         /* ==========================================================================
            5. RESPONSIVE BREAKPOINTS
            ========================================================================== */
-        @media (max-width: 991.98px) {
-          .navbar-collapse {
-            background: #ffffff;
-            padding: 1.25rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-md);
-            margin-top: 0.5rem;
+        @media (max-width: 768px) {
+          .order-item-row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
           }
-          
-          footer .col-lg-3, footer .col-lg-2, footer .col-lg-4 {
-            margin-bottom: 2rem;
+
+          .order-product-price {
+            align-self: flex-end;
           }
         }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Navigation Header -->
     <header>
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="container-fluid p-0">
-                    <a class="navbar-brand logo" href="index.html">
-                        <img src="assets/image/logo.png" alt="Logo">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="product.html">Product</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contact</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Review</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">About Us</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container-fluid p-0">
+            <a class="navbar-brand logo" href="index.html">
+              <img src="assets/image/logo.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="product.html">Product</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Review</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">About Us</a>
+                </li>
+              </ul>
+            </div>
+            <div class="header-icons">
+              <a href="#" aria-label="Search"><i
+                  class="fa-solid fa-magnifying-glass"></i></a>
+              <a href="#" aria-label="Wishlist"><i
+                  class="fa-regular fa-heart"></i></a>
+              <a href="cart.html" aria-label="Cart" class="position-relative">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </a>
+              <div id="auth" class="d-inline-flex align-items-center">
+
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
     </header>
 
-    <div id="disp">
-        
-    </div>
+    <!-- Main Order Details Section -->
+    <section class="order-section">
+      <div class="container">
+        <div class="order-card">
+          <div class="order-card-header">
+            <h3><i class="fa-solid fa-bag-shopping"></i> Order Summary</h3>
+            <span
+              class="badge bg-light text-dark font-monospace">Confirmed</span>
+          </div>
+          <div class="order-card-body" id="disp">
+            <!-- Order Items loaded via JS script -->
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <img src="assets/image/logo.png" alt="Footer Logo" class="footer-logo">
-                    <p>Discover premier fashion and lifestyle accessories crafted for timeless style and durability.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 footer-box">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="product.html">Products</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 footer-box">
-                    <h4>Customer Care</h4>
-                    <ul>
-                        <li><a href="#">Shipping Policy</a></li>
-                        <li><a href="#">Returns & Exchanges</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 footer-box">
-                    <h4>Contact Us</h4>
-                    <p><i class="fa-solid fa-envelope me-2"></i> support@store.com</p>
-                    <p><i class="fa-solid fa-phone me-2"></i> +1 (800) 123-4567</p>
-                </div>
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <img src="assets/image/logo.png" alt="Footer Logo"
+              class="footer-logo">
+            <p>Discover premier fashion and lifestyle accessories crafted for
+              timeless style and durability.</p>
+            <div class="social-links">
+              <a href="#" aria-label="Facebook"><i
+                  class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" aria-label="Instagram"><i
+                  class="fa-brands fa-instagram"></i></a>
+              <a href="#" aria-label="Twitter"><i
+                  class="fa-brands fa-x-twitter"></i></a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 E-Commerce Store. All rights reserved.</p>
-            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 footer-box">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="product.html">Products</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 footer-box">
+            <h4>Customer Care</h4>
+            <ul>
+              <li><a href="#">Shipping Policy</a></li>
+              <li><a href="#">Returns & Exchanges</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 footer-box">
+            <h4>Contact Us</h4>
+            <p><i class="fa-solid fa-envelope me-2"></i> support@store.com</p>
+            <p><i class="fa-solid fa-phone me-2"></i> +1 (800) 123-4567</p>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 E-Commerce Store. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
     <!-- Scripts -->
     <script src="assets/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="/assets/js/order.js"></script>
-</body>
+
+  </body>
 
 </html>

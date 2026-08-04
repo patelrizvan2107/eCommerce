@@ -24,13 +24,10 @@ const handleDis = async () => {
 
 //    console.log(allCartData.items.map((v) => v.productId));
 
-   let pid = allCartData.items.map((v2) => {
-   return v2.productId
+   let pid = allCartData.items.map((v2) => v2.productId);
+   let qtty = allCartData.items.map((v2) => v2.qtty);
 
-    
-   });
-
-   
+   console.log(qtty);
    console.log(pid);
    
    let product = await fetch(`http://localhost:3000/product`);
@@ -38,26 +35,34 @@ const handleDis = async () => {
    console.log(pData);
    console.log( pData.find((v) => v.id === pid[0]));
 
-  allCartData.items.map((v3) => {
-   for (let i = 0; i< pid.length; i++) {
-     let allpData = pData.find((v) => v.id === pid[i])
-   console.log(allpData.price);
+   let totalPrice =0 ;
 
-    print += `<span>qtty${v3.qtty}</span>`
-   
-   print += `<span>${allpData.name}</span>
-    <span>${allpData.price}</span>`
-   
-
-   }
-});
-   
-   
-  
-   
-   
-   
-
+  for (let i = 0; i < pid.length; i++) {
+      for (let j = 0; j < pData.length; j++) {
+          if (pData[j].id === pid[i]) {
+            let itemTotal = pData[j].price * qtty[i];
+                       totalPrice += itemTotal;
+            print += `
+                         <div class="order-item-row">
+                             <div class="order-item-details">
+                                 <span class="order-qty-badge">Qty: ${qtty[i]}</span>
+                                 <h4 class="order-product-name">${pData[j].name}</h4>
+                             </div>
+                             <div class="order-product-price">$${pData[j].price.toFixed(2)}</div>
+                         </div>
+                       `;
+              break;
+          }
+      }
+  } 
+  let tax = totalPrice * 0.05;
+  totalPrice =totalPrice + tax + 50;
+ print += `
+             <div class="order-summary-footer">
+                 <span class="total-label">Total Amount</span>
+                 <span class="total-amount">$${totalPrice.toFixed(2)}</span>
+             </div>
+           `;
    document.getElementById("disp").innerHTML = print;
    
 
