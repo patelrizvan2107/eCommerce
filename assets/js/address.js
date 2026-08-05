@@ -468,7 +468,7 @@ const order = async (adrs) => {
 
  localStorage.removeItem("cartId")
  localStorage.removeItem("adrsId")
- localStorage.removeItem("amount")
+//  localStorage.removeItem("amount")
  
  window.location.href = 'orders.html'
 

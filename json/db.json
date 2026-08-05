@@ -255,14 +255,36 @@
       "items": [
         {
           "productId": "40v_sSoDCso",
-          "qtty": 1
+          "qtty": 2
         },
         {
           "productId": "1LI5OJW5Gf8",
-          "qtty": 1
+          "qtty": 2
+        },
+        {
+          "productId": "JudPd-WBSLY",
+          "qtty": 2
         }
       ],
       "id": "X7VbnYWUNt4"
+    },
+    {
+      "userId": "V7xkbAvbBmA",
+      "items": [
+        {
+          "productId": "gtSaR479qHw",
+          "qtty": 3
+        },
+        {
+          "productId": "doRsV2sBj14",
+          "qtty": 2
+        },
+        {
+          "productId": "jQLTD43UyTg",
+          "qtty": 7
+        }
+      ],
+      "id": "b6qnz_jsuu4"
     }
   ],
   "user": [
@@ -316,37 +338,14 @@
     }
   ],
   "orders": [
+   
     {
-      "uId": "dBVHzTNweFo",
-      "pId": "1LI5OJW5Gf8",
-      "addressId": "888ffdcd-dbe5-4ed4-8c95-aee65a62892b",
-      "amount": 365.4,
+      "uId": "V7xkbAvbBmA",
+      "pId": "jQLTD43UyTg",
+      "addressId": "92ee7dd5-9c57-49b4-a47e-58f34c6407f2",
+      "amount": 43089.9,
       "status": "Placed !!!",
-      "id": "81EHWFTK2_k"
-    },
-    {
-      "uId": "dBVHzTNweFo",
-      "pId": "1LI5OJW5Gf8",
-      "addressId": "5a337101-542f-4694-8e08-4a1652024eba",
-      "amount": 365.4,
-      "status": "Placed !!!",
-      "id": "5QyqD-uUlpk"
-    },
-    {
-      "uId": "dBVHzTNweFo",
-      "pId": "1LI5OJW5Gf8",
-      "addressId": null,
-      "amount": null,
-      "status": "Placed !!!",
-      "id": "RW37F0Zbdfs"
-    },
-    {
-      "uId": "dBVHzTNweFo",
-      "pId": "1LI5OJW5Gf8",
-      "addressId": "888ffdcd-dbe5-4ed4-8c95-aee65a62892b",
-      "amount": null,
-      "status": "Placed !!!",
-      "id": "RlDiAvSyRrU"
+      "id": "mgaY-gThpAY"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

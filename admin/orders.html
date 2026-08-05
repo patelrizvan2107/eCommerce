@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Category | Admin Panel</title>
+    <title>Orders | Admin Panel</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -23,7 +23,7 @@
             </div>
 
             <ul class="menu">
-                <li class="active">
+                <li >
                     <a href="category.html">
                         <i class="fa-solid fa-list"></i>
                         Category
@@ -43,7 +43,7 @@
                         Product
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="./orders.html">
                         <i class="fa-solid fa-box"></i>
                         Orders
@@ -56,71 +56,26 @@
         <!-- Main -->
         <main class="main-content">
 
-            <h1>Category Management</h1>
 
             <!-- Form Card -->
-            <div class="card">
-
-                <form class="category-form">
-
-                    <div class="form-row">
-
-                        <div class="form-group">
-                            <label>Category Name</label>
-                            <input type="text" id="category-name">
-                            <span class="nameError"></span>
-
-                        </div>
-
-                        <div class="form-group">
-                            <label>Description</label>
-                            <textarea id="category-desc" rows="4"></textarea>
-                            <span class="descError"></span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="image-row">
-
-                        <div class="form-group image-upload">
-                            <label>Upload Image</label>
-                            <input type="file" id="category-image">
-                            <span id="imageError"></span>
-                        </div>
-
-                        <div class="form-group image-preview">
-                            <label>Preview</label>
-                            <img src="" id="etdimg" class="preview-image">
-                        </div>
-
-                    </div>
-
-                    <button class="btn" type="submit">
-                        Submit
-                    </button>
-
-                </form>
-
-            </div>
+            
 
             <!-- Table Card -->
 
             <div class="card">
 
-                <h2>Category List</h2>
+                <h2>Orders List</h2>
 
                 <table>
 
                     <thead>
 
                         <tr>
-                            <th>ID</th>
+                            <th>Sr No.</th>
                             <th>Name</th>
-                            <th>Description</th>
-                            <th>Image</th>
-                            <th>Action</th>
+                            <th>Items</th>
+                            <th>Total Amount</th>
+                            <th>Status</th>
                         </tr>
 
                     </thead>
@@ -137,7 +92,7 @@
 
     </div>
 
-    <script src="js/categoryAdmin.js"></script>
+    <script src="js/orders.js"></script>
 
 </body>
 
