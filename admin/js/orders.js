@@ -1,73 +1,124 @@
-
-
 const handleDispaly = async () => {
+  let uid = localStorage.getItem("userId");
+  let totalAmount = localStorage.getItem("amount");
+  let res = await fetch(`http://localhost:3000/orders`);
+  let ordersData = await res.json();
 
-    let uid = localStorage.getItem("userId")
-    let amount = localStorage.getItem("amount")
-    let res = await fetch(`http://localhost:3000/orders`)
-    let ordersData = await res.json();
+  let qty = 0;
+  let amount = 0;
 
-    // console.log(ordersData);
-    
-    let userRes = await fetch (`http://localhost:3000/user/${uid}`);
-    let userData = await userRes.json();
-    // console.log(userData);
+  // console.log(ordersData);
 
-    let product = await fetch (`http://localhost:3000/product`);
-    let productData = await product.json();
-    // console.log(productData);
+  let userRes = await fetch(`http://localhost:3000/user`);
+  let userData = await userRes.json();
+  // console.log(userData);
 
-    let cartRes = await fetch (`http://localhost:3000/cart`);
-    let cartData = await cartRes.json();
-    // console.log(cartData);
-    cartItems = cartData.find((v) => v.userId == uid);
-    console.log(cartItems.items);
+  let product = await fetch(`http://localhost:3000/product`);
+  let productData = await product.json();
+  // console.log(productData);
 
-   let name = userData.name;
-//    console.log(name);
+  let cartRes = await fetch(`http://localhost:3000/cart`);
+  let cartData = await cartRes.json();
+  // console.log(cartData);
 
-   let print = ``;
-   ordersData.map((v, i) => {
+  let name = userData.name;
+  //    console.log(name);
 
+  
+  let print = ``;
+  ordersData.map((v, i) => {
+    let user = userData.find((u) => u.id === v.uId);
+    // console.log(user.name);
+
+    //v.cartID   find   cartData     cobj
+    //cobj.items    map    v1   v1.productId     find   productData    pobj    pobj.name
+
+    let cartObj = cartData.find((c) => c.id === v.cartID);
+    // console.log(cartObj.items);
    print += `
-   
-   <tr>
-      <td>${i + 1}</td>
-      <td>${name}</td>
-      <td>`
-      ;
+  <tr>
+    <td>${i + 1}</td>
+    <td>${user.name}</td>
+    <td colspan="3">
+      <table class="inner-table">
+        <tbody>`;
 
-    cartItems.items.map((v2) => 
-    {
-      let item =   productData.filter((v3) => v3.id === v2.productId);
-      console.log(item);
-      
-      item.map((v4) => {
-        print += `
-       Name: ${v4.name}, Quantity: ${v2.qtty}, Price: ${v4.price}
-       
-        <br>
-        `;
-      })
-      
+cartObj.items.map((ci) => {
+  let pObj = productData.find((p) => p.id === ci.productId);
+
+  print += `
+          <tr>
+            <td width="175px">${pObj.name}</td>
+            <td width="175px">${pObj.price}</td>
+            <td width="175px">${ci.qtty}</td>
+          </tr>`;
+
+  totalAmount = totalAmount + pObj.price * ci.qtty;
+});
+
+print += `
+        </tbody>
+      </table>
+    </td>
+    <td>${totalAmount}</td>
+    <td>
+      <select name="orderStatus" onchange="statusUp(this, '${v.id}') id="orderStatus">
+        <option value="0">Select Status</option>
+        <option value="Placed">Placed</option>
+        <option value="Transit">In Transit</option>
+        <option value="Delivered">Delivered</option>
+      </select>
+    </td>
+  </tr>
+`;
+    totalAmount = 0;
+  });
+
+  // print+= `</tr>`
+
+  document.getElementById("tableContent").innerHTML = print;
+};
 
 
-    })
-   
-})
-print+= ` </td><td>${amount}</td>
-        <td><select>
-          <option value="Placed !!!">Placed !!!</option>
-          <option value="transist">Transist</option>
-          <option value="Delivered">Delivered</option>
-        </select></td></tr>`
 
-document.getElementById("tableContent").innerHTML = print;
+// let st = document.getElementsByName("orderStatus")
+// console.log(st);
+// st.forEach((item) => {
+//   item.addEventListener("change", function() {
+//   console.log('hello');
+  
+// })
+// })
+
+const statusUp = async (e, id) => {
+  event.preventDefault();
+  console.log(e.value);
+  console.log(id);
+  
+   await fetch(`http://localhost:3000/orders/${id}`, {
+    method: "PATCH",
+    headers: {
+        "Content-Type" : "application/json"
+    },
+
+    body: JSON.stringify({status:e.value})
+
+  })
+
+  let res = await fetch(`http://localhost:3000/orders`)
+  let data = await res.json();
+  console.log(data.status);
+  
+  // let val = data.find((v) => v.status == e.value)
+
+  // console.log(val, data);
+  
+
+  document.getElementById("orderStatus").innerHTML = data.status;
 
 }
-
-
 
 window.onload = () => {
-    handleDispaly()
-}
+  handleDispaly();
+  // statusUp()
+};

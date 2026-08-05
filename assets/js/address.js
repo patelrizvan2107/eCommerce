@@ -423,18 +423,13 @@ const order = async (adrs) => {
   let cartData = await cartRes.json();
   console.log(cartData);
 
- let cartID = cartData.map((v) => v.id);
-  console.log(cartID.id);
-
-  cartID  = cartID.id
-
-  console.log(cartID);
+ let cartID = localStorage.getItem("cartID");
 
   let orderObj = {
     uId,
     pId,
     addressId,
-    cartID: cartID,
+    cartID,
     amount,
     status: "Placed !!!"
   }
@@ -466,9 +461,9 @@ const order = async (adrs) => {
 
  })
 
- localStorage.removeItem("cartId")
+ localStorage.removeItem("cartID")
  localStorage.removeItem("adrsId")
-//  localStorage.removeItem("amount")
+ localStorage.removeItem("amount")
  
  window.location.href = 'orders.html'
 

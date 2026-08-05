@@ -1,5 +1,6 @@
 const handleDis = async () => {
   let uid = localStorage.getItem("userId");
+  let totalPrice = 0;
 
   let order = await fetch(`http://localhost:3000/orders`);
   let orderData = await order.json();
@@ -16,84 +17,83 @@ const handleDis = async () => {
 
   console.log(userOrders);
 
-  let cId = userOrders.map((v) => {
+  userOrders.forEach((v, index) => {
     let userCart = cartData.find((v1) => v1.id === v.cartID);
     console.log(userCart);
 
-    userCart.items.map((v2) => {
-      const product = pData.find((v3) => v3.id === v2.productId);
-      console.log(product);
+    let orderSubtotal = 0;
 
-       print += `
-                         <div class="order-item-row">
-                             <div class="order-item-details">
-                                 <span class="order-qty-badge">Qty: ${v2.qtty}</span>
-                                 <h4 class="order-product-name">${product.name}</h4>
-                             </div>
-                             <div class="order-product-price">$${product.price.toFixed(2)}</div>
-                         </div>
-                       `;
-      
+    print += `
+      <div class="order-group mb-4 pb-3 border-bottom">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="fw-bold m-0 text-primary">Order ${ index + 1}</h5>
+          <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill">${v.status}</span>
+        </div>
+        
+        <div class="table-responsive">
+          <table class="table align-middle">
+            <thead class="table-light small text-uppercase text-muted">
+              <tr>
+                <th scope="col" style="width: 40%;">Product</th>
+                <th scope="col" class="text-center">Quantity</th>
+                <th scope="col" class="text-end">Unit Price</th>
+                <th scope="col" class="text-end">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+    `;
 
-    })
-    
-  })
- 
-   
-    
+    // if (userCart && userCart.items) {
+      userCart.items.map((v2) => {
+        const productItem = pData.find((v3) => v3.id === v2.productId);
+        const itemPrice = productItem ? productItem.price : 0;
+        const itemSubtotal = v2.qtty * itemPrice;
+        
+        orderSubtotal += itemSubtotal;
+        totalPrice += itemSubtotal;
 
-  
-  
-  
+        print += `
+          <tr>
+            <td>
+              <span class="fw-bold text-dark">${productItem ? productItem.name : "Product Not Found"}</span>
+            </td>
+            <td class="text-center">
+              <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-1 rounded-pill"> ${v2.qtty}</span>
+            </td>
+            <td class="text-end font-monospace text-secondary">$${itemPrice.toFixed(2)}</td>
+            <td class="text-end font-monospace fw-bold text-dark">$${itemSubtotal.toFixed(2)}</td>
+          </tr>
+        `;
+      });
+    // }
 
- 
-  
+    print += `
+            </tbody>
+          </table>
+        </div>
 
-        // print += `
-        //                  <div class="order-item-row">
-        //                      <div class="order-item-details">
-        //                          <span class="order-qty-badge">Qty: ${qtty[i]}</span>
-        //                          <h4 class="order-product-name">${pData[j].name}</h4>
-        //                      </div>
-        //                      <div class="order-product-price">$${pData[j].price.toFixed(2)}</div>
-        //                  </div>
-        //                `;
-      
-  // let tax = totalPrice * 0.05;
-  // totalPrice = totalPrice + tax + 50;
-  // print += `
-  //                        <br/>       <h4 class="order-product-name">Order Placed</h4>
+        <div class="d-flex justify-content-end align-items-center gap-3 mt-2">
+          <span class="text-muted fw-semibold">Order Subtotal:</span>
+          <span class="font-monospace fs-5 fw-bold text-dark">$${orderSubtotal.toFixed(2)}</span>
+        </div>
+      </div>
+    `;
+  });
 
-  //            <div class="order-summary-footer">
-  //                <span class="total-label">Total Amount</span>
-  //                <span class="total-amount">$${totalPrice.toFixed(2)}</span>
-  //            </div>
-  //          `;
+  print += `
+    <div class="order-summary-footer mt-4 pt-3 border-top d-flex justify-content-between align-items-center">
+      <div>
+        <h4 class="order-product-name m-0 fs-5 fw-bold text-dark">Order Placed</h4>
+      </div>
+      <div class="text-end">
+        <span class="total-label fs-6 fw-semibold text-muted d-block">Grand Total</span>
+        <span class="total-amount fs-3 fw-bold text-primary">$${totalPrice.toFixed(2)}</span>
+      </div>
+    </div>
+  `;
+
   document.getElementById("disp").innerHTML = print;
 };
-
-// const handleCart = async () => {
-//   let res = await fetch("http://localhost:3000/cart");
-//   let cart = await res.json();
-//   console.log(cart);
-
-//   let status = cart.includes((v) => v.status === "Ordered");
-//   let id = cart.map((v) => v.id)
-
-//   console.log(id);
-  
-//   console.log(status);
-
-//   if (status !== true) {
-
-//    console.log('hiii');
-   
-//     await fetch(`http://localhost:3000/cart/${id}`, {
-//       method: "DELETE",
-     
-//     });
-//   }
-// };
 
 window.onload = () => {
   handleDis();

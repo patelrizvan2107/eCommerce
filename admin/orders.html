@@ -8,6 +8,35 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Main Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, 
+table td {
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+
+}
+
+/* Hide duplicate headers rendered inside inner tables by JS */
+.inner-table thead {
+    display: none;
+}
+
+.inner-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.inner-table td {
+    border: none;
+    padding: 4px 8px;
+}
+    </style>
 </head>
 
 <body>
@@ -23,7 +52,7 @@
             </div>
 
             <ul class="menu">
-                <li >
+                <li>
                     <a href="category.html">
                         <i class="fa-solid fa-list"></i>
                         Category
@@ -53,37 +82,33 @@
 
         </aside>
 
-        <!-- Main -->
+        <!-- Main Content -->
         <main class="main-content">
 
-
-            <!-- Form Card -->
-            
-
             <!-- Table Card -->
-
             <div class="card">
 
                 <h2>Orders List</h2>
 
                 <table>
-
                     <thead>
-
                         <tr>
-                            <th>Sr No.</th>
-                            <th>Name</th>
-                            <th>Items</th>
-                            <th>Total Amount</th>
-                            <th>Status</th>
+                            <th rowspan="2">Sr No.</th>
+                            <th rowspan="2">Name</th>
+                            <th colspan="3">Items</th>
+                            <th rowspan="2">Total Amount</th>
+                            <th rowspan="2">Status</th>
                         </tr>
-
+                        <tr>
+                            <th width="175px">Name</th>
+                            <th width="175px">Price</th>
+                            <th width="175px">Qty</th>
+                        </tr>
                     </thead>
 
                     <tbody id="tableContent">
 
-                    </tbody>
-
+                    </tbody> 
                 </table>
 
             </div>

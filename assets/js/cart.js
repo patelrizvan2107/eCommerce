@@ -68,6 +68,8 @@ const cartData = async () => {
     
   }
 
+  localStorage.setItem("cartID", uCart.id)
+
   
   
 

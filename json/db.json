@@ -255,36 +255,110 @@
       "items": [
         {
           "productId": "40v_sSoDCso",
-          "qtty": 2
+          "qtty": 1
         },
         {
           "productId": "1LI5OJW5Gf8",
           "qtty": 2
         },
         {
-          "productId": "JudPd-WBSLY",
-          "qtty": 2
+          "productId": "vNM80Pm9P1E",
+          "qtty": 3
         }
       ],
-      "id": "X7VbnYWUNt4"
+      "id": "Mvwg53D1YCw",
+      "status": "Ordered"
     },
     {
-      "userId": "V7xkbAvbBmA",
+      "userId": "dBVHzTNweFo",
+      "items": [
+        {
+          "productId": "Fb_jcZdsPes",
+          "qtty": 4
+        },
+        {
+          "productId": "mtbYdORPpHA",
+          "qtty": 5
+        },
+        {
+          "productId": "c-Ce8ETOwiQ",
+          "qtty": 6
+        }
+      ],
+      "id": "Y0T87c0H7mU",
+      "status": "Ordered"
+    },
+    {
+      "userId": "dBVHzTNweFo",
       "items": [
         {
           "productId": "gtSaR479qHw",
           "qtty": 3
         },
         {
+          "productId": "jQLTD43UyTg",
+          "qtty": 3
+        },
+        {
           "productId": "doRsV2sBj14",
+          "qtty": 3
+        }
+      ],
+      "id": "ETDqxWwTb8c",
+      "status": "Ordered"
+    },
+    {
+      "userId": "V7xkbAvbBmA",
+      "items": [
+        {
+          "productId": "Fb_jcZdsPes",
+          "qtty": 1
+        },
+        {
+          "productId": "mtbYdORPpHA",
           "qtty": 2
         },
         {
-          "productId": "jQLTD43UyTg",
-          "qtty": 7
+          "productId": "gtSaR479qHw",
+          "qtty": 3
         }
       ],
-      "id": "b6qnz_jsuu4"
+      "id": "Dwl51hJjHjU",
+      "status": "Ordered"
+    },
+    {
+      "userId": "V7xkbAvbBmA",
+      "items": [
+        {
+          "productId": "jQLTD43UyTg",
+          "qtty": 3
+        },
+        {
+          "productId": "40v_sSoDCso",
+          "qtty": 3
+        },
+        {
+          "productId": "mtbYdORPpHA",
+          "qtty": 3
+        }
+      ],
+      "id": "ypZfkD3KZhU",
+      "status": "Ordered"
+    },
+    {
+      "userId": "dBVHzTNweFo",
+      "items": [
+        {
+          "productId": "40v_sSoDCso",
+          "qtty": 1
+        },
+        {
+          "productId": "JudPd-WBSLY",
+          "qtty": 2
+        }
+      ],
+      "id": "HYEnt2I_mfs",
+      "status": "Ordered"
     }
   ],
   "user": [
@@ -338,14 +412,59 @@
     }
   ],
   "orders": [
-   
+    {
+      "uId": "dBVHzTNweFo",
+      "pId": "vNM80Pm9P1E",
+      "addressId": "888ffdcd-dbe5-4ed4-8c95-aee65a62892b",
+      "cartID": "Mvwg53D1YCw",
+      "amount": 1516.2,
+      "status": "Placed",
+      "id": "BJIOjeDYyCo"
+    },
+    {
+      "uId": "dBVHzTNweFo",
+      "pId": "c-Ce8ETOwiQ",
+      "addressId": "888ffdcd-dbe5-4ed4-8c95-aee65a62892b",
+      "cartID": "Y0T87c0H7mU",
+      "amount": 634341.75,
+      "status": "Transit",
+      "id": "7Q1P8x5mcAA"
+    },
+    {
+      "uId": "dBVHzTNweFo",
+      "pId": "doRsV2sBj14",
+      "addressId": "5a337101-542f-4694-8e08-4a1652024eba",
+      "cartID": "ETDqxWwTb8c",
+      "amount": 28393.05,
+      "status": "Placed !!!",
+      "id": "P00Gd7_817k"
+    },
     {
       "uId": "V7xkbAvbBmA",
-      "pId": "jQLTD43UyTg",
+      "pId": "gtSaR479qHw",
       "addressId": "92ee7dd5-9c57-49b4-a47e-58f34c6407f2",
-      "amount": 43089.9,
+      "cartID": "Dwl51hJjHjU",
+      "amount": 10966.2,
       "status": "Placed !!!",
-      "id": "mgaY-gThpAY"
+      "id": "rJD9_a4bG-8"
+    },
+    {
+      "uId": "V7xkbAvbBmA",
+      "pId": "mtbYdORPpHA",
+      "addressId": "92ee7dd5-9c57-49b4-a47e-58f34c6407f2",
+      "cartID": "ypZfkD3KZhU",
+      "amount": 14533.05,
+      "status": "Transit",
+      "id": "8n-p0BrToWg"
+    },
+    {
+      "uId": "dBVHzTNweFo",
+      "pId": "JudPd-WBSLY",
+      "addressId": "888ffdcd-dbe5-4ed4-8c95-aee65a62892b",
+      "cartID": "HYEnt2I_mfs",
+      "amount": 248.85,
+      "status": "Delivered",
+      "id": "eRa8LHIHS_E"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
