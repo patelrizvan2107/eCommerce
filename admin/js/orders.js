@@ -80,18 +80,8 @@ print += `
 };
 
 
-
-// let st = document.getElementsByName("orderStatus")
-// console.log(st);
-// st.forEach((item) => {
-//   item.addEventListener("change", function() {
-//   console.log('hello');
-  
-// })
-// })
-
 const statusUp = async (e, id) => {
-  event.preventDefault();
+  // event.preventDefault();
   console.log(e.value);
   console.log(id);
   
@@ -109,16 +99,11 @@ const statusUp = async (e, id) => {
   let data = await res.json();
   console.log(data.status);
   
-  // let val = data.find((v) => v.status == e.value)
-
-  // console.log(val, data);
-  
-
   document.getElementById("orderStatus").innerHTML = data.status;
 
 }
 
 window.onload = () => {
   handleDispaly();
-  // statusUp()
+  statusUp()
 };

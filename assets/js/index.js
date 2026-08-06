@@ -21,10 +21,12 @@ const catData = async () => {
   let print = ``;
 
   data.map((v) => {
+    console.log(v.id);
+    //onclick = "handleCategory(this, '${v.id})"
     print += ` 
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                             <div class="data">
-                                <a href>
+                                <a href = "product.html?category=${v.id}" > 
                                     <img src="./admin/images/category_img/${v.image}" alt>
                                     <h2 class="data">${v.name}</h2>
                                 </a>
@@ -33,6 +35,10 @@ const catData = async () => {
                         </div> 
         `;
   });
+
+  
+
+
   document.getElementById("catData").innerHTML = print;
 };
 const productData = async () => {
@@ -86,7 +92,7 @@ const productData = async () => {
                 <span class="disprice">₹${v.price}</span>
               </div>
               
-              <button onclick="handleBuy('${v.id}')" class="buy">Buy Now</button>
+              <button onclick="handleBuy('${v.id}')" class="buy" type = "button">Buy Now</button>
             </div>
           </div>
         </div>
@@ -125,8 +131,11 @@ const productData = async () => {
 document.addEventListener("DOMContentLoaded", productData);
 document.addEventListener("DOMContentLoaded", productData);
 
-const handleBuy = async () => {
-  window.location = "product.html";
+const handleBuy =  (pId) => {
+  window.location = "product_detail.html";
+  console.log(pId);
+  
+  localStorage.setItem("productId", pId)
 };
 
 {
