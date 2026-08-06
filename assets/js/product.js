@@ -24,7 +24,7 @@ const handleProduct = async () => {
 
   console.log(value);
 
-  if (value) {
+  // if (value) {
     data.map((v) => {
       print += `<div class="col-12 col-sm-6 col-lg-3">
     <div class="product-card">
@@ -48,7 +48,7 @@ const handleProduct = async () => {
     </div>
 </div>`;
     });
-  } else {
+  // } else {
     if (season === "Summer") {
       data.map((v) => {
         let inc = v.tags.find((v2) => v2 === "summer");
@@ -134,7 +134,7 @@ const handleProduct = async () => {
         }
       });
     }
-  }
+  // }
 
   document.getElementById("todatTop").innerHTML = print;
 

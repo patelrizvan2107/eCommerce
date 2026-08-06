@@ -45,6 +45,8 @@ const productData = async () => {
 
     data.forEach((v) => {
       let inc = v.tags && v.tags.find((tag) => tag === "bestseller");
+      console.log(inc);
+      
 
       if (inc !== undefined) {
         bestsellerIds.push(v.id);
