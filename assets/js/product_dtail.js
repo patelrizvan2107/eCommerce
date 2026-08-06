@@ -58,7 +58,7 @@ const handleBuyProduct = async () => {
 
                 <div class="cartBtn">
                     <button class="btn btn-dark" onclick = "addtoCart()" type = "button">Add To Cart</button>
-                    <button class="btn btn-danger" type = "button">Buy Now</button>
+                    <button class="btn btn-danger" type = "button" onclick = "buy()">Buy Now</button>
                 </div>
             </div>
         </div>
@@ -96,6 +96,7 @@ const handleDEC = () => {
 };
 
 const addtoCart = async () => {
+  // event.preventDefault()
   const userId = localStorage.getItem("userId");
   const productId = localStorage.getItem("productId");
 
@@ -113,7 +114,7 @@ const addtoCart = async () => {
 
   console.log("daata", userCartData);
   // let cartData
-  let cartData = userCartData.find((v)=> !v.status)
+  let cartData = userCartData.find((v) => !v.status);
 
   if (cartData) {
     let newProductIndex = cartData?.items?.findIndex(
@@ -133,19 +134,47 @@ const addtoCart = async () => {
       body: JSON.stringify(cartData),
     });
 
-    console.log("whole data", cartData);
+    console.log("whole data");
+
+    console.log(cartData.id);
+    localStorage.setItem("cartId", cartData.id);
   } else {
-    await fetch("http://localhost:3000/cart", {
+    const res = await fetch("http://localhost:3000/cart", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(addtoCart),
     });
+
+    const data = await res.json();
+
+    console.log(data.id);
+    localStorage.setItem("cartId", data.id);
+  }
+
+  existingQtty();
+  //qttyyy
+};
+
+const existingQtty = async () => {
+  let cartId = localStorage.getItem("cartId");
+  let qttyres = await fetch(`http://localhost:3000/cart/${cartId}`);
+  let qttydata = await qttyres.json();
+
+  console.log(qttydata);
+
+  if (!qttydata?.status) {
+    let qtty = qttydata?.items?.reduce((acc, v) => acc + v.qtty, 0);
+    document.getElementById("cartCount").innerHTML = qtty;
   }
 };
 
-window.onload = () => {
-  handleBuyProduct();
+const buy = () => {
+  window.location.href = "cart.html";
 };
 
+window.onload = async () => {
+  handleBuyProduct();
+  existingQtty();
+};
 
-// let  
+// let

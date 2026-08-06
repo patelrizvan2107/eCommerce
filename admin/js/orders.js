@@ -26,6 +26,7 @@ const handleDispaly = async () => {
 
   
   let print = ``;
+  let id = '';
   ordersData.map((v, i) => {
     let user = userData.find((u) => u.id === v.uId);
     // console.log(user.name);
@@ -55,33 +56,35 @@ cartObj.items.map((ci) => {
 
   totalAmount = totalAmount + pObj.price * ci.qtty;
 });
-
+id = v.id;
 print += `
         </tbody>
       </table>
     </td>
     <td>${totalAmount}</td>
     <td>
-      <select name="orderStatus" onchange="statusUp(this, '${v.id}') id="orderStatus">
-        <option value="0">Select Status</option>
-        <option value="Placed">Placed</option>
-        <option value="Transit">In Transit</option>
-        <option value="Delivered">Delivered</option>
+      <select name="orderStatus" id = "orderStatus" onchange="statusUp(this, '${v.id}')" >
+        <option value="0" id="">Select Status</option>
+        <option value="Placed" ${v.status === 'Placed' ? 'selected' : ''}>Placed</option>
+        <option value="Transit" ${v.status === 'Transit' ? 'selected' : ''} >In Transit</option>
+        <option value="Delivered" ${v.status === 'Delivered' ? 'selected' : ''}>Delivered</option>
       </select>
     </td>
   </tr>
 `;
     totalAmount = 0;
+
   });
 
   // print+= `</tr>`
 
+  
   document.getElementById("tableContent").innerHTML = print;
 };
 
 
 const statusUp = async (e, id) => {
-  // event.preventDefault();
+  event.preventDefault();
   console.log(e.value);
   console.log(id);
   
@@ -95,15 +98,14 @@ const statusUp = async (e, id) => {
 
   })
 
-  let res = await fetch(`http://localhost:3000/orders`)
+  let res = await fetch(`http://localhost:3000/orders/${id}`)
   let data = await res.json();
   console.log(data.status);
   
-  document.getElementById("orderStatus").innerHTML = data.status;
 
 }
 
 window.onload = () => {
   handleDispaly();
-  statusUp()
+  // statusUp()
 };

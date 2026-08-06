@@ -43,7 +43,7 @@ const handleDis = async () => {
             <tbody>
     `;
 
-    // if (userCart && userCart.items) {
+    if (userCart && userCart.items) {
       userCart.items.map((v2) => {
         const productItem = pData.find((v3) => v3.id === v2.productId);
         const itemPrice = productItem ? productItem.price : 0;
@@ -65,7 +65,7 @@ const handleDis = async () => {
           </tr>
         `;
       });
-    // }
+    }
 
     print += `
             </tbody>
