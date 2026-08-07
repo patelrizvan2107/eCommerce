@@ -1,19 +1,3 @@
-// all category get cdata
-
-//cdata map   v  prin +=
-
-{
-  /* <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                            <div class="data">
-                                <a href>
-                                    <img src="assets/image/cate-1.jpg" alt>
-                                    <h2 class="data">Outwear</h2>
-                                </a>
-                            </div>
-
-                        </div> */
-}
-
 const catData = async () => {
   const res = await fetch("http://localhost:3000/category");
   const data = await res.json();
@@ -21,26 +5,23 @@ const catData = async () => {
   let print = ``;
 
   data.map((v) => {
-    console.log(v.id);
-    //onclick = "handleCategory(this, '${v.id})"
     print += ` 
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                            <div class="data">
-                                <a href = "product.html?category=${v.id}" > 
-                                    <img src="./admin/images/category_img/${v.image}" alt>
-                                    <h2 class="data">${v.name}</h2>
-                                </a>
-                            </div>
-
-                        </div> 
-        `;
+            <div class="data banner-small mb-3">
+                <a href="product.html?category=${v.id}"> 
+                    <img src="./admin/images/category_img/${v.image}" alt="${v.name}">
+                    <div class="banner-content">
+                        <h2 class="data fs-5 fw-bold m-0">${v.name}</h2>
+                    </div>
+                </a>
+            </div>
+        </div> 
+    `;
   });
-
-  
-
 
   document.getElementById("catData").innerHTML = print;
 };
+
 const productData = async () => {
   try {
     let res = await fetch("http://localhost:3000/product");
@@ -51,8 +32,6 @@ const productData = async () => {
 
     data.forEach((v) => {
       let inc = v.tags && v.tags.find((tag) => tag === "bestseller");
-      console.log(inc);
-      
 
       if (inc !== undefined) {
         bestsellerIds.push(v.id);
@@ -63,9 +42,9 @@ const productData = async () => {
           .map(
             (img) => `
             <div class="swiper-slide">
-              <img src="./admin/images/category_img/${img}" alt="${v.name}" class="product-card-img">
+              <img src="./admin/images/category_img/${img}" alt="${v.name}">
             </div>
-          `
+          `,
           )
           .join("");
 
@@ -73,7 +52,7 @@ const productData = async () => {
         <div class="col-12 col-sm-6 col-lg-3">
           <div class="product-card">
             <div class="tddata">
-              <div class="disc">-25%</div>
+              <span class="disc">-25%</span>
 
               <div class="swiper productSwiper-${v.id}">
                 <div class="swiper-wrapper">
@@ -86,13 +65,13 @@ const productData = async () => {
             </div>
 
             <div class="dataset">
-              <h3 class="data">${v.name}</h3>
+              <h2 class="data">${v.name}</h2>
               <div class="dataset-prices">
                 <span class="dis">₹10,000</span>
                 <span class="disprice">₹${v.price}</span>
               </div>
               
-              <button onclick="handleBuy('${v.id}')" class="buy" type = "button">Buy Now</button>
+              <button onclick="handleBuy('${v.id}')" class="buy" type="button">Buy Now</button>
             </div>
           </div>
         </div>
@@ -102,7 +81,7 @@ const productData = async () => {
 
     document.getElementById("todatTop").innerHTML = print;
 
-    // Initialize Swiper
+    // Initialize Swiper for each product card
     setTimeout(() => {
       bestsellerIds.forEach((id) => {
         if (typeof Swiper !== "undefined") {
@@ -122,25 +101,100 @@ const productData = async () => {
         }
       });
     }, 100);
-
   } catch (error) {
-    console.error("Error loading products:", error);
+    console.error("Error loading bestseller products:", error);
   }
 };
 
-document.addEventListener("DOMContentLoaded", productData);
-document.addEventListener("DOMContentLoaded", productData);
+const newArrivals = async () => {
+  try {
+    let res = await fetch("http://localhost:3000/product");
+    let data = await res.json();
 
-const handleBuy =  (pId) => {
-  window.location = "product_detail.html";
-  console.log(pId);
-  
-  localStorage.setItem("productId", pId)
+    let print = `<div class="row g-4">`;
+    let newArrivalIds = [];
+
+    data.forEach((v) => {
+      let inc = v.tags && v.tags.find((tag) => tag === "new");
+
+      if (inc !== undefined) {
+        newArrivalIds.push(v.id);
+
+        let imageArray = Array.isArray(v.image) ? v.image : [v.image];
+
+        let imageSlides = imageArray
+          .map(
+            (img) => `
+            <div class="swiper-slide">
+              <img src="./admin/images/category_img/${img}" alt="${v.name}">
+            </div>
+          `,
+          )
+          .join("");
+
+        print += `
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="product-card">
+                <div class="tddata">
+                    <span class="disc">-25%</span>
+
+                    <div class="swiper newArrivalSwiper-${v.id}">
+                        <div class="swiper-wrapper">
+                            ${imageSlides}
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+                <div class="dataset">
+                    <h2 class="data">${v.name}</h2>
+                    <div class="rating mb-2" style="color: var(--star-color);">★★★★★</div>
+                    <div class="dataset-prices">
+                        <span class="dis">₹10,000</span>
+                        <span class="disprice">₹${v.price}</span>
+                    </div>
+                    <button type="button" onclick="handleBuy('${v.id}')" class="buy">Buy Now</button>
+                </div>
+            </div>
+        </div>`;
+      }
+    });
+
+    print += `</div>`;
+
+    document.getElementById("newarrivals").innerHTML = print;
+
+    // Initialize Swiper for each new arrival product card
+    setTimeout(() => {
+      newArrivalIds.forEach((id) => {
+        if (typeof Swiper !== "undefined") {
+          new Swiper(`.newArrivalSwiper-${id}`, {
+            loop: true,
+            observer: true,
+            observeParents: true,
+            navigation: {
+              nextEl: `.newArrivalSwiper-${id} .swiper-button-next`,
+              prevEl: `.newArrivalSwiper-${id} .swiper-button-prev`,
+            },
+            pagination: {
+              el: `.newArrivalSwiper-${id} .swiper-pagination`,
+              clickable: true,
+            },
+          });
+        }
+      });
+    }, 100);
+  } catch (error) {
+    console.error("Error loading new arrival products:", error);
+  }
 };
 
-{
-  /*  */
-}
+const handleBuy = (pId) => {
+  window.location = "product_detail.html";
+  localStorage.setItem("productId", pId);
+};
 
 const handleLogin = () => {
   const uid = localStorage.getItem("userId");
@@ -148,9 +202,9 @@ const handleLogin = () => {
   let print = ``;
 
   if (uid) {
-    print += `<a href="" id="loged" onclick = "handleLogout()"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>`;
+    print += `<a href="" id="loged" onclick="handleLogout()"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>`;
   } else {
-    print += `<a href="login.html" id="loged" onclick = "handleLogout()"><i class="fa-regular fa-user"></i></a>`;
+    print += `<a href="login.html" id="loged" onclick="handleLogout()"><i class="fa-regular fa-user"></i></a>`;
   }
 
   document.getElementById("auth").innerHTML = print;
@@ -158,70 +212,27 @@ const handleLogin = () => {
 
 const handleLogout = () => {
   localStorage.removeItem("userId");
-
   window.location.href = "";
 };
 
-const newArrivals = async () => {
-  let res = await fetch("http://localhost:3000/product");
-  let data = await res.json();
-
-  console.log(data);
-  let print = `<div class="row g-4">`;
-
-  data.map((v) => {
-    console.log(v.tags);
-
-    console.log(v.tags.find((v2) => v2 === "new"));
-
-    let inc = v.tags.find((v2) => v2 === "new");
-
-    if (inc !== undefined) {
-      print += `
-        <div class="col-sm-6 col-lg-3">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="admin/images/category_img/${v.image[0]}" alt="">
-                        </div>
-
-                        <div class="product-info">
-                            <h5>${v.name}</h5>
-                            <div class="rating">★★★★★</div>
-                            <div class="price">
-                                <span class="old-price">$1000</span>
-                                <span class="new-price">${v.price}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>`;
-    }
-  });
-
-  document.getElementById("newarrivals").innerHTML = print;
+const Summer = () => {
+  localStorage.setItem("Season", "Summer");
+  window.location.href = "product.html";
 };
 
-const Summer = () => {
-    console.log('helloo summer');
-    localStorage.setItem("Season", "Summer");
-    window.location.href = 'product.html'
-}
-
 const Monsoon = () => {
-    console.log('helloo Monsoon');
-    localStorage.setItem("Season", "Monsoon");
-    window.location.href = 'product.html'
-}
+  localStorage.setItem("Season", "Monsoon");
+  window.location.href = "product.html";
+};
 
 const Winter = () => {
-    console.log('helloo Winter');
-    localStorage.setItem("Season", "Winter");
-    window.location.href = 'product.html'
-}
+  localStorage.setItem("Season", "Winter");
+  window.location.href = "product.html";
+};
 
-window.onload =async () => {
+window.onload = async () => {
   catData();
   await productData();
-  newArrivals();
+  await newArrivals();
   handleLogin();
-//   detail()
 };

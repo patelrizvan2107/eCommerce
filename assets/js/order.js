@@ -15,19 +15,16 @@ const handleDis = async () => {
 
   let userOrders = orderData.filter((v) => v.uId === uid);
 
-  console.log(userOrders);
-
   userOrders.forEach((v, index) => {
     let userCart = cartData.find((v1) => v1.id === v.cartID);
-    console.log(userCart);
 
     let orderSubtotal = 0;
 
     print += `
-      <div class="order-group mb-4 pb-3 border-bottom">
+      <div class="checkout-box mb-4">
         <div class="d-flex justify-content-between align-items-center mb-3">
-          <h5 class="fw-bold m-0 text-primary">Order ${ index + 1}</h5>
-          <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill">${v.status}</span>
+          <h5 class="box-title m-0">Order #${index + 1}</h5>
+          <span class="badge-type">${v.status}</span>
         </div>
         
         <div class="table-responsive">
@@ -48,7 +45,7 @@ const handleDis = async () => {
         const productItem = pData.find((v3) => v3.id === v2.productId);
         const itemPrice = productItem ? productItem.price : 0;
         const itemSubtotal = v2.qtty * itemPrice;
-        
+
         orderSubtotal += itemSubtotal;
         totalPrice += itemSubtotal;
 
@@ -58,7 +55,7 @@ const handleDis = async () => {
               <span class="fw-bold text-dark">${productItem ? productItem.name : "Product Not Found"}</span>
             </td>
             <td class="text-center">
-              <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-1 rounded-pill"> ${v2.qtty}</span>
+              <span class="badge-type">${v2.qtty}</span>
             </td>
             <td class="text-end font-monospace text-secondary">$${itemPrice.toFixed(2)}</td>
             <td class="text-end font-monospace fw-bold text-dark">$${itemSubtotal.toFixed(2)}</td>
@@ -72,7 +69,7 @@ const handleDis = async () => {
           </table>
         </div>
 
-        <div class="d-flex justify-content-end align-items-center gap-3 mt-2">
+        <div class="d-flex justify-content-end align-items-center gap-3 mt-3 pt-2 border-top">
           <span class="text-muted fw-semibold">Order Subtotal:</span>
           <span class="font-monospace fs-5 fw-bold text-dark">$${orderSubtotal.toFixed(2)}</span>
         </div>
@@ -81,13 +78,13 @@ const handleDis = async () => {
   });
 
   print += `
-    <div class="order-summary-footer mt-4 pt-3 border-top d-flex justify-content-between align-items-center">
+    <div class="checkout-box mt-4 d-flex justify-content-between align-items-center">
       <div>
-        <h4 class="order-product-name m-0 fs-5 fw-bold text-dark">Order Placed</h4>
+        <h4 class="box-title m-0">Order Summary</h4>
       </div>
       <div class="text-end">
         <span class="total-label fs-6 fw-semibold text-muted d-block">Grand Total</span>
-        <span class="total-amount fs-3 fw-bold text-primary">$${totalPrice.toFixed(2)}</span>
+        <span class="total-amount fs-3 fw-bold" style="color: var(--accent);">$${totalPrice.toFixed(2)}</span>
       </div>
     </div>
   `;

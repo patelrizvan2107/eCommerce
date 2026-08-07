@@ -1,6 +1,5 @@
 const handleBuy = async (id) => {
   localStorage.setItem("productId", id);
-
   window.location = "product_detail.html";
 };
 
@@ -12,20 +11,10 @@ const handleProduct = async (e, id) => {
 
   let print = ``;
 
-  // Source - https://stackoverflow.com/a/901144
-  // Posted by Artem Barger, modified by community. See post 'Timeline' for change history
-  // Retrieved 2026-08-03, License - CC BY-SA 4.0
-
   const params = new Proxy(new URLSearchParams(window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),
   });
-  // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
-  let value = params.type; // "some_value"
-
-  console.log(value, season);
-    // "some_value"
-
-  // "some_value"
+  let value = params.type;
 
   if (value) {
     data.map((v) => {
@@ -44,16 +33,12 @@ const handleProduct = async (e, id) => {
                 <span class="disprice">${v.price}</span>
             </div>
             
-           
-            
             <button type="button" onclick="handleBuy('${v.id}')" class="buy">Buy Now</button>
         </div>
     </div>
 </div>`;
     });
- 
-  }
-  else{
+  } else {
     if (season === "Summer") {
       data.map((v) => {
         let inc = v.tags.find((v2) => v2 === "summer");
@@ -99,8 +84,6 @@ const handleProduct = async (e, id) => {
                 <span class="disprice">${v.price}</span>
             </div>
             
-           
-            
             <button type="button" onclick="handleBuy('${v.id}')" class="buy">Buy Now</button>
         </div>
     </div>
@@ -127,8 +110,6 @@ const handleProduct = async (e, id) => {
                 <span class="disprice">${v.price}</span>
             </div>
             
-           
-            
             <button type="button" onclick="handleBuy('${v.id}')" class="buy">Buy Now</button>
         </div>
     </div>
@@ -139,26 +120,18 @@ const handleProduct = async (e, id) => {
   }
 
   document.getElementById("todatTop").innerHTML = print;
-
-//   localStorage.removeItem("Season");
-
 };
 
-const handleCategory = async(categoryId) => {
+const handleCategory = async (categoryId) => {
+  let cat = await fetch(`http://localhost:3000/product`);
+  let catData = await cat.json();
 
-  let cat = await fetch (`http://localhost:3000/product`)
-  let catData = await cat.json()
-
-  console.log(catData);
-  
   let print = ``;
 
- 
-    let allCatData = catData.filter((c) => c.category === categoryId)
-    console.log(allCatData);
-    
-    allCatData.map((v) => {
-      print += `<div class="col-12 col-sm-6 col-lg-3">
+  let allCatData = catData.filter((c) => c.category === categoryId);
+
+  allCatData.map((v) => {
+    print += `<div class="col-12 col-sm-6 col-lg-3">
     <div class="product-card">
         <div class="tddata">
             <span class="disc">-25%</span>
@@ -173,44 +146,30 @@ const handleCategory = async(categoryId) => {
                 <span class="disprice">${v.price}</span>
             </div>
             
-           
-            
             <button type="button" onclick="handleBuy('${v.id}')" class="buy">Buy Now</button>
         </div>
     </div>
 </div>`;
-    })
-  
+  });
 
   document.getElementById("todatTop").innerHTML = print;
-
-
-}
+};
 
 window.onload = () => {
- 
-  handleCategory()
+  handleCategory();
 
-const params2 = new Proxy(new URLSearchParams(window.location.search), {
+  const params2 = new Proxy(new URLSearchParams(window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),
   });
-  let value = params2.type || params2.category;;
-
-  console.log(value);
+  let value = params2.type || params2.category;
 
   if (value) {
-    if (value === 'product') {
-      handleProduct()
+    if (value === "product") {
+      handleProduct();
     } else {
-      handleCategory(value)
-
+      handleCategory(value);
     }
   } else {
-     handleProduct()
+    handleProduct();
   }
-  
-
-
-
-
 };

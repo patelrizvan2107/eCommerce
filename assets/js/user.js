@@ -7,33 +7,33 @@ const handleRegidtration = async () => {
   let formError = false;
   if (name === "") {
     document.getElementById("nameErr").innerHTML = "Enter Your name";
-    let formError = true;
+    formError = true;
   } else {
     document.getElementById("nameErr").innerHTML = "";
   }
   if (email === "") {
     document.getElementById("emailErr").innerHTML = "Please enter your email";
-    let formError = true;
+    formError = true;
   } else {
     document.getElementById("emailErr").innerHTML = "";
   }
   if (!email.includes("@") || !email.includes(".")) {
     document.getElementById("emailErr").innerHTML =
       "Please enter a valid email";
-    let formError = true;
+    formError = true;
   } else {
     document.getElementById("emailErr").innerHTML = "";
   }
   if (password === "") {
     document.getElementById("passErr").innerHTML = "Please enter your password";
-    let formError = true;
+    formError = true;
   } else {
     document.getElementById("passErr").innerHTML = "";
   }
   if (password.length < 6) {
     document.getElementById("passErr").innerHTML =
       "Password must be at least 6 characters";
-    let formError = true;
+    formError = true;
   } else {
     document.getElementById("passErr").innerHTML = "";
   }
@@ -42,7 +42,7 @@ const handleRegidtration = async () => {
     let user = {
       name,
       email,
-      password
+      password,
     };
 
     await fetch("http://localhost:3000/user", {
@@ -52,7 +52,6 @@ const handleRegidtration = async () => {
     });
   }
 
-  //   window.location = "login.html";
   return false;
 };
 
@@ -65,7 +64,7 @@ const handleLogin = async () => {
   let data = await res.json();
 
   let auth = data.find(
-    (v) => v.email === userEmail && v.password === userPassword, 
+    (v) => v.email === userEmail && v.password === userPassword,
   );
 
   if (auth) {
@@ -74,8 +73,4 @@ const handleLogin = async () => {
   } else {
     alert("Incorrect Password");
   }
-
-  
-
 };
-

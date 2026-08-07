@@ -4,597 +4,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details</title>
+    <title>Product Details - Fashion Store</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- CSS Stylesheets -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
-
-    <style>
-        /* ==========================================================================
-   1. GLOBAL VARIABLES & BASE DESIGN SYSTEM
-   ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
-:root {
-  --primary: #0b0f19;
-  --accent: #4f46e5;
-  --accent-hover: #4338ca;
-  --accent-light: #eef2ff;
-  --text-dark: #0f172a;
-  --text-muted: #64748b;
-  --bg-body: #f8fafc;
-  --card-bg: #ffffff;
-  --border: #e2e8f0;
-  --star-color: #fbbf24;
-  
-  --font-sans: 'Plus Jakarta Sans', 'Inter', sans-serif;
-  
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.02);
-  --shadow-md: 0 12px 24px -6px rgba(15, 23, 42, 0.06);
-  --shadow-lg: 0 20px 32px -8px rgba(15, 23, 42, 0.12);
-  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-body {
-  font-family: var(--font-sans);
-  color: var(--text-dark);
-  background-color: var(--bg-body);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: var(--transition);
-}
-
-/* ==========================================================================
-   2. STICKY GLASSMORPHISM HEADER
-   ========================================================================== */
-.header {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  padding: 0.8rem 0;
-}
-
-.navbar-brand.logo img {
-  max-height: 42px;
-  width: auto;
-}
-
-.navbar-nav .nav-link {
-  font-weight: 600;
-  color: var(--text-dark);
-  padding: 0.5rem 1.25rem !important;
-  font-size: 0.95rem;
-  letter-spacing: -0.01em;
-}
-
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  color: var(--accent);
-}
-
-.header-icons {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-left: 2rem;
-}
-
-.header-icons a {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: var(--bg-body);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-dark);
-  font-size: 1rem;
-  border: 1px solid var(--border);
-}
-
-.header-icons a:hover {
-  background: var(--accent);
-  color: #ffffff;
-  border-color: var(--accent);
-  transform: translateY(-2px);
-}
-
-/* ==========================================================================
-   DYNAMIC PRODUCT HERO SECTION (#productDetails)
-   ========================================================================== */
-
-/* Main Container Fixes */
-#productDetails {
-  background: #ffffff;
-  padding: 2.5rem;
-  border-radius: 20px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.05);
-}
-
-/* 1. Left Column - Main Image */
-.productImg {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  background-color: #f8fafc;
-  border-radius: 16px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #f1f5f9;
-}
-
-.productImg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.productImg:hover img {
-  transform: scale(1.04);
-}
-
-/* 2. Right Column - Product Information */
-.productInfo {
-  display: flex;
-  flex-direction: column;
-  padding-left: 1rem;
-}
-
-.productInfo h1 {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: #0b0f19;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.5rem;
-}
-
-/* Rating Stars & Count */
-.productInfo .rating {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  color: #fbbf24; /* Gold Star Color */
-  font-weight: 600;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-
-.productInfo .rating i {
-  font-size: 0.85rem;
-}
-
-.productInfo .rating span,
-.productInfo .rating {
-  color: #64748b; /* Gray text for review count */
-}
-
-/* Pricing Section */
-.priceArea {
-  display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-  margin-bottom: 1.25rem;
-}
-
-.priceArea .newPrice {
-  font-size: 1.85rem;
-  font-weight: 800;
-  color: #4f46e5; /* Indigo accent price */
-  letter-spacing: -0.02em;
-}
-
-.priceArea .oldPrice {
-  font-size: 1.1rem;
-  color: #94a3b8;
-  text-decoration: line-through;
-  font-weight: 500;
-}
-
-/* Description Text */
-.productInfo p {
-  color: #475569;
-  font-size: 0.975rem;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-}
-
-/* Option Labels (Colors & Sizes Headings) */
-.productInfo h5 {
-  font-size: 0.875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #0b0f19;
-  margin-bottom: 0.75rem;
-}
-
-/* Color Selector Swatches */
-.colorBox {
-  display: flex;
-  gap: 0.6rem;
-  margin-bottom: 1.5rem;
-}
-
-.colorBox .colr {
-  display: inline-block;
-  padding: 3px;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  transition: all 0.2s ease;
-}
-
-.colorBox .colr:hover,
-.colorBox .colr.active {
-  border-color: #4f46e5;
-  transform: scale(1.1);
-}
-
-.colorBox span {
-  display: block;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
-}
-
-.colorBox .bla { background-color: #0f172a; }
-.colorBox .gr { background-color: #10b981; }
-.colorBox .rd { background-color: #f43f5e; }
-
-/* Size Selector Buttons */
-.sizeBtn {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-}
-
-.sizeBtn button {
-  min-width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  border: 1px solid #cbd5e1;
-  background: #ffffff;
-  color: #0f172a;
-  font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.sizeBtn button:hover {
-  border-color: #4f46e5;
-  color: #4f46e5;
-  background-color: #f5f3ff;
-}
-
-.sizeBtn button.active {
-  border-color: #4f46e5;
-  background-color: #4f46e5;
-  color: #ffffff;
-}
-
-/* Cart Action Buttons */
-.cartBtn {
-  display: flex;
-  gap: 1rem;
-}
-
-.cartBtn button {
-  flex: 1;
-  padding: 0.9rem 1.5rem;
-  font-weight: 700;
-  font-size: 0.95rem;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cartBtn .btn-dark {
-  background-color: #0b0f19 !important;
-  color: #ffffff !important;
-}
-
-.cartBtn .btn-dark:hover {
-  background-color: #1e293b !important;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(11, 15, 25, 0.2);
-}
-
-.cartBtn .btn-danger {
-  background-color: #4f46e5 !important; /* Replaced default red with vibrant indigo */
-  color: #ffffff !important;
-}
-
-.cartBtn .btn-danger:hover {
-  background-color: #4338ca !important;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(79, 70, 229, 0.3);
-}
-
-/* Mobile Adjustments */
-@media (max-width: 991.98px) {
-  #productDetails {
-    padding: 1.5rem;
-  }
-  
-  .productInfo {
-    padding-left: 0;
-    margin-top: 1.5rem;
-  }
-  
-  .productInfo h1 {
-    font-size: 1.75rem;
-  }
-}
-/* ==========================================================================
-   5. PREMIUM DARK FOOTER
-   ========================================================================== */
-footer {
-  background-color: var(--primary);
-  color: #94a3b8;
-  padding: 5rem 0 0;
-  font-size: 0.925rem;
-  margin-top: 6rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-footer .footer-logo {
-  max-height: 40px;
-  filter: brightness(0) invert(1);
-  margin-bottom: 1.5rem;
-}
-
-footer p {
-  line-height: 1.7;
-}
-
-footer .footer-box h4 {
-  color: #ffffff;
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.01em;
-}
-
-footer ul li {
-  margin-bottom: 0.75rem;
-}
-
-footer ul li a {
-  color: #94a3b8;
-  font-weight: 500;
-}
-
-footer ul li a:hover {
-  color: #ffffff;
-  padding-left: 6px;
-}
-
-.social-links {
-  display: flex;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
-}
-
-.social-links a {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #ffffff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition);
-}
-
-.social-links a:hover {
-  background: var(--accent);
-  border-color: var(--accent);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(79, 70, 229, 0.3);
-}
-
-.footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  margin-top: 4rem;
-  padding: 2rem 0;
-  text-align: center;
-  color: #64748b;
-  font-size: 0.875rem;
-}
-
-/* ==========================================================================
-   6. RESPONSIVE BREAKPOINTS
-   ========================================================================== */
-@media (max-width: 991.98px) {
-  .header-icons {
-    margin-left: 0;
-    margin-top: 1.25rem;
-  }
-}
-    </style>
-    <style>
-    *{
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-    .swiper {
-  width: 100%;
-  height: 100%;
-}
-.hero img {
-    width: 100%;
-    height: 100%;
-}
-.clr {
-    color: black;
-    
-}
-.dot{
-    background-color: white;
-}
-</style>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Swiper CSS (Slider) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Unified App Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
 
-    <!-- Header Navigation -->
+    <!-- ========================= HEADER ========================== -->
     <header class="header">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
                 <a class="navbar-brand logo" href="index.html">
-                    <img src="assets/image/logo.png" alt="Brand Logo">
+                    <img src="./assets/image/logo.png" alt="Logo">
                 </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="menu">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="product.html">Products</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="product.html">Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="product.html">Categories</a></li>
+                        <li class="nav-item"><a class="nav-link" href="product.html">Collections</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                     </ul>
 
                     <div class="header-icons">
-                        <a href="#" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
-                        <a href="#" aria-label="Wishlist"><i class="fa-regular fa-heart"></i></a>
-                        <a href="cart.html" aria-label="Shopping Cart"><i class="fa-solid fa-bag-shopping"></i>
-                          <span class="position-absolute bottom-50 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount"></span>
-</a>
+                        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                        <a href="#"><i class="fa-regular fa-heart"></i></a>
+                        <a href="cart.html" aria-label="Shopping Cart" class="position-relative">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount"></span>
+                        </a>
+                        <a href="login.html"><i class="fa-regular fa-user"></i></a>
                     </div>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
 
-    <!-- Main Product Section -->
-    <main class="product-details-section">
+    <!-- ========================= PRODUCT DETAILS ========================== -->
+    <main class="product-details-section py-5">
         <div class="container">
-
-            <!-- Target container for JS dynamic rendering -->
-            <div class="row align-items-center g-4 mb-5" id="productDetails">
-                <!-- JavaScript (product_dtail.js) injects the main product hero here -->
-            </div>
-
-            <!-- Related Products Section -->
-            
-
+            <!-- Dynamic Injection target for product_dtail.js -->
+            <div class="row g-4 mb-5" id="productDetails"></div>
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- ========================= FOOTER ========================== -->
     <footer>
         <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <img src="assets/image/logo.png" alt="Footer Logo" class="footer-logo">
-                    <p>Discover premier fashion and lifestyle accessories crafted for timeless style and durability.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <div class="row gy-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-box">
+                        <img src="./assets/image/logo.png" alt="Logo" class="footer-logo">
+                        <p>Modern fashion store featuring premium quality clothing, curated collections, and accessories.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-x-twitter"></i></a>
+                            <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6 footer-box">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="product.html">Products</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-box">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Our Story</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6 footer-box">
-                    <h4>Customer Care</h4>
-                    <ul>
-                        <li><a href="#">Shipping Policy</a></li>
-                        <li><a href="#">Returns & Exchanges</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-box">
+                        <h4>Customer Care</h4>
+                        <ul>
+                            <li><a href="#">Shipping & Delivery</a></li>
+                            <li><a href="#">Returns & Exchanges</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6 footer-box">
-                    <h4>Contact Us</h4>
-                    <p><i class="fa-solid fa-envelope me-2"></i> support@store.com</p>
-                    <p><i class="fa-solid fa-phone me-2"></i> +1 (800) 123-4567</p>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-box">
+                        <h4>Contact Us</h4>
+                        <p><i class="fa-regular fa-envelope me-2"></i> support@fashion.com</p>
+                        <p><i class="fa-solid fa-phone me-2"></i> +91 99999 99999</p>
+                        <p><i class="fa-solid fa-location-dot me-2"></i> Ahmedabad, Gujarat</p>
+                    </div>
                 </div>
             </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2026 E-Commerce Store. All rights reserved.</p>
+                <p>© 2026 Fashion Store. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/product_dtail.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-    <script>
-        const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  direction: 'horizontal',
-  loop: true,
-
-  // If we need pagination
-  pagination: {
-    el: '.swiper-pagination',
-  },
-
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-
-  
-});
-    </script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS (Slider) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./assets/js/product_dtail.js"></script>
 </body>
 
 </html>
