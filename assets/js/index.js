@@ -217,17 +217,17 @@ const handleLogout = () => {
 
 const Summer = () => {
   localStorage.setItem("Season", "Summer");
-  window.location.href = "product.html";
+  window.location.href = "product.html?type=season";
 };
 
 const Monsoon = () => {
   localStorage.setItem("Season", "Monsoon");
-  window.location.href = "product.html";
+  window.location.href = "product.html?type=season";
 };
 
 const Winter = () => {
   localStorage.setItem("Season", "Winter");
-  window.location.href = "product.html";
+  window.location.href = "product.html?type=season";
 };
 
 window.onload = async () => {

@@ -261,6 +261,55 @@ const addtoCart = async () => {
 
     existingQtty()
 }
+const buy = async () => {
+    const userId = localStorage.getItem('userId');
+    const productId = localStorage.getItem('productId');
+
+    let qtty = parseInt(document.getElementById("qtty").innerHTML);
+
+    let addtoCart = {
+        userId: userId,
+        items: [
+            { productId: productId, qtty: parseInt(qtty) }
+        ]
+    }
+    let res = await fetch('http://localhost:3000/cart')
+    let data = await res.json()
+    let userCartData = data.filter((v) => v.userId === userId)
+
+    let cartData = userCartData.find((v) => !v.status)
+
+    if (cartData) {
+        let newProductIndex = cartData?.items?.findIndex((v) => v.productId === productId);
+
+        if (newProductIndex < 0) {
+            cartData.items.push({ productId: productId, qtty: parseInt(qtty) })
+        } else {
+            cartData.items[newProductIndex].qtty += qtty;
+        }
+
+        await fetch(`http://localhost:3000/cart/${cartData.id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(cartData)
+        })
+
+        localStorage.setItem('cartId', cartData.id)
+    } else {
+        const res = await fetch("http://localhost:3000/cart", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(addtoCart)
+        })
+
+        const data = await res.json()
+
+        localStorage.setItem('cartId', data.id)
+    }
+
+    existingQtty()
+    window.location.href = "cart.html"
+}
 
 const existingQtty = async () => {
     let cartId = localStorage.getItem("cartId")
@@ -273,11 +322,28 @@ const existingQtty = async () => {
     }
 }
 
-const buy = () => {
-    window.location.href = "cart.html"
-}
+
+const handleLogin = () => {
+  const uid = localStorage.getItem("userId");
+
+  let print = ``;
+
+  if (uid) {
+    print += `<a href="" id="loged" onclick="handleLogout()"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>`;
+  } else {
+    print += `<a href="login.html" id="loged" onclick="handleLogout()"><i class="fa-regular fa-user"></i></a>`;
+  }
+
+  document.getElementById("auth").innerHTML = print;
+};
+
+const handleLogout = () => {
+  localStorage.removeItem("userId");
+  window.location.href = "";
+};
 
 window.onload = async () => {
     handleBuyProduct();
     existingQtty();
+    handleLogin();
 };

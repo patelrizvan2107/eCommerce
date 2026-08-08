@@ -137,8 +137,27 @@ const calcTotal = () => {
 const Proceed = () => {
   window.location = "address.html";
 };
+const handleLogin = () => {
+  const uid = localStorage.getItem("userId");
+
+  let print = ``;
+
+  if (uid) {
+    print += `<a href="" id="loged" onclick="handleLogout()"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>`;
+  } else {
+    print += `<a href="login.html" id="loged" onclick="handleLogout()"><i class="fa-regular fa-user"></i></a>`;
+  }
+
+  document.getElementById("auth").innerHTML = print;
+};
+
+const handleLogout = () => {
+  localStorage.removeItem("userId");
+  window.location.href = "";
+};
 
 window.onload = async () => {
   await cartData();
   calcTotal();
+  handleLogin();
 };
